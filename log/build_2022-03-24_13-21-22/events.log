@@ -1,0 +1,756 @@
+[0.000000] (-) TimerEvent: {}
+[0.000951] (-) JobUnselected: {'identifier': 'feature_tracker'}
+[0.000990] (-) JobUnselected: {'identifier': 'pose_graph'}
+[0.001006] (-) JobUnselected: {'identifier': 'vins_estimator'}
+[0.001027] (camera_model) JobQueued: {'identifier': 'camera_model', 'dependencies': OrderedDict()}
+[0.001041] (camera_model) JobStarted: {'identifier': 'camera_model'}
+[0.009366] (camera_model) JobProgress: {'identifier': 'camera_model', 'progress': 'cmake'}
+[0.009876] (camera_model) JobProgress: {'identifier': 'camera_model', 'progress': 'build'}
+[0.010312] (camera_model) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model', '--', '-j16', '-l16'], 'cwd': '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IL:en'), ('USER', 'ubuntu'), ('SSH_AGENT_PID', '2243'), ('ROS_PACKAGE_PATH', '/home/ubuntu/catkin_ws/src/image_undistort:/home/ubuntu/catkin_ws/src/point_cloud_converter:/home/ubuntu/cyberbee/cyberbee_ws/src/adabins_ros:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/benchmark_publisher:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/camera_model:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/ar_demo:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/controller:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/feature_tracker:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/fft_imu_pkg:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/find_exit_from_tof:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/parrot_com:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/parrot_gui:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/parrot_logger:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/path_planning:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/plot_tof_points:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/pointcloud_creator_tof:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/pose_graph:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/pose_graph_raspberry:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/record_path:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_msgs:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_ros:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_rviz_plugins:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_srvs:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_mapping:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/vins_estimator:/home/ubuntu/cyberbee/cyberbee_ws/src/voxel_mapping:/opt/ros/noetic/share'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/91/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ubuntu/cyberbee/ros2_ws/install/ros1_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/home/ubuntu/catkin_ws/devel/lib:/home/ubuntu/cyberbee/cyberbee_ws/devel/lib:/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu'), ('HOME', '/home/ubuntu'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('OLDPWD', '/home/ubuntu/cyberbee/ros2_ws'), ('TERM_PROGRAM_VERSION', '1.65.2'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL', 'true'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/91/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/91/usr/share/code/code'), ('ROS_IP', '10.42.0.50'), ('MANAGERPID', '2003'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3277'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/ubuntu/cyberbee/ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'ubuntu'), ('JOURNAL_STREAM', '8:51646'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ubuntu/catkin_ws/devel/lib/pkgconfig:/home/ubuntu/cyberbee/cyberbee_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ubuntu'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/opt/ros/noetic/bin:/home/ubuntu/.local/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu-Legion-5-Pro-16ITH6H:@/tmp/.ICE-unix/2280,unix/ubuntu-Legion-5-Pro-16ITH6H:/tmp/.ICE-unix/2280'), ('INVOCATION_ID', 'a140815fde1049ddbaa14250c1c0dbd0'), ('XDG_MENU_PREFIX', 'gnome-'), ('BAMF_DESKTOP_FILE_HINT', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('XMODIFIERS', '@im=ibus'), ('ROSLISP_PACKAGE_DIRECTORIES', '/home/ubuntu/catkin_ws/devel/share/common-lisp:/home/ubuntu/cyberbee/cyberbee_ws/devel/share/common-lisp'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-c94f736509.sock'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/91/usr/share/glib-2.0/schemas'), ('AMENT_PREFIX_PATH', '/home/ubuntu/cyberbee/ros2_ws/install/ros1_bridge:/home/ubuntu/cyberbee/ros2_ws/install/cpp_pubsub:/opt/ros/foxy'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('DISABLE_WAYLAND', '1'), ('QT_ACCESSIBILITY', '1'), ('ROS_MASTER_URI', 'http://10.42.0.50:11311'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ubuntu/cyberbee/ros2_ws/install/ros1_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages:/home/ubuntu/cyberbee/cyberbee_ws/devel/lib/python3/dist-packages:/opt/ros/noetic/lib/python3/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/ubuntu/cyberbee/ros2_ws/install/ros1_bridge:/home/ubuntu/cyberbee/ros2_ws/install/cpp_pubsub:/home/ubuntu/catkin_ws/devel:/home/ubuntu/cyberbee/cyberbee_ws/devel:/opt/ros/noetic')]), 'shell': False}
+[0.029585] (camera_model) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[0.045278] (camera_model) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[0.100069] (-) TimerEvent: {}
+[0.200359] (-) TimerEvent: {}
+[0.209618] (camera_model) StdoutLine: {'line': b'-- Found required Ceres dependency: Eigen version 3.3.7 in /usr/include/eigen3\n'}
+[0.210494] (camera_model) StdoutLine: {'line': b'-- Found required Ceres dependency: glog\n'}
+[0.212097] (camera_model) StdoutLine: {'line': b'-- Found installed version of gflags: /usr/lib/x86_64-linux-gnu/cmake/gflags\n'}
+[0.212179] (camera_model) StdoutLine: {'line': b'-- Detected gflags version: 2.2.2\n'}
+[0.212897] (camera_model) StdoutLine: {'line': b'-- Found required Ceres dependency: gflags\n'}
+[0.213367] (camera_model) StdoutLine: {'line': b'-- Found Ceres version: 1.12.0 installed in: /usr/local with components: [LAPACK, SuiteSparse, SparseLinearAlgebraLibrary, SchurSpecializations, OpenMP]\n'}
+[0.251522] (camera_model) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.262673] (camera_model) StdoutLine: {'line': b'-- Generating done\n'}
+[0.263732] (camera_model) StdoutLine: {'line': b'-- Build files have been written to: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model\n'}
+[0.279353] (camera_model) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target camera_model\x1b[0m\n'}
+[0.279541] (camera_model) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target Calibration\x1b[0m\n'}
+[0.294194] (camera_model) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/chessboard/Chessboard.cc.o\x1b[0m\n'}
+[0.294415] (camera_model) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/intrinsic_calib.cc.o\x1b[0m\n'}
+[0.294505] (camera_model) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/calib/CameraCalibration.cc.o\x1b[0m\n'}
+[0.294618] (camera_model) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/chessboard/Chessboard.cc.o\x1b[0m\n'}
+[0.294696] (camera_model) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/Camera.cc.o\x1b[0m\n'}
+[0.294763] (camera_model) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CostFunctionFactory.cc.o\x1b[0m\n'}
+[0.294871] (camera_model) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CameraFactory.cc.o\x1b[0m\n'}
+[0.294985] (camera_model) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/PinholeCamera.cc.o\x1b[0m\n'}
+[0.295169] (camera_model) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/calib/CameraCalibration.cc.o\x1b[0m\n'}
+[0.295306] (camera_model) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/Camera.cc.o\x1b[0m\n'}
+[0.295430] (camera_model) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CataCamera.cc.o\x1b[0m\n'}
+[0.295562] (camera_model) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CameraFactory.cc.o\x1b[0m\n'}
+[0.295758] (camera_model) StdoutLine: {'line': b'[ 48%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/EquidistantCamera.cc.o\x1b[0m\n'}
+[0.295854] (camera_model) StdoutLine: {'line': b'[ 51%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/PinholeCamera.cc.o\x1b[0m\n'}
+[0.295957] (camera_model) StdoutLine: {'line': b'[ 55%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CostFunctionFactory.cc.o\x1b[0m\n'}
+[0.297600] (camera_model) StdoutLine: {'line': b'[ 59%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/ScaramuzzaCamera.cc.o\x1b[0m\n'}
+[0.300442] (-) TimerEvent: {}
+[0.400734] (-) TimerEvent: {}
+[0.501081] (-) TimerEvent: {}
+[0.601456] (-) TimerEvent: {}
+[0.701838] (-) TimerEvent: {}
+[0.802199] (-) TimerEvent: {}
+[0.903130] (-) TimerEvent: {}
+[1.003514] (-) TimerEvent: {}
+[1.103870] (-) TimerEvent: {}
+[1.204215] (-) TimerEvent: {}
+[1.304653] (-) TimerEvent: {}
+[1.405045] (-) TimerEvent: {}
+[1.505400] (-) TimerEvent: {}
+[1.605809] (-) TimerEvent: {}
+[1.635182] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::EquidistantCamera(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.635457] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:278:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.635545] (camera_model) StderrLine: {'line': b'  278 |  : mParameters(params\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[1.635613] (camera_model) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.635674] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.635747] (camera_model) StderrLine: {'line': b'  209 | \x1b[01;36m\x1b[KEquidistantCamera\x1b[m\x1b[K::Parameters::operator=(const EquidistantCamera::Parameters& other)\n'}
+[1.635825] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.636038] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::EquidistantCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.636113] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:316:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.636184] (camera_model) StderrLine: {'line': b'  316 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[1.636249] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.636313] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.636384] (camera_model) StderrLine: {'line': b'  209 | \x1b[01;36m\x1b[KEquidistantCamera\x1b[m\x1b[K::Parameters::operator=(const EquidistantCamera::Parameters& other)\n'}
+[1.636449] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.644160] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:345:16:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids variable length array \xe2\x80\x98\x1b[01m\x1b[Kradius\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wvla\x1b[m\x1b[K]\n'}
+[1.644418] (camera_model) StderrLine: {'line': b'  345 |         double \x1b[01;35m\x1b[Kradius\x1b[m\x1b[K[boardSize.height];\n'}
+[1.644502] (camera_model) StderrLine: {'line': b'      |                \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[1.651780] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::PinholeCamera(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.652024] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:299:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.652116] (camera_model) StderrLine: {'line': b'  299 |  : mParameters(params\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[1.652183] (camera_model) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.652247] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.652321] (camera_model) StderrLine: {'line': b'  214 | \x1b[01;36m\x1b[KPinholeCamera\x1b[m\x1b[K::Parameters::operator=(const PinholeCamera::Parameters& other)\n'}
+[1.652390] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.652587] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::PinholeCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.652678] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:351:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.652745] (camera_model) StderrLine: {'line': b'  351 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[1.652808] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.652868] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.652941] (camera_model) StderrLine: {'line': b'  214 | \x1b[01;36m\x1b[KPinholeCamera\x1b[m\x1b[K::Parameters::operator=(const PinholeCamera::Parameters& other)\n'}
+[1.653005] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.665558] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:345:51:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[KboardSize\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[1.665810] (camera_model) StderrLine: {'line': b'  345 | PinholeCamera::estimateIntrinsics(\x1b[01;35m\x1b[Kconst cv::Size& boardSize\x1b[m\x1b[K,\n'}
+[1.665897] (camera_model) StderrLine: {'line': b'      |                                   \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~~\x1b[m\x1b[K\n'}
+[1.680024] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::CataCamera(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.680300] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:327:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.680388] (camera_model) StderrLine: {'line': b'  327 |  : mParameters(params\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[1.680454] (camera_model) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.680516] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.680588] (camera_model) StderrLine: {'line': b'  237 | \x1b[01;36m\x1b[KCataCamera\x1b[m\x1b[K::Parameters::operator=(const CataCamera::Parameters& other)\n'}
+[1.680655] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.681021] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::CataCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.681184] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:377:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.681257] (camera_model) StderrLine: {'line': b'  377 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[1.681323] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.681392] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.681461] (camera_model) StderrLine: {'line': b'  237 | \x1b[01;36m\x1b[KCataCamera\x1b[m\x1b[K::Parameters::operator=(const CataCamera::Parameters& other)\n'}
+[1.681620] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.695166] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid camodocal::EquidistantCamera::spaceToPlane(const Vector3d&, Eigen::Vector2d&, Eigen::Matrix<double, 2, 3>&) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.695471] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:472:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[KJ\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[1.695564] (camera_model) StderrLine: {'line': b'  472 |                                 \x1b[01;35m\x1b[KEigen::Matrix<double,2,3>& J\x1b[m\x1b[K) const\n'}
+[1.695633] (camera_model) StderrLine: {'line': b'      |                                 \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[1.695700] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::EquidistantCamera::undistToPlane(const Vector2d&, Eigen::Vector2d&) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.695771] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:491:57:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kp_u\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[1.695838] (camera_model) StderrLine: {'line': b'  491 | EquidistantCamera::undistToPlane(\x1b[01;35m\x1b[Kconst Eigen::Vector2d& p_u\x1b[m\x1b[K, Eigen::Vector2d& p) const\n'}
+[1.695903] (camera_model) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[1.695968] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:491:79:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kp\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[1.696035] (camera_model) StderrLine: {'line': b'  491 | EquidistantCamera::undistToPlane(const Eigen::Vector2d& p_u, \x1b[01;35m\x1b[KEigen::Vector2d& p\x1b[m\x1b[K) const\n'}
+[1.696099] (camera_model) StderrLine: {'line': b'      |                                                              \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[1.697777] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::PinholeCamera(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.698004] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:299:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.698092] (camera_model) StderrLine: {'line': b'  299 |  : mParameters(params\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[1.698157] (camera_model) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.698222] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.698287] (camera_model) StderrLine: {'line': b'  214 | \x1b[01;36m\x1b[KPinholeCamera\x1b[m\x1b[K::Parameters::operator=(const PinholeCamera::Parameters& other)\n'}
+[1.698352] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.698818] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::PinholeCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.698986] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:351:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.699062] (camera_model) StderrLine: {'line': b'  351 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[1.699128] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.699193] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.699262] (camera_model) StderrLine: {'line': b'  214 | \x1b[01;36m\x1b[KPinholeCamera\x1b[m\x1b[K::Parameters::operator=(const PinholeCamera::Parameters& other)\n'}
+[1.699332] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.705916] (-) TimerEvent: {}
+[1.712555] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:345:51:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[KboardSize\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[1.712815] (camera_model) StderrLine: {'line': b'  345 | PinholeCamera::estimateIntrinsics(\x1b[01;35m\x1b[Kconst cv::Size& boardSize\x1b[m\x1b[K,\n'}
+[1.712909] (camera_model) StderrLine: {'line': b'      |                                   \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~^~~~~~~~~\x1b[m\x1b[K\n'}
+[1.772555] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::EquidistantCamera::readParameters(const std::vector<double, std::allocator<double> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.772879] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:637:29:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<double, std::allocator<double> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[1.772980] (camera_model) StderrLine: {'line': b'  637 |     if (\x1b[01;35m\x1b[KparameterVec.size() != parameterCount()\x1b[m\x1b[K)\n'}
+[1.773051] (camera_model) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.773120] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:642:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.773195] (camera_model) StderrLine: {'line': b'  642 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[1.773260] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.773332] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.773406] (camera_model) StderrLine: {'line': b'  209 | \x1b[01;36m\x1b[KEquidistantCamera\x1b[m\x1b[K::Parameters::operator=(const EquidistantCamera::Parameters& other)\n'}
+[1.773473] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.794462] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::PinholeCamera::readParameters(const std::vector<double, std::allocator<double> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.794766] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:838:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.794879] (camera_model) StderrLine: {'line': b'  838 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[1.794955] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.795029] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.795102] (camera_model) StderrLine: {'line': b'  214 | \x1b[01;36m\x1b[KPinholeCamera\x1b[m\x1b[K::Parameters::operator=(const PinholeCamera::Parameters& other)\n'}
+[1.795186] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.806029] (-) TimerEvent: {}
+[1.824227] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::CataCamera::readParameters(const std::vector<double, std::allocator<double> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.824495] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:960:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.824597] (camera_model) StderrLine: {'line': b'  960 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[1.824684] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.824755] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.824835] (camera_model) StderrLine: {'line': b'  237 | \x1b[01;36m\x1b[KCataCamera\x1b[m\x1b[K::Parameters::operator=(const CataCamera::Parameters& other)\n'}
+[1.824906] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.848268] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::PinholeCamera::readParameters(const std::vector<double, std::allocator<double> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.848575] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:838:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[1.848718] (camera_model) StderrLine: {'line': b'  838 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[1.848826] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[1.848966] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.849082] (camera_model) StderrLine: {'line': b'  214 | \x1b[01;36m\x1b[KPinholeCamera\x1b[m\x1b[K::Parameters::operator=(const PinholeCamera::Parameters& other)\n'}
+[1.849193] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.854484] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/calib/CameraCalibration.cc:15\x1b[m\x1b[K:\n'}
+[1.854708] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:22:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[1.854807] (camera_model) StderrLine: {'line': b'   22 |     \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const rotationData(void) const;\n'}
+[1.854884] (camera_model) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[1.854955] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:27:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[1.855027] (camera_model) StderrLine: {'line': b'   27 |     \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const translationData(void) const;\n'}
+[1.855096] (camera_model) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[1.906143] (-) TimerEvent: {}
+[1.959105] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/calib/CameraCalibration.cc:15\x1b[m\x1b[K:\n'}
+[1.959333] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:22:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[1.959400] (camera_model) StderrLine: {'line': b'   22 |     \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const rotationData(void) const;\n'}
+[1.959456] (camera_model) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[1.959509] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:27:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[1.959564] (camera_model) StderrLine: {'line': b'   27 |     \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const translationData(void) const;\n'}
+[1.959618] (camera_model) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[1.965399] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:7\x1b[m\x1b[K:\n'}
+[1.965645] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid Spline::generate()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.965734] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:249:3:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kthis \xe2\x80\x98\x1b[01m\x1b[Kfor\x1b[m\x1b[K\xe2\x80\x99 clause does not guard... [\x1b[01;35m\x1b[K-Wmisleading-indentation\x1b[m\x1b[K]\n'}
+[1.965805] (camera_model) StderrLine: {'line': b'  249 |   \x1b[01;35m\x1b[Kfor\x1b[m\x1b[K (size_t xv(0); xv <= e; ++xv)\n'}
+[1.965873] (camera_model) StderrLine: {'line': b'      |   \x1b[01;35m\x1b[K^~~\x1b[m\x1b[K\n'}
+[1.965941] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:252:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K...this statement, but the latter is misleadingly indented as if it were guarded by the \xe2\x80\x98\x1b[01m\x1b[Kfor\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.966022] (camera_model) StderrLine: {'line': b'  252 |     \x1b[01;36m\x1b[Kfor\x1b[m\x1b[K (size_t i(1); i < e; ++i)\n'}
+[1.966090] (camera_model) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~\x1b[m\x1b[K\n'}
+[1.982787] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid camodocal::Chessboard::findConnectedQuads(std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, int, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.983064] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:444:51:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kdilation\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[1.983163] (camera_model) StderrLine: {'line': b'  444 |                                int group_idx, \x1b[01;35m\x1b[Kint dilation\x1b[m\x1b[K)\n'}
+[1.983236] (camera_model) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K~~~~^~~~~~~~\x1b[m\x1b[K\n'}
+[2.005397] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid camodocal::Chessboard::generateQuads(std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, cv::Mat&, int, int, bool)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.005674] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:1165:31:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kdilation\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[2.005787] (camera_model) StderrLine: {'line': b' 1165 |                           \x1b[01;35m\x1b[Kint dilation\x1b[m\x1b[K, bool firstRun)\n'}
+[2.005863] (camera_model) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K~~~~^~~~~~~~\x1b[m\x1b[K\n'}
+[2.006209] (-) TimerEvent: {}
+[2.106685] (-) TimerEvent: {}
+[2.140946] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:7\x1b[m\x1b[K:\n'}
+[2.141203] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid Spline::generate()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.141301] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:249:3:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kthis \xe2\x80\x98\x1b[01m\x1b[Kfor\x1b[m\x1b[K\xe2\x80\x99 clause does not guard... [\x1b[01;35m\x1b[K-Wmisleading-indentation\x1b[m\x1b[K]\n'}
+[2.141376] (camera_model) StderrLine: {'line': b'  249 |   \x1b[01;35m\x1b[Kfor\x1b[m\x1b[K (size_t xv(0); xv <= e; ++xv)\n'}
+[2.141446] (camera_model) StderrLine: {'line': b'      |   \x1b[01;35m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.141523] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:252:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K...this statement, but the latter is misleadingly indented as if it were guarded by the \xe2\x80\x98\x1b[01m\x1b[Kfor\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.141593] (camera_model) StderrLine: {'line': b'  252 |     \x1b[01;36m\x1b[Kfor\x1b[m\x1b[K (size_t i(1); i < e; ++i)\n'}
+[2.141668] (camera_model) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~\x1b[m\x1b[K\n'}
+[2.161419] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid camodocal::Chessboard::findConnectedQuads(std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, int, int)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.161675] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:444:51:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kdilation\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[2.161842] (camera_model) StderrLine: {'line': b'  444 |                                int group_idx, \x1b[01;35m\x1b[Kint dilation\x1b[m\x1b[K)\n'}
+[2.161971] (camera_model) StderrLine: {'line': b'      |                                               \x1b[01;35m\x1b[K~~~~^~~~~~~~\x1b[m\x1b[K\n'}
+[2.192512] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid camodocal::Chessboard::generateQuads(std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, cv::Mat&, int, int, bool)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.192752] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:1165:31:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kdilation\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[2.192846] (camera_model) StderrLine: {'line': b' 1165 |                           \x1b[01;35m\x1b[Kint dilation\x1b[m\x1b[K, bool firstRun)\n'}
+[2.192916] (camera_model) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K~~~~^~~~~~~~\x1b[m\x1b[K\n'}
+[2.206605] (-) TimerEvent: {}
+[2.306965] (-) TimerEvent: {}
+[2.407373] (-) TimerEvent: {}
+[2.433524] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CameraPtr camodocal::CameraFactory::generateCamera(camodocal::Camera::ModelType, const string&, cv::Size) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.433900] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:45:70:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.434071] (camera_model) StderrLine: {'line': b'   45 |         EquidistantCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.434205] (camera_model) StderrLine: {'line': b'      |                                                                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.434328] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:7\x1b[m\x1b[K:\n'}
+[2.434449] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/EquidistantCamera.h:52:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.434578] (camera_model) StderrLine: {'line': b'   52 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.434684] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.435664] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:56:66:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.435904] (camera_model) StderrLine: {'line': b'   56 |         PinholeCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.436043] (camera_model) StderrLine: {'line': b'      |                                                                  \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.436169] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:8\x1b[m\x1b[K:\n'}
+[2.436294] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/PinholeCamera.h:47:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.436430] (camera_model) StderrLine: {'line': b'   47 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.436556] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.437357] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:67:63:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.437577] (camera_model) StderrLine: {'line': b'   67 |         OCAMCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.437712] (camera_model) StderrLine: {'line': b'      |                                                               \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.437834] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:9\x1b[m\x1b[K:\n'}
+[2.437955] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/ScaramuzzaCamera.h:54:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.438077] (camera_model) StderrLine: {'line': b'   54 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.438282] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.438411] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CameraPtr camodocal::CameraFactory::generateCamera(camodocal::Camera::ModelType, const string&, cv::Size) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.438533] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:45:70:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.438659] (camera_model) StderrLine: {'line': b'   45 |         EquidistantCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.438781] (camera_model) StderrLine: {'line': b'      |                                                                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.438888] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:7\x1b[m\x1b[K:\n'}
+[2.439052] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/EquidistantCamera.h:52:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.439193] (camera_model) StderrLine: {'line': b'   52 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.439290] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.439388] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:79:63:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.439487] (camera_model) StderrLine: {'line': b'   79 |         CataCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.439582] (camera_model) StderrLine: {'line': b'      |                                                               \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.439678] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:6\x1b[m\x1b[K:\n'}
+[2.439773] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/CataCamera.h:54:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.439877] (camera_model) StderrLine: {'line': b'   54 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.439973] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.440247] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:56:66:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.440411] (camera_model) StderrLine: {'line': b'   56 |         PinholeCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.440511] (camera_model) StderrLine: {'line': b'      |                                                                  \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.440605] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:8\x1b[m\x1b[K:\n'}
+[2.440699] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/PinholeCamera.h:47:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.440803] (camera_model) StderrLine: {'line': b'   47 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.440898] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.441749] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CameraPtr camodocal::CameraFactory::generateCameraFromYamlFile(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.441977] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:134:70:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.442137] (camera_model) StderrLine: {'line': b'  134 |         EquidistantCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.442291] (camera_model) StderrLine: {'line': b'      |                                                                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.442420] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:7\x1b[m\x1b[K:\n'}
+[2.442526] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/EquidistantCamera.h:52:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.442663] (camera_model) StderrLine: {'line': b'   52 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.442796] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.442893] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:67:63:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.442992] (camera_model) StderrLine: {'line': b'   67 |         OCAMCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.443134] (camera_model) StderrLine: {'line': b'      |                                                               \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.443256] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:9\x1b[m\x1b[K:\n'}
+[2.443351] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/ScaramuzzaCamera.h:54:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.443455] (camera_model) StderrLine: {'line': b'   54 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.443563] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.443722] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:143:66:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.443843] (camera_model) StderrLine: {'line': b'  143 |         PinholeCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.443938] (camera_model) StderrLine: {'line': b'      |                                                                  \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.444034] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:8\x1b[m\x1b[K:\n'}
+[2.444129] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/PinholeCamera.h:47:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.444228] (camera_model) StderrLine: {'line': b'   47 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.444322] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.444417] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:152:63:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.444516] (camera_model) StderrLine: {'line': b'  152 |         OCAMCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.444612] (camera_model) StderrLine: {'line': b'      |                                                               \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.444732] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:9\x1b[m\x1b[K:\n'}
+[2.444849] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/ScaramuzzaCamera.h:54:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.444970] (camera_model) StderrLine: {'line': b'   54 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.445092] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.445216] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:162:63:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.445352] (camera_model) StderrLine: {'line': b'  162 |         CataCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.445475] (camera_model) StderrLine: {'line': b'      |                                                               \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.445602] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:6\x1b[m\x1b[K:\n'}
+[2.445729] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/CataCamera.h:54:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.445855] (camera_model) StderrLine: {'line': b'   54 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.445972] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.446091] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:79:63:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.446215] (camera_model) StderrLine: {'line': b'   79 |         CataCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.446328] (camera_model) StderrLine: {'line': b'      |                                                               \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.446505] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:6\x1b[m\x1b[K:\n'}
+[2.446669] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/CataCamera.h:54:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.446792] (camera_model) StderrLine: {'line': b'   54 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.446941] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.447098] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CameraPtr camodocal::CameraFactory::generateCameraFromYamlFile(const string&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.447220] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:134:70:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.447372] (camera_model) StderrLine: {'line': b'  134 |         EquidistantCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.447537] (camera_model) StderrLine: {'line': b'      |                                                                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.447676] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:7\x1b[m\x1b[K:\n'}
+[2.447857] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/EquidistantCamera.h:52:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.448006] (camera_model) StderrLine: {'line': b'   52 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.448138] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.448276] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:143:66:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.448447] (camera_model) StderrLine: {'line': b'  143 |         PinholeCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.448592] (camera_model) StderrLine: {'line': b'      |                                                                  \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.448739] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:8\x1b[m\x1b[K:\n'}
+[2.448883] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/PinholeCamera.h:47:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.449029] (camera_model) StderrLine: {'line': b'   47 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.449173] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.449314] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:152:63:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.449477] (camera_model) StderrLine: {'line': b'  152 |         OCAMCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.449628] (camera_model) StderrLine: {'line': b'      |                                                               \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.449777] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:9\x1b[m\x1b[K:\n'}
+[2.449922] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/ScaramuzzaCamera.h:54:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.450080] (camera_model) StderrLine: {'line': b'   54 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.450220] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.450363] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:162:63:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.450523] (camera_model) StderrLine: {'line': b'  162 |         CataCamera::Parameters params = camera->getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[2.450666] (camera_model) StderrLine: {'line': b'      |                                                               \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.450814] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:6\x1b[m\x1b[K:\n'}
+[2.450959] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/CataCamera.h:54:21:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.451111] (camera_model) StderrLine: {'line': b'   54 |         Parameters& \x1b[01;36m\x1b[Koperator\x1b[m\x1b[K=(const Parameters& other);\n'}
+[2.451256] (camera_model) StderrLine: {'line': b'      |                     \x1b[01;36m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[2.507487] (-) TimerEvent: {}
+[2.607912] (-) TimerEvent: {}
+[2.617527] (camera_model) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/sparse_graph/Transform.cc.o\x1b[0m\n'}
+[2.663014] (camera_model) StdoutLine: {'line': b'[ 66%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CataCamera.cc.o\x1b[0m\n'}
+[2.708023] (-) TimerEvent: {}
+[2.740831] (camera_model) StdoutLine: {'line': b'[ 70%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/gpl/gpl.cc.o\x1b[0m\n'}
+[2.761907] (camera_model) StdoutLine: {'line': b'[ 74%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/EquidistantCamera.cc.o\x1b[0m\n'}
+[2.808138] (-) TimerEvent: {}
+[2.842063] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::OCAMCamera(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.842359] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:198:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[2.842459] (camera_model) StderrLine: {'line': b'  198 |  : mParameters(params\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[2.842537] (camera_model) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[2.842611] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.842700] (camera_model) StderrLine: {'line': b'  141 | \x1b[01;36m\x1b[KOCAMCamera\x1b[m\x1b[K::Parameters::operator=(const OCAMCamera::Parameters& other)\n'}
+[2.842776] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.901775] (camera_model) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/Calibration.dir/src/gpl/EigenQuaternionParameterization.cc.o\x1b[0m\n'}
+[2.908252] (-) TimerEvent: {}
+[2.914923] (camera_model) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/ScaramuzzaCamera.cc.o\x1b[0m\n'}
+[2.957540] (camera_model) StdoutLine: {'line': b'[ 85%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/sparse_graph/Transform.cc.o\x1b[0m\n'}
+[3.009926] (-) TimerEvent: {}
+[3.110298] (-) TimerEvent: {}
+[3.115365] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::OCAMCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.115657] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:517:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[3.115791] (camera_model) StderrLine: {'line': b'  517 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[3.115867] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[3.115939] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.116025] (camera_model) StderrLine: {'line': b'  141 | \x1b[01;36m\x1b[KOCAMCamera\x1b[m\x1b[K::Parameters::operator=(const OCAMCamera::Parameters& other)\n'}
+[3.116096] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.197603] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::OCAMCamera::readParameters(const std::vector<double, std::allocator<double> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.197907] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:788:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[3.198024] (camera_model) StderrLine: {'line': b'  788 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[3.198095] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[3.198158] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.198236] (camera_model) StderrLine: {'line': b'  141 | \x1b[01;36m\x1b[KOCAMCamera\x1b[m\x1b[K::Parameters::operator=(const OCAMCamera::Parameters& other)\n'}
+[3.198301] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.210409] (-) TimerEvent: {}
+[3.269928] (camera_model) StdoutLine: {'line': b'[ 88%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/gpl/gpl.cc.o\x1b[0m\n'}
+[3.310519] (-) TimerEvent: {}
+[3.410880] (-) TimerEvent: {}
+[3.496797] (camera_model) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding CXX object CMakeFiles/camera_model.dir/src/gpl/EigenQuaternionParameterization.cc.o\x1b[0m\n'}
+[3.498861] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid camodocal::UTMtoLL(double, double, const string&, double&, double&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.499225] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:842:16:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Kphi1\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K-Wunused-but-set-variable\x1b[m\x1b[K]\n'}
+[3.499436] (camera_model) StderrLine: {'line': b'  842 |     double mu, \x1b[01;35m\x1b[Kphi1\x1b[m\x1b[K, phi1Rad;\n'}
+[3.499591] (camera_model) StderrLine: {'line': b'      |                \x1b[01;35m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[3.499740] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:846:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[KNorthernHemisphere\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K-Wunused-but-set-variable\x1b[m\x1b[K]\n'}
+[3.499889] (camera_model) StderrLine: {'line': b'  846 |     bool \x1b[01;35m\x1b[KNorthernHemisphere\x1b[m\x1b[K;\n'}
+[3.500033] (camera_model) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.500170] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Klong int camodocal::timestampDiff(uint64_t, uint64_t)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.500304] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:904:15:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kuint64_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Klong int\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[3.500452] (camera_model) StderrLine: {'line': b'  904 |         if (\x1b[01;35m\x1b[Kd > std::numeric_limits<long int>::max()\x1b[m\x1b[K)\n'}
+[3.500584] (camera_model) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.500716] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:917:15:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kuint64_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Klong int\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[3.500858] (camera_model) StderrLine: {'line': b'  917 |         if (\x1b[01;35m\x1b[Kd > std::numeric_limits<long int>::max()\x1b[m\x1b[K)\n'}
+[3.501002] (camera_model) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.510993] (-) TimerEvent: {}
+[3.610330] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:1\x1b[m\x1b[K:\n'}
+[3.610702] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:22:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[3.610896] (camera_model) StderrLine: {'line': b'   22 |     \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const rotationData(void) const;\n'}
+[3.611044] (-) TimerEvent: {}
+[3.611203] (camera_model) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.611388] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:27:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[3.611538] (camera_model) StderrLine: {'line': b'   27 |     \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const translationData(void) const;\n'}
+[3.611691] (camera_model) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.661060] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:36:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[3.661427] (camera_model) StderrLine: {'line': b'   36 | \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const\n'}
+[3.661595] (camera_model) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.661735] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:60:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[3.661879] (camera_model) StderrLine: {'line': b'   60 | \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const\n'}
+[3.662019] (camera_model) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.711174] (-) TimerEvent: {}
+[3.811607] (-) TimerEvent: {}
+[3.879616] (camera_model) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:1\x1b[m\x1b[K:\n'}
+[3.879856] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:22:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[3.879972] (camera_model) StderrLine: {'line': b'   22 |     \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const rotationData(void) const;\n'}
+[3.880051] (camera_model) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.880123] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:27:5:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[3.880195] (camera_model) StderrLine: {'line': b'   27 |     \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const translationData(void) const;\n'}
+[3.880265] (camera_model) StderrLine: {'line': b'      |     \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.911718] (-) TimerEvent: {}
+[3.915502] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Kvoid camodocal::UTMtoLL(double, double, const string&, double&, double&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.915819] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:842:16:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[Kphi1\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K-Wunused-but-set-variable\x1b[m\x1b[K]\n'}
+[3.915945] (camera_model) StderrLine: {'line': b'  842 |     double mu, \x1b[01;35m\x1b[Kphi1\x1b[m\x1b[K, phi1Rad;\n'}
+[3.916020] (camera_model) StderrLine: {'line': b'      |                \x1b[01;35m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[3.916097] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:846:10:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kvariable \xe2\x80\x98\x1b[01m\x1b[KNorthernHemisphere\x1b[m\x1b[K\xe2\x80\x99 set but not used [\x1b[01;35m\x1b[K-Wunused-but-set-variable\x1b[m\x1b[K]\n'}
+[3.916173] (camera_model) StderrLine: {'line': b'  846 |     bool \x1b[01;35m\x1b[KNorthernHemisphere\x1b[m\x1b[K;\n'}
+[3.916248] (camera_model) StderrLine: {'line': b'      |          \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.916324] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[Klong int camodocal::timestampDiff(uint64_t, uint64_t)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.916399] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:904:15:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kuint64_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Klong int\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[3.916477] (camera_model) StderrLine: {'line': b'  904 |         if (\x1b[01;35m\x1b[Kd > std::numeric_limits<long int>::max()\x1b[m\x1b[K)\n'}
+[3.916547] (camera_model) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.916621] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:917:15:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kuint64_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Klong int\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[3.916692] (camera_model) StderrLine: {'line': b'  917 |         if (\x1b[01;35m\x1b[Kd > std::numeric_limits<long int>::max()\x1b[m\x1b[K)\n'}
+[3.916761] (camera_model) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.926094] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:36:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[3.926388] (camera_model) StderrLine: {'line': b'   36 | \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const\n'}
+[3.926501] (camera_model) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.926573] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:60:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ktype qualifiers ignored on function return type [\x1b[01;35m\x1b[K-Wignored-qualifiers\x1b[m\x1b[K]\n'}
+[3.926653] (camera_model) StderrLine: {'line': b'   60 | \x1b[01;35m\x1b[Kconst\x1b[m\x1b[K double* const\n'}
+[3.926719] (camera_model) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^~~~~\x1b[m\x1b[K\n'}
+[3.998387] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::CataCamera(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.998646] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:327:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[3.998790] (camera_model) StderrLine: {'line': b'  327 |  : mParameters(params\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[3.999022] (camera_model) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[3.999098] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.999169] (camera_model) StderrLine: {'line': b'  237 | \x1b[01;36m\x1b[KCataCamera\x1b[m\x1b[K::Parameters::operator=(const CataCamera::Parameters& other)\n'}
+[3.999238] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[3.999297] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::CataCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[3.999367] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:377:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[3.999440] (camera_model) StderrLine: {'line': b'  377 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[3.999503] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[3.999571] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[3.999641] (camera_model) StderrLine: {'line': b'  237 | \x1b[01;36m\x1b[KCataCamera\x1b[m\x1b[K::Parameters::operator=(const CataCamera::Parameters& other)\n'}
+[3.999710] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.011828] (-) TimerEvent: {}
+[4.092259] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::CataCamera::readParameters(const std::vector<double, std::allocator<double> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.092510] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:960:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[4.092619] (camera_model) StderrLine: {'line': b'  960 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[4.092693] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[4.092767] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.092846] (camera_model) StderrLine: {'line': b'  237 | \x1b[01;36m\x1b[KCataCamera\x1b[m\x1b[K::Parameters::operator=(const CataCamera::Parameters& other)\n'}
+[4.092919] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.111946] (-) TimerEvent: {}
+[4.193539] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::EquidistantCamera(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.193782] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:278:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[4.193862] (camera_model) StderrLine: {'line': b'  278 |  : mParameters(params\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[4.193922] (camera_model) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[4.193978] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.194041] (camera_model) StderrLine: {'line': b'  209 | \x1b[01;36m\x1b[KEquidistantCamera\x1b[m\x1b[K::Parameters::operator=(const EquidistantCamera::Parameters& other)\n'}
+[4.194148] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.194240] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::EquidistantCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.194300] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:316:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[4.194363] (camera_model) StderrLine: {'line': b'  316 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[4.194420] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[4.194478] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.194547] (camera_model) StderrLine: {'line': b'  209 | \x1b[01;36m\x1b[KEquidistantCamera\x1b[m\x1b[K::Parameters::operator=(const EquidistantCamera::Parameters& other)\n'}
+[4.194615] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.202857] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:345:16:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[KISO C++ forbids variable length array \xe2\x80\x98\x1b[01m\x1b[Kradius\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wvla\x1b[m\x1b[K]\n'}
+[4.203038] (camera_model) StderrLine: {'line': b'  345 |         double \x1b[01;35m\x1b[Kradius\x1b[m\x1b[K[boardSize.height];\n'}
+[4.203087] (camera_model) StderrLine: {'line': b'      |                \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[4.212052] (-) TimerEvent: {}
+[4.253690] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid camodocal::EquidistantCamera::spaceToPlane(const Vector3d&, Eigen::Vector2d&, Eigen::Matrix<double, 2, 3>&) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.253884] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:472:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[KJ\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[4.253953] (camera_model) StderrLine: {'line': b'  472 |                                 \x1b[01;35m\x1b[KEigen::Matrix<double,2,3>& J\x1b[m\x1b[K) const\n'}
+[4.254011] (camera_model) StderrLine: {'line': b'      |                                 \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[4.254071] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::EquidistantCamera::undistToPlane(const Vector2d&, Eigen::Vector2d&) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.254126] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:491:57:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kp_u\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[4.254180] (camera_model) StderrLine: {'line': b'  491 | EquidistantCamera::undistToPlane(\x1b[01;35m\x1b[Kconst Eigen::Vector2d& p_u\x1b[m\x1b[K, Eigen::Vector2d& p) const\n'}
+[4.254234] (camera_model) StderrLine: {'line': b'      |                                  \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[4.254288] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:491:79:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kp\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wunused-parameter\x1b[m\x1b[K]\n'}
+[4.254350] (camera_model) StderrLine: {'line': b'  491 | EquidistantCamera::undistToPlane(const Eigen::Vector2d& p_u, \x1b[01;35m\x1b[KEigen::Vector2d& p\x1b[m\x1b[K) const\n'}
+[4.254404] (camera_model) StderrLine: {'line': b'      |                                                              \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~^\x1b[m\x1b[K\n'}
+[4.312168] (-) TimerEvent: {}
+[4.330555] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::EquidistantCamera::readParameters(const std::vector<double, std::allocator<double> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.330762] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:637:29:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<double, std::allocator<double> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} and \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K-Wsign-compare\x1b[m\x1b[K]\n'}
+[4.330840] (camera_model) StderrLine: {'line': b'  637 |     if (\x1b[01;35m\x1b[KparameterVec.size() != parameterCount()\x1b[m\x1b[K)\n'}
+[4.330902] (camera_model) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.331024] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:642:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[4.331094] (camera_model) StderrLine: {'line': b'  642 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[4.331152] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[4.331210] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.331272] (camera_model) StderrLine: {'line': b'  209 | \x1b[01;36m\x1b[KEquidistantCamera\x1b[m\x1b[K::Parameters::operator=(const EquidistantCamera::Parameters& other)\n'}
+[4.331329] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.412337] (-) TimerEvent: {}
+[4.512666] (-) TimerEvent: {}
+[4.613055] (-) TimerEvent: {}
+[4.713394] (-) TimerEvent: {}
+[4.813685] (-) TimerEvent: {}
+[4.914036] (-) TimerEvent: {}
+[4.921700] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::OCAMCamera(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.921926] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:198:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[4.921997] (camera_model) StderrLine: {'line': b'  198 |  : mParameters(params\x1b[01;35m\x1b[K)\x1b[m\x1b[K\n'}
+[4.922050] (camera_model) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[4.922099] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.922157] (camera_model) StderrLine: {'line': b'  141 | \x1b[01;36m\x1b[KOCAMCamera\x1b[m\x1b[K::Parameters::operator=(const OCAMCamera::Parameters& other)\n'}
+[4.922205] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[4.990856] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::OCAMCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[4.991048] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:517:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[4.991100] (camera_model) StderrLine: {'line': b'  517 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[4.991143] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[4.991186] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[4.991231] (camera_model) StderrLine: {'line': b'  141 | \x1b[01;36m\x1b[KOCAMCamera\x1b[m\x1b[K::Parameters::operator=(const OCAMCamera::Parameters& other)\n'}
+[4.991272] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.014153] (-) TimerEvent: {}
+[5.044005] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void camodocal::OCAMCamera::readParameters(const std::vector<double, std::allocator<double> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[5.044179] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:788:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kimplicitly-declared \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K-Wdeprecated-copy\x1b[m\x1b[K]\n'}
+[5.044229] (camera_model) StderrLine: {'line': b'  788 |     Parameters params = getParameters(\x1b[01;35m\x1b[K)\x1b[m\x1b[K;\n'}
+[5.044273] (camera_model) StderrLine: {'line': b'      |                                       \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[5.044320] (camera_model) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kbecause \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters\x1b[m\x1b[K\xe2\x80\x99 has user-provided \xe2\x80\x98\x1b[01m\x1b[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[5.044366] (camera_model) StderrLine: {'line': b'  141 | \x1b[01;36m\x1b[KOCAMCamera\x1b[m\x1b[K::Parameters::operator=(const OCAMCamera::Parameters& other)\n'}
+[5.044407] (camera_model) StderrLine: {'line': b'      | \x1b[01;36m\x1b[K^~~~~~~~~~\x1b[m\x1b[K\n'}
+[5.114272] (-) TimerEvent: {}
+[5.214582] (-) TimerEvent: {}
+[5.314879] (-) TimerEvent: {}
+[5.415235] (-) TimerEvent: {}
+[5.515605] (-) TimerEvent: {}
+[5.615969] (-) TimerEvent: {}
+[5.716351] (-) TimerEvent: {}
+[5.816728] (-) TimerEvent: {}
+[5.917096] (-) TimerEvent: {}
+[6.017462] (-) TimerEvent: {}
+[6.117850] (-) TimerEvent: {}
+[6.218149] (-) TimerEvent: {}
+[6.318449] (-) TimerEvent: {}
+[6.418799] (-) TimerEvent: {}
+[6.519081] (-) TimerEvent: {}
+[6.619412] (-) TimerEvent: {}
+[6.719690] (-) TimerEvent: {}
+[6.820023] (-) TimerEvent: {}
+[6.920311] (-) TimerEvent: {}
+[7.020589] (-) TimerEvent: {}
+[7.120885] (-) TimerEvent: {}
+[7.221164] (-) TimerEvent: {}
+[7.321525] (-) TimerEvent: {}
+[7.421858] (-) TimerEvent: {}
+[7.522161] (-) TimerEvent: {}
+[7.622440] (-) TimerEvent: {}
+[7.722725] (-) TimerEvent: {}
+[7.822982] (-) TimerEvent: {}
+[7.923274] (-) TimerEvent: {}
+[8.023621] (-) TimerEvent: {}
+[8.123908] (-) TimerEvent: {}
+[8.224184] (-) TimerEvent: {}
+[8.324461] (-) TimerEvent: {}
+[8.424739] (-) TimerEvent: {}
+[8.525095] (-) TimerEvent: {}
+[8.625358] (-) TimerEvent: {}
+[8.725591] (-) TimerEvent: {}
+[8.825858] (-) TimerEvent: {}
+[8.926143] (-) TimerEvent: {}
+[9.026393] (-) TimerEvent: {}
+[9.126654] (-) TimerEvent: {}
+[9.226897] (-) TimerEvent: {}
+[9.327293] (-) TimerEvent: {}
+[9.427630] (-) TimerEvent: {}
+[9.527969] (-) TimerEvent: {}
+[9.628315] (-) TimerEvent: {}
+[9.728699] (-) TimerEvent: {}
+[9.829042] (-) TimerEvent: {}
+[9.929391] (-) TimerEvent: {}
+[10.029679] (-) TimerEvent: {}
+[10.129978] (-) TimerEvent: {}
+[10.230296] (-) TimerEvent: {}
+[10.330599] (-) TimerEvent: {}
+[10.430891] (-) TimerEvent: {}
+[10.531219] (-) TimerEvent: {}
+[10.631548] (-) TimerEvent: {}
+[10.731859] (-) TimerEvent: {}
+[10.832185] (-) TimerEvent: {}
+[10.932513] (-) TimerEvent: {}
+[11.032871] (-) TimerEvent: {}
+[11.133214] (-) TimerEvent: {}
+[11.233581] (-) TimerEvent: {}
+[11.333977] (-) TimerEvent: {}
+[11.434274] (-) TimerEvent: {}
+[11.534546] (-) TimerEvent: {}
+[11.634877] (-) TimerEvent: {}
+[11.735168] (-) TimerEvent: {}
+[11.835486] (-) TimerEvent: {}
+[11.935840] (-) TimerEvent: {}
+[12.036222] (-) TimerEvent: {}
+[12.136557] (-) TimerEvent: {}
+[12.236900] (-) TimerEvent: {}
+[12.337229] (-) TimerEvent: {}
+[12.437571] (-) TimerEvent: {}
+[12.537933] (-) TimerEvent: {}
+[12.638242] (-) TimerEvent: {}
+[12.738544] (-) TimerEvent: {}
+[12.838825] (-) TimerEvent: {}
+[12.939176] (-) TimerEvent: {}
+[13.039493] (-) TimerEvent: {}
+[13.139824] (-) TimerEvent: {}
+[13.240207] (-) TimerEvent: {}
+[13.340566] (-) TimerEvent: {}
+[13.440931] (-) TimerEvent: {}
+[13.541296] (-) TimerEvent: {}
+[13.641671] (-) TimerEvent: {}
+[13.741935] (-) TimerEvent: {}
+[13.842211] (-) TimerEvent: {}
+[13.942489] (-) TimerEvent: {}
+[14.042827] (-) TimerEvent: {}
+[14.143151] (-) TimerEvent: {}
+[14.243428] (-) TimerEvent: {}
+[14.343737] (-) TimerEvent: {}
+[14.444047] (-) TimerEvent: {}
+[14.544368] (-) TimerEvent: {}
+[14.644696] (-) TimerEvent: {}
+[14.745016] (-) TimerEvent: {}
+[14.845348] (-) TimerEvent: {}
+[14.945639] (-) TimerEvent: {}
+[15.045916] (-) TimerEvent: {}
+[15.146190] (-) TimerEvent: {}
+[15.246492] (-) TimerEvent: {}
+[15.346844] (-) TimerEvent: {}
+[15.447218] (-) TimerEvent: {}
+[15.547569] (-) TimerEvent: {}
+[15.647900] (-) TimerEvent: {}
+[15.748243] (-) TimerEvent: {}
+[15.848570] (-) TimerEvent: {}
+[15.948985] (-) TimerEvent: {}
+[16.049272] (-) TimerEvent: {}
+[16.149552] (-) TimerEvent: {}
+[16.249819] (-) TimerEvent: {}
+[16.350158] (-) TimerEvent: {}
+[16.450448] (-) TimerEvent: {}
+[16.550793] (-) TimerEvent: {}
+[16.651119] (-) TimerEvent: {}
+[16.751461] (-) TimerEvent: {}
+[16.851779] (-) TimerEvent: {}
+[16.952052] (-) TimerEvent: {}
+[17.052405] (-) TimerEvent: {}
+[17.152679] (-) TimerEvent: {}
+[17.253013] (-) TimerEvent: {}
+[17.353347] (-) TimerEvent: {}
+[17.453608] (-) TimerEvent: {}
+[17.553902] (-) TimerEvent: {}
+[17.654240] (-) TimerEvent: {}
+[17.754518] (-) TimerEvent: {}
+[17.854814] (-) TimerEvent: {}
+[17.955061] (-) TimerEvent: {}
+[18.055322] (-) TimerEvent: {}
+[18.155576] (-) TimerEvent: {}
+[18.255905] (-) TimerEvent: {}
+[18.356172] (-) TimerEvent: {}
+[18.456442] (-) TimerEvent: {}
+[18.556797] (-) TimerEvent: {}
+[18.657029] (-) TimerEvent: {}
+[18.757361] (-) TimerEvent: {}
+[18.857602] (-) TimerEvent: {}
+[18.957893] (-) TimerEvent: {}
+[19.058164] (-) TimerEvent: {}
+[19.158485] (-) TimerEvent: {}
+[19.258838] (-) TimerEvent: {}
+[19.359091] (-) TimerEvent: {}
+[19.459384] (-) TimerEvent: {}
+[19.559695] (-) TimerEvent: {}
+[19.660050] (-) TimerEvent: {}
+[19.760359] (-) TimerEvent: {}
+[19.860731] (-) TimerEvent: {}
+[19.961034] (-) TimerEvent: {}
+[20.061351] (-) TimerEvent: {}
+[20.161710] (-) TimerEvent: {}
+[20.261967] (-) TimerEvent: {}
+[20.362273] (-) TimerEvent: {}
+[20.462555] (-) TimerEvent: {}
+[20.562839] (-) TimerEvent: {}
+[20.663104] (-) TimerEvent: {}
+[20.763464] (-) TimerEvent: {}
+[20.863838] (-) TimerEvent: {}
+[20.964115] (-) TimerEvent: {}
+[21.064445] (-) TimerEvent: {}
+[21.164772] (-) TimerEvent: {}
+[21.265019] (-) TimerEvent: {}
+[21.365336] (-) TimerEvent: {}
+[21.465666] (-) TimerEvent: {}
+[21.566021] (-) TimerEvent: {}
+[21.666354] (-) TimerEvent: {}
+[21.766692] (-) TimerEvent: {}
+[21.867014] (-) TimerEvent: {}
+[21.967354] (-) TimerEvent: {}
+[22.067695] (-) TimerEvent: {}
+[22.167967] (-) TimerEvent: {}
+[22.268205] (-) TimerEvent: {}
+[22.368538] (-) TimerEvent: {}
+[22.468841] (-) TimerEvent: {}
+[22.569103] (-) TimerEvent: {}
+[22.669419] (-) TimerEvent: {}
+[22.769680] (-) TimerEvent: {}
+[22.869945] (-) TimerEvent: {}
+[22.970243] (-) TimerEvent: {}
+[23.070556] (-) TimerEvent: {}
+[23.170815] (-) TimerEvent: {}
+[23.271122] (-) TimerEvent: {}
+[23.371435] (-) TimerEvent: {}
+[23.471699] (-) TimerEvent: {}
+[23.572031] (-) TimerEvent: {}
+[23.672312] (-) TimerEvent: {}
+[23.772619] (-) TimerEvent: {}
+[23.872979] (-) TimerEvent: {}
+[23.973343] (-) TimerEvent: {}
+[24.073648] (-) TimerEvent: {}
+[24.173928] (-) TimerEvent: {}
+[24.215886] (camera_model) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking CXX executable Calibration\x1b[0m\n'}
+[24.274078] (-) TimerEvent: {}
+[24.332683] (camera_model) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX static library libcamera_model.a\x1b[0m\n'}
+[24.374203] (-) TimerEvent: {}
+[24.474503] (-) TimerEvent: {}
+[24.574891] (-) TimerEvent: {}
+[24.675182] (-) TimerEvent: {}
+[24.775515] (-) TimerEvent: {}
+[24.776895] (camera_model) StdoutLine: {'line': b'[100%] Built target camera_model\n'}
+[24.875622] (-) TimerEvent: {}
+[24.975891] (-) TimerEvent: {}
+[25.076159] (-) TimerEvent: {}
+[25.176471] (-) TimerEvent: {}
+[25.276782] (-) TimerEvent: {}
+[25.377106] (-) TimerEvent: {}
+[25.477451] (-) TimerEvent: {}
+[25.577725] (-) TimerEvent: {}
+[25.678000] (-) TimerEvent: {}
+[25.778289] (-) TimerEvent: {}
+[25.878552] (-) TimerEvent: {}
+[25.939388] (camera_model) StdoutLine: {'line': b'[100%] Built target Calibration\n'}
+[25.946454] (camera_model) CommandEnded: {'returncode': 0}
+[25.978659] (-) TimerEvent: {}
+[26.009876] (camera_model) JobProgress: {'identifier': 'camera_model', 'progress': 'install'}
+[26.016940] (camera_model) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model'], 'cwd': '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_IL:en'), ('USER', 'ubuntu'), ('SSH_AGENT_PID', '2243'), ('ROS_PACKAGE_PATH', '/home/ubuntu/catkin_ws/src/image_undistort:/home/ubuntu/catkin_ws/src/point_cloud_converter:/home/ubuntu/cyberbee/cyberbee_ws/src/adabins_ros:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/benchmark_publisher:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/camera_model:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/ar_demo:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/controller:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/feature_tracker:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/fft_imu_pkg:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/find_exit_from_tof:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/parrot_com:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/parrot_gui:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/parrot_logger:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/path_planning:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/plot_tof_points:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/pointcloud_creator_tof:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/pose_graph:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/pose_graph_raspberry:/home/ubuntu/cyberbee/cyberbee_ws/src/parrot_cyberbee/record_path:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_msgs:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_ros:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_rviz_plugins:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_srvs:/home/ubuntu/cyberbee/cyberbee_ws/src/ufomap/ufomap_ros/ufomap_mapping:/home/ubuntu/cyberbee/cyberbee_ws/src/VINS-Mono/vins_estimator:/home/ubuntu/cyberbee/cyberbee_ws/src/voxel_mapping:/opt/ros/noetic/share'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/snap/code/91/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('ROS_ETC_DIR', '/opt/ros/noetic/etc/ros'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ubuntu/cyberbee/ros2_ws/install/ros1_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/x86_64-linux-gnu:/opt/ros/foxy/lib:/home/ubuntu/catkin_ws/devel/lib:/home/ubuntu/cyberbee/cyberbee_ws/devel/lib:/opt/ros/noetic/lib:/opt/ros/noetic/lib/x86_64-linux-gnu'), ('HOME', '/home/ubuntu'), ('CHROME_DESKTOP', 'code-url-handler.desktop'), ('OLDPWD', '/home/ubuntu/cyberbee/ros2_ws'), ('TERM_PROGRAM_VERSION', '1.65.2'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL', 'true'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/snap/code/91/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/snap/code/91/usr/share/code/code'), ('ROS_IP', '10.42.0.50'), ('MANAGERPID', '2003'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '3277'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/ubuntu/cyberbee/ros2_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'ubuntu'), ('JOURNAL_STREAM', '8:51646'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ubuntu/catkin_ws/devel/lib/pkgconfig:/home/ubuntu/cyberbee/cyberbee_ws/devel/lib/pkgconfig:/opt/ros/noetic/lib/pkgconfig:/opt/ros/noetic/lib/x86_64-linux-gnu/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'ubuntu'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/foxy/bin:/opt/ros/noetic/bin:/home/ubuntu/.local/bin:/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'), ('SESSION_MANAGER', 'local/ubuntu-Legion-5-Pro-16ITH6H:@/tmp/.ICE-unix/2280,unix/ubuntu-Legion-5-Pro-16ITH6H:/tmp/.ICE-unix/2280'), ('INVOCATION_ID', 'a140815fde1049ddbaa14250c1c0dbd0'), ('XDG_MENU_PREFIX', 'gnome-'), ('BAMF_DESKTOP_FILE_HINT', '/var/lib/snapd/desktop/applications/code_code.desktop'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('XMODIFIERS', '@im=ibus'), ('ROSLISP_PACKAGE_DIRECTORIES', '/home/ubuntu/catkin_ws/devel/share/common-lisp:/home/ubuntu/cyberbee/cyberbee_ws/devel/share/common-lisp'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-c94f736509.sock'), ('ROS_ROOT', '/opt/ros/noetic/share/ros'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/snap/code/91/usr/share/glib-2.0/schemas'), ('AMENT_PREFIX_PATH', '/home/ubuntu/cyberbee/ros2_ws/install/ros1_bridge:/home/ubuntu/cyberbee/ros2_ws/install/cpp_pubsub:/opt/ros/foxy'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('DISABLE_WAYLAND', '1'), ('QT_ACCESSIBILITY', '1'), ('ROS_MASTER_URI', 'http://10.42.0.50:11311'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', '--ms-enable-electron-run-as-node'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ubuntu/cyberbee/ros2_ws/install/ros1_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages:/home/ubuntu/cyberbee/cyberbee_ws/devel/lib/python3/dist-packages:/opt/ros/noetic/lib/python3/dist-packages'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/ubuntu/cyberbee/ros2_ws/install/ros1_bridge:/home/ubuntu/cyberbee/ros2_ws/install/cpp_pubsub:/home/ubuntu/catkin_ws/devel:/home/ubuntu/cyberbee/cyberbee_ws/devel:/opt/ros/noetic')]), 'shell': False}
+[26.022664] (camera_model) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[26.022773] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/package_run_dependencies/camera_model\n'}
+[26.022892] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/parent_prefix_path/camera_model\n'}
+[26.022991] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/ament_prefix_path.sh\n'}
+[26.023113] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/ament_prefix_path.dsv\n'}
+[26.023197] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/path.sh\n'}
+[26.023264] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/path.dsv\n'}
+[26.023334] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.bash\n'}
+[26.023409] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.sh\n'}
+[26.023478] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.zsh\n'}
+[26.023551] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.dsv\n'}
+[26.023620] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/package.dsv\n'}
+[26.023734] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/packages/camera_model\n'}
+[26.023828] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/cmake/camera_modelConfig.cmake\n'}
+[26.023891] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/cmake/camera_modelConfig-version.cmake\n'}
+[26.023952] (camera_model) StdoutLine: {'line': b'-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/package.xml\n'}
+[26.024798] (camera_model) CommandEnded: {'returncode': 0}
+[26.075523] (camera_model) JobEnded: {'identifier': 'camera_model', 'rc': 0}
+[26.077506] (-) EventReactorShutdown: {}

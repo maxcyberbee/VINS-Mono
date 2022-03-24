@@ -1,13 +1,19 @@
-#include <ros/ros.h>
-#include <sensor_msgs/Image.h>
-#include <sensor_msgs/image_encodings.h>
-#include <sensor_msgs/PointCloud.h>
-#include <sensor_msgs/Imu.h>
-#include <std_msgs/Bool.h>
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "std_msgs/msg/string.hpp"
+#include <sensor_msgs/msg/Image.hpp>
+#include <sensor_msgs/msg/image_encodings.h>
+#include <sensor_msgs/msg/PointCloud.h>
+#include <sensor_msgs/msg/Imu.h>
+#include <std_msgs/msg/Bool.h>
 #include <cv_bridge/cv_bridge.h>
 #include <message_filters/subscriber.h>
 
 #include "feature_tracker.h"
+
+
+
 
 #define SHOW_UNDISTORTION 0
 
@@ -15,7 +21,7 @@ vector<uchar> r_status;
 vector<float> r_err;
 queue<sensor_msgs::ImageConstPtr> img_buf;
 
-ros::Publisher pub_img,pub_match;
+ros::Publisher pub_img,pub_match,pub_equalize;
 ros::Publisher pub_restart;
 
 FeatureTracker trackerData[NUM_OF_CAM];
@@ -62,6 +68,7 @@ void img_callback(const sensor_msgs::ImageConstPtr &img_msg)
         PUB_THIS_FRAME = false;
 
     cv_bridge::CvImageConstPtr ptr;
+
     if (img_msg->encoding == "8UC1")
     {
         sensor_msgs::Image img;
@@ -75,7 +82,9 @@ void img_callback(const sensor_msgs::ImageConstPtr &img_msg)
         ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::MONO8);
     }
     else
+    {
         ptr = cv_bridge::toCvCopy(img_msg, sensor_msgs::image_encodings::MONO8);
+    }
 
     cv::Mat show_img = ptr->image;
     TicToc t_r;
@@ -83,7 +92,9 @@ void img_callback(const sensor_msgs::ImageConstPtr &img_msg)
     {
         ROS_DEBUG("processing camera %d", i);
         if (i != 1 || !STEREO_TRACK)
+        {
             trackerData[i].readImage(ptr->image.rowRange(ROW * i, ROW * (i + 1)), img_msg->header.stamp.toSec());
+        }
         else
         {
             if (EQUALIZE)
@@ -161,9 +172,9 @@ void img_callback(const sensor_msgs::ImageConstPtr &img_msg)
         {
             init_pub = 1;
         }
-        else
+        else{
             pub_img.publish(feature_points);
-
+        }
         if (SHOW_TRACK)
         {
             ptr = cv_bridge::cvtColor(ptr, sensor_msgs::image_encodings::BGR8);
@@ -205,6 +216,10 @@ void img_callback(const sensor_msgs::ImageConstPtr &img_msg)
 
 int main(int argc, char **argv)
 {
+    rclcpp::init(argc, argv);
+    rclcpp::spin(std::make_shared<MinimalSubscriber>());
+    rclcpp::shutdown();
+    return 0;
     ros::init(argc, argv, "feature_tracker");
     ros::NodeHandle n("~");
     ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME, ros::console::levels::Info);
@@ -232,6 +247,7 @@ int main(int argc, char **argv)
 
     pub_img = n.advertise<sensor_msgs::PointCloud>("feature", 1000);
     pub_match = n.advertise<sensor_msgs::Image>("feature_img",1000);
+    pub_equalize = n.advertise<sensor_msgs::Image>("/cam0/image/equalize",1000);
     pub_restart = n.advertise<std_msgs::Bool>("restart",1000);
     /*
     if (SHOW_TRACK)

@@ -1,0 +1,486 @@
+[0.011s] Invoking command in '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model': /usr/bin/cmake --build /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model -- -j16 -l16
+[0.028s] -- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.044s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.208s] -- Found required Ceres dependency: Eigen version 3.3.7 in /usr/include/eigen3
+[0.209s] -- Found required Ceres dependency: glog
+[0.211s] -- Found installed version of gflags: /usr/lib/x86_64-linux-gnu/cmake/gflags
+[0.211s] -- Detected gflags version: 2.2.2
+[0.212s] -- Found required Ceres dependency: gflags
+[0.212s] -- Found Ceres version: 1.12.0 installed in: /usr/local with components: [LAPACK, SuiteSparse, SparseLinearAlgebraLibrary, SchurSpecializations, OpenMP]
+[0.250s] -- Configuring done
+[0.261s] -- Generating done
+[0.262s] -- Build files have been written to: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model
+[0.278s] [35m[1mScanning dependencies of target camera_model[0m
+[0.278s] [35m[1mScanning dependencies of target Calibration[0m
+[0.293s] [  7%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/chessboard/Chessboard.cc.o[0m
+[0.293s] [  7%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/intrinsic_calib.cc.o[0m
+[0.293s] [ 11%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/calib/CameraCalibration.cc.o[0m
+[0.293s] [ 14%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/chessboard/Chessboard.cc.o[0m
+[0.293s] [ 18%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/Camera.cc.o[0m
+[0.294s] [ 22%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CostFunctionFactory.cc.o[0m
+[0.294s] [ 25%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CameraFactory.cc.o[0m
+[0.294s] [ 29%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/PinholeCamera.cc.o[0m
+[0.294s] [ 33%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/calib/CameraCalibration.cc.o[0m
+[0.294s] [ 40%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/Camera.cc.o[0m
+[0.294s] [ 40%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CataCamera.cc.o[0m
+[0.294s] [ 44%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CameraFactory.cc.o[0m
+[0.295s] [ 48%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/EquidistantCamera.cc.o[0m
+[0.295s] [ 51%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/PinholeCamera.cc.o[0m
+[0.295s] [ 55%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CostFunctionFactory.cc.o[0m
+[0.296s] [ 59%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/ScaramuzzaCamera.cc.o[0m
+[1.634s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In constructor ‘[01m[Kcamodocal::EquidistantCamera::EquidistantCamera(const camodocal::EquidistantCamera::Parameters&)[m[K’:
+[1.634s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:278:22:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.634s]   278 |  : mParameters(params[01;35m[K)[m[K
+[1.634s]       |                      [01;35m[K^[m[K
+[1.634s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[1.634s]   209 | [01;36m[KEquidistantCamera[m[K::Parameters::operator=(const EquidistantCamera::Parameters& other)
+[1.635s]       | [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.635s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::EquidistantCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)[m[K’:
+[1.635s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:316:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.635s]   316 |     Parameters params = getParameters([01;35m[K)[m[K;
+[1.635s]       |                                       [01;35m[K^[m[K
+[1.635s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[1.635s]   209 | [01;36m[KEquidistantCamera[m[K::Parameters::operator=(const EquidistantCamera::Parameters& other)
+[1.635s]       | [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.643s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:345:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids variable length array ‘[01m[Kradius[m[K’ [[01;35m[K-Wvla[m[K]
+[1.643s]   345 |         double [01;35m[Kradius[m[K[boardSize.height];
+[1.643s]       |                [01;35m[K^~~~~~[m[K
+[1.651s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:[m[K In constructor ‘[01m[Kcamodocal::PinholeCamera::PinholeCamera(const camodocal::PinholeCamera::Parameters&)[m[K’:
+[1.651s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:299:22:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.651s]   299 |  : mParameters(params[01;35m[K)[m[K
+[1.651s]       |                      [01;35m[K^[m[K
+[1.651s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[1.651s]   214 | [01;36m[KPinholeCamera[m[K::Parameters::operator=(const PinholeCamera::Parameters& other)
+[1.651s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.651s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::PinholeCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)[m[K’:
+[1.651s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:351:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.651s]   351 |     Parameters params = getParameters([01;35m[K)[m[K;
+[1.652s]       |                                       [01;35m[K^[m[K
+[1.652s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[1.652s]   214 | [01;36m[KPinholeCamera[m[K::Parameters::operator=(const PinholeCamera::Parameters& other)
+[1.652s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.664s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:345:51:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KboardSize[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.665s]   345 | PinholeCamera::estimateIntrinsics([01;35m[Kconst cv::Size& boardSize[m[K,
+[1.665s]       |                                   [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[1.679s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:[m[K In constructor ‘[01m[Kcamodocal::CataCamera::CataCamera(const camodocal::CataCamera::Parameters&)[m[K’:
+[1.679s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:327:22:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.679s]   327 |  : mParameters(params[01;35m[K)[m[K
+[1.679s]       |                      [01;35m[K^[m[K
+[1.679s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[1.679s]   237 | [01;36m[KCataCamera[m[K::Parameters::operator=(const CataCamera::Parameters& other)
+[1.679s]       | [01;36m[K^~~~~~~~~~[m[K
+[1.680s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::CataCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)[m[K’:
+[1.680s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:377:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.680s]   377 |     Parameters params = getParameters([01;35m[K)[m[K;
+[1.680s]       |                                       [01;35m[K^[m[K
+[1.680s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[1.680s]   237 | [01;36m[KCataCamera[m[K::Parameters::operator=(const CataCamera::Parameters& other)
+[1.680s]       | [01;36m[K^~~~~~~~~~[m[K
+[1.694s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In member function ‘[01m[Kvoid camodocal::EquidistantCamera::spaceToPlane(const Vector3d&, Eigen::Vector2d&, Eigen::Matrix<double, 2, 3>&) const[m[K’:
+[1.694s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:472:60:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KJ[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.694s]   472 |                                 [01;35m[KEigen::Matrix<double,2,3>& J[m[K) const
+[1.694s]       |                                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[1.694s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::EquidistantCamera::undistToPlane(const Vector2d&, Eigen::Vector2d&) const[m[K’:
+[1.695s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:491:57:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kp_u[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.695s]   491 | EquidistantCamera::undistToPlane([01;35m[Kconst Eigen::Vector2d& p_u[m[K, Eigen::Vector2d& p) const
+[1.695s]       |                                  [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[1.695s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:491:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kp[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.695s]   491 | EquidistantCamera::undistToPlane(const Eigen::Vector2d& p_u, [01;35m[KEigen::Vector2d& p[m[K) const
+[1.695s]       |                                                              [01;35m[K~~~~~~~~~~~~~~~~~^[m[K
+[1.697s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:[m[K In constructor ‘[01m[Kcamodocal::PinholeCamera::PinholeCamera(const camodocal::PinholeCamera::Parameters&)[m[K’:
+[1.697s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:299:22:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.697s]   299 |  : mParameters(params[01;35m[K)[m[K
+[1.697s]       |                      [01;35m[K^[m[K
+[1.697s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[1.697s]   214 | [01;36m[KPinholeCamera[m[K::Parameters::operator=(const PinholeCamera::Parameters& other)
+[1.697s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.698s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::PinholeCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)[m[K’:
+[1.698s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:351:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.698s]   351 |     Parameters params = getParameters([01;35m[K)[m[K;
+[1.698s]       |                                       [01;35m[K^[m[K
+[1.698s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[1.698s]   214 | [01;36m[KPinholeCamera[m[K::Parameters::operator=(const PinholeCamera::Parameters& other)
+[1.698s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.711s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:345:51:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KboardSize[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.712s]   345 | PinholeCamera::estimateIntrinsics([01;35m[Kconst cv::Size& boardSize[m[K,
+[1.712s]       |                                   [01;35m[K~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[1.771s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::EquidistantCamera::readParameters(const std::vector<double, std::allocator<double> >&)[m[K’:
+[1.772s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:637:29:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kstd::vector<double, std::allocator<double> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[1.772s]   637 |     if ([01;35m[KparameterVec.size() != parameterCount()[m[K)
+[1.772s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~[m[K
+[1.772s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:642:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.772s]   642 |     Parameters params = getParameters([01;35m[K)[m[K;
+[1.772s]       |                                       [01;35m[K^[m[K
+[1.772s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[1.772s]   209 | [01;36m[KEquidistantCamera[m[K::Parameters::operator=(const EquidistantCamera::Parameters& other)
+[1.772s]       | [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[1.793s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::PinholeCamera::readParameters(const std::vector<double, std::allocator<double> >&)[m[K’:
+[1.794s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:838:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.794s]   838 |     Parameters params = getParameters([01;35m[K)[m[K;
+[1.794s]       |                                       [01;35m[K^[m[K
+[1.794s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[1.794s]   214 | [01;36m[KPinholeCamera[m[K::Parameters::operator=(const PinholeCamera::Parameters& other)
+[1.794s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.823s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::CataCamera::readParameters(const std::vector<double, std::allocator<double> >&)[m[K’:
+[1.823s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:960:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.823s]   960 |     Parameters params = getParameters([01;35m[K)[m[K;
+[1.823s]       |                                       [01;35m[K^[m[K
+[1.824s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[1.824s]   237 | [01;36m[KCataCamera[m[K::Parameters::operator=(const CataCamera::Parameters& other)
+[1.824s]       | [01;36m[K^~~~~~~~~~[m[K
+[1.847s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::PinholeCamera::readParameters(const std::vector<double, std::allocator<double> >&)[m[K’:
+[1.847s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:838:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[1.847s]   838 |     Parameters params = getParameters([01;35m[K)[m[K;
+[1.848s]       |                                       [01;35m[K^[m[K
+[1.848s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:214:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[1.848s]   214 | [01;36m[KPinholeCamera[m[K::Parameters::operator=(const PinholeCamera::Parameters& other)
+[1.848s]       | [01;36m[K^~~~~~~~~~~~~[m[K
+[1.853s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/calib/CameraCalibration.cc:15[m[K:
+[1.853s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:22:5:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[1.854s]    22 |     [01;35m[Kconst[m[K double* const rotationData(void) const;
+[1.854s]       |     [01;35m[K^~~~~[m[K
+[1.854s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:27:5:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[1.854s]    27 |     [01;35m[Kconst[m[K double* const translationData(void) const;
+[1.854s]       |     [01;35m[K^~~~~[m[K
+[1.958s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/calib/CameraCalibration.cc:15[m[K:
+[1.958s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:22:5:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[1.958s]    22 |     [01;35m[Kconst[m[K double* const rotationData(void) const;
+[1.958s]       |     [01;35m[K^~~~~[m[K
+[1.958s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:27:5:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[1.958s]    27 |     [01;35m[Kconst[m[K double* const translationData(void) const;
+[1.958s]       |     [01;35m[K^~~~~[m[K
+[1.964s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:7[m[K:
+[1.964s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:[m[K In member function ‘[01m[Kvoid Spline::generate()[m[K’:
+[1.964s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:249:3:[m[K [01;35m[Kwarning: [m[Kthis ‘[01m[Kfor[m[K’ clause does not guard... [[01;35m[K-Wmisleading-indentation[m[K]
+[1.965s]   249 |   [01;35m[Kfor[m[K (size_t xv(0); xv <= e; ++xv)
+[1.965s]       |   [01;35m[K^~~[m[K
+[1.965s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:252:5:[m[K [01;36m[Knote: [m[K...this statement, but the latter is misleadingly indented as if it were guarded by the ‘[01m[Kfor[m[K’
+[1.965s]   252 |     [01;36m[Kfor[m[K (size_t i(1); i < e; ++i)
+[1.965s]       |     [01;36m[K^~~[m[K
+[1.982s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:[m[K In member function ‘[01m[Kvoid camodocal::Chessboard::findConnectedQuads(std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, int, int)[m[K’:
+[1.982s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:444:51:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdilation[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[1.982s]   444 |                                int group_idx, [01;35m[Kint dilation[m[K)
+[1.982s]       |                                               [01;35m[K~~~~^~~~~~~~[m[K
+[2.004s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:[m[K In member function ‘[01m[Kvoid camodocal::Chessboard::generateQuads(std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, cv::Mat&, int, int, bool)[m[K’:
+[2.004s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:1165:31:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdilation[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.005s]  1165 |                           [01;35m[Kint dilation[m[K, bool firstRun)
+[2.005s]       |                           [01;35m[K~~~~^~~~~~~~[m[K
+[2.140s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:7[m[K:
+[2.140s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:[m[K In member function ‘[01m[Kvoid Spline::generate()[m[K’:
+[2.140s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:249:3:[m[K [01;35m[Kwarning: [m[Kthis ‘[01m[Kfor[m[K’ clause does not guard... [[01;35m[K-Wmisleading-indentation[m[K]
+[2.140s]   249 |   [01;35m[Kfor[m[K (size_t xv(0); xv <= e; ++xv)
+[2.140s]       |   [01;35m[K^~~[m[K
+[2.140s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/chessboard/Spline.h:252:5:[m[K [01;36m[Knote: [m[K...this statement, but the latter is misleadingly indented as if it were guarded by the ‘[01m[Kfor[m[K’
+[2.140s]   252 |     [01;36m[Kfor[m[K (size_t i(1); i < e; ++i)
+[2.140s]       |     [01;36m[K^~~[m[K
+[2.160s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:[m[K In member function ‘[01m[Kvoid camodocal::Chessboard::findConnectedQuads(std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, int, int)[m[K’:
+[2.160s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:444:51:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdilation[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.161s]   444 |                                int group_idx, [01;35m[Kint dilation[m[K)
+[2.161s]       |                                               [01;35m[K~~~~^~~~~~~~[m[K
+[2.191s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:[m[K In member function ‘[01m[Kvoid camodocal::Chessboard::generateQuads(std::vector<boost::shared_ptr<camodocal::ChessboardQuad> >&, cv::Mat&, int, int, bool)[m[K’:
+[2.192s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:1165:31:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kdilation[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[2.192s]  1165 |                           [01;35m[Kint dilation[m[K, bool firstRun)
+[2.192s]       |                           [01;35m[K~~~~^~~~~~~~[m[K
+[2.432s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:[m[K In member function ‘[01m[Kcamodocal::CameraPtr camodocal::CameraFactory::generateCamera(camodocal::Camera::ModelType, const string&, cv::Size) const[m[K’:
+[2.433s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:45:70:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.433s]    45 |         EquidistantCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.433s]       |                                                                      [01;35m[K^[m[K
+[2.433s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:7[m[K:
+[2.433s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/EquidistantCamera.h:52:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[2.433s]    52 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.433s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.435s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:56:66:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.435s]    56 |         PinholeCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.435s]       |                                                                  [01;35m[K^[m[K
+[2.435s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:8[m[K:
+[2.435s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/PinholeCamera.h:47:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[2.435s]    47 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.435s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.436s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:67:63:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.436s]    67 |         OCAMCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.436s]       |                                                               [01;35m[K^[m[K
+[2.437s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:9[m[K:
+[2.437s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/ScaramuzzaCamera.h:54:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[2.437s]    54 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.437s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.437s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:[m[K In member function ‘[01m[Kcamodocal::CameraPtr camodocal::CameraFactory::generateCamera(camodocal::Camera::ModelType, const string&, cv::Size) const[m[K’:
+[2.437s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:45:70:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.437s]    45 |         EquidistantCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.438s]       |                                                                      [01;35m[K^[m[K
+[2.438s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:7[m[K:
+[2.438s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/EquidistantCamera.h:52:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[2.438s]    52 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.438s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.438s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:79:63:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.438s]    79 |         CataCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.438s]       |                                                               [01;35m[K^[m[K
+[2.438s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:6[m[K:
+[2.439s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/CataCamera.h:54:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[2.439s]    54 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.439s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.439s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:56:66:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.439s]    56 |         PinholeCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.439s]       |                                                                  [01;35m[K^[m[K
+[2.439s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:8[m[K:
+[2.439s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/PinholeCamera.h:47:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[2.440s]    47 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.440s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.441s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:[m[K In member function ‘[01m[Kcamodocal::CameraPtr camodocal::CameraFactory::generateCameraFromYamlFile(const string&)[m[K’:
+[2.441s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:134:70:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.441s]   134 |         EquidistantCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.441s]       |                                                                      [01;35m[K^[m[K
+[2.441s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:7[m[K:
+[2.441s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/EquidistantCamera.h:52:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[2.441s]    52 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.442s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.442s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:67:63:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.442s]    67 |         OCAMCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.442s]       |                                                               [01;35m[K^[m[K
+[2.442s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:9[m[K:
+[2.442s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/ScaramuzzaCamera.h:54:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[2.442s]    54 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.442s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.443s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:143:66:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.443s]   143 |         PinholeCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.443s]       |                                                                  [01;35m[K^[m[K
+[2.443s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:8[m[K:
+[2.443s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/PinholeCamera.h:47:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[2.443s]    47 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.443s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.443s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:152:63:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.443s]   152 |         OCAMCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.443s]       |                                                               [01;35m[K^[m[K
+[2.444s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:9[m[K:
+[2.444s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/ScaramuzzaCamera.h:54:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[2.444s]    54 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.444s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.444s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:162:63:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.444s]   162 |         CataCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.444s]       |                                                               [01;35m[K^[m[K
+[2.444s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:6[m[K:
+[2.445s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/CataCamera.h:54:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[2.445s]    54 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.445s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.445s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:79:63:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.445s]    79 |         CataCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.445s]       |                                                               [01;35m[K^[m[K
+[2.445s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:6[m[K:
+[2.445s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/CataCamera.h:54:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[2.446s]    54 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.446s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.446s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:[m[K In member function ‘[01m[Kcamodocal::CameraPtr camodocal::CameraFactory::generateCameraFromYamlFile(const string&)[m[K’:
+[2.446s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:134:70:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.446s]   134 |         EquidistantCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.446s]       |                                                                      [01;35m[K^[m[K
+[2.446s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:7[m[K:
+[2.447s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/EquidistantCamera.h:52:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[2.447s]    52 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.447s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.447s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:143:66:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::PinholeCamera::Parameters::Parameters(const camodocal::PinholeCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.447s]   143 |         PinholeCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.447s]       |                                                                  [01;35m[K^[m[K
+[2.448s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:8[m[K:
+[2.448s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/PinholeCamera.h:47:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::PinholeCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::PinholeCamera::Parameters& camodocal::PinholeCamera::Parameters::operator=(const camodocal::PinholeCamera::Parameters&)[m[K’
+[2.448s]    47 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.448s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.448s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:152:63:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.448s]   152 |         OCAMCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.448s]       |                                                               [01;35m[K^[m[K
+[2.449s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:9[m[K:
+[2.449s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/ScaramuzzaCamera.h:54:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[2.449s]    54 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.449s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.449s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:162:63:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.449s]   162 |         CataCamera::Parameters params = camera->getParameters([01;35m[K)[m[K;
+[2.449s]       |                                                               [01;35m[K^[m[K
+[2.450s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:6[m[K:
+[2.450s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/camera_models/CataCamera.h:54:21:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[2.450s]    54 |         Parameters& [01;36m[Koperator[m[K=(const Parameters& other);
+[2.450s]       |                     [01;36m[K^~~~~~~~[m[K
+[2.616s] [ 62%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/sparse_graph/Transform.cc.o[0m
+[2.662s] [ 66%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CataCamera.cc.o[0m
+[2.740s] [ 70%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/gpl/gpl.cc.o[0m
+[2.761s] [ 74%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/EquidistantCamera.cc.o[0m
+[2.841s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:[m[K In constructor ‘[01m[Kcamodocal::OCAMCamera::OCAMCamera(const camodocal::OCAMCamera::Parameters&)[m[K’:
+[2.841s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:198:22:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[2.841s]   198 |  : mParameters(params[01;35m[K)[m[K
+[2.841s]       |                      [01;35m[K^[m[K
+[2.841s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[2.841s]   141 | [01;36m[KOCAMCamera[m[K::Parameters::operator=(const OCAMCamera::Parameters& other)
+[2.842s]       | [01;36m[K^~~~~~~~~~[m[K
+[2.901s] [ 77%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/gpl/EigenQuaternionParameterization.cc.o[0m
+[2.914s] [ 81%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/ScaramuzzaCamera.cc.o[0m
+[2.956s] [ 85%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/sparse_graph/Transform.cc.o[0m
+[3.114s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::OCAMCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)[m[K’:
+[3.114s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:517:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[3.115s]   517 |     Parameters params = getParameters([01;35m[K)[m[K;
+[3.115s]       |                                       [01;35m[K^[m[K
+[3.115s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[3.115s]   141 | [01;36m[KOCAMCamera[m[K::Parameters::operator=(const OCAMCamera::Parameters& other)
+[3.115s]       | [01;36m[K^~~~~~~~~~[m[K
+[3.197s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::OCAMCamera::readParameters(const std::vector<double, std::allocator<double> >&)[m[K’:
+[3.197s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:788:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[3.197s]   788 |     Parameters params = getParameters([01;35m[K)[m[K;
+[3.197s]       |                                       [01;35m[K^[m[K
+[3.197s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[3.197s]   141 | [01;36m[KOCAMCamera[m[K::Parameters::operator=(const OCAMCamera::Parameters& other)
+[3.197s]       | [01;36m[K^~~~~~~~~~[m[K
+[3.269s] [ 88%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/gpl/gpl.cc.o[0m
+[3.496s] [ 92%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/gpl/EigenQuaternionParameterization.cc.o[0m
+[3.498s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:[m[K In function ‘[01m[Kvoid camodocal::UTMtoLL(double, double, const string&, double&, double&)[m[K’:
+[3.498s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:842:16:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kphi1[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[3.498s]   842 |     double mu, [01;35m[Kphi1[m[K, phi1Rad;
+[3.498s]       |                [01;35m[K^~~~[m[K
+[3.499s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:846:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KNorthernHemisphere[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[3.499s]   846 |     bool [01;35m[KNorthernHemisphere[m[K;
+[3.499s]       |          [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.499s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:[m[K In function ‘[01m[Klong int camodocal::timestampDiff(uint64_t, uint64_t)[m[K’:
+[3.499s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:904:15:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Klong int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[3.499s]   904 |         if ([01;35m[Kd > std::numeric_limits<long int>::max()[m[K)
+[3.499s]       |             [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.500s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:917:15:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Klong int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[3.500s]   917 |         if ([01;35m[Kd > std::numeric_limits<long int>::max()[m[K)
+[3.500s]       |             [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.609s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:1[m[K:
+[3.610s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:22:5:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[3.610s]    22 |     [01;35m[Kconst[m[K double* const rotationData(void) const;
+[3.610s]       |     [01;35m[K^~~~~[m[K
+[3.610s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:27:5:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[3.610s]    27 |     [01;35m[Kconst[m[K double* const translationData(void) const;
+[3.610s]       |     [01;35m[K^~~~~[m[K
+[3.660s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:36:1:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[3.660s]    36 | [01;35m[Kconst[m[K double* const
+[3.660s]       | [01;35m[K^~~~~[m[K
+[3.661s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:60:1:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[3.661s]    60 | [01;35m[Kconst[m[K double* const
+[3.661s]       | [01;35m[K^~~~~[m[K
+[3.878s] In file included from [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:1[m[K:
+[3.879s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:22:5:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[3.879s]    22 |     [01;35m[Kconst[m[K double* const rotationData(void) const;
+[3.879s]       |     [01;35m[K^~~~~[m[K
+[3.879s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/include/camodocal/sparse_graph/Transform.h:27:5:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[3.879s]    27 |     [01;35m[Kconst[m[K double* const translationData(void) const;
+[3.879s]       |     [01;35m[K^~~~~[m[K
+[3.914s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:[m[K In function ‘[01m[Kvoid camodocal::UTMtoLL(double, double, const string&, double&, double&)[m[K’:
+[3.915s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:842:16:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kphi1[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[3.915s]   842 |     double mu, [01;35m[Kphi1[m[K, phi1Rad;
+[3.915s]       |                [01;35m[K^~~~[m[K
+[3.915s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:846:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KNorthernHemisphere[m[K’ set but not used [[01;35m[K-Wunused-but-set-variable[m[K]
+[3.915s]   846 |     bool [01;35m[KNorthernHemisphere[m[K;
+[3.915s]       |          [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+[3.915s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:[m[K In function ‘[01m[Klong int camodocal::timestampDiff(uint64_t, uint64_t)[m[K’:
+[3.915s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:904:15:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Klong int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[3.915s]   904 |         if ([01;35m[Kd > std::numeric_limits<long int>::max()[m[K)
+[3.915s]       |             [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.915s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:917:15:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kuint64_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Klong int[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[3.915s]   917 |         if ([01;35m[Kd > std::numeric_limits<long int>::max()[m[K)
+[3.915s]       |             [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[3.925s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:36:1:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[3.925s]    36 | [01;35m[Kconst[m[K double* const
+[3.925s]       | [01;35m[K^~~~~[m[K
+[3.925s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:60:1:[m[K [01;35m[Kwarning: [m[Ktype qualifiers ignored on function return type [[01;35m[K-Wignored-qualifiers[m[K]
+[3.925s]    60 | [01;35m[Kconst[m[K double* const
+[3.925s]       | [01;35m[K^~~~~[m[K
+[3.997s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:[m[K In constructor ‘[01m[Kcamodocal::CataCamera::CataCamera(const camodocal::CataCamera::Parameters&)[m[K’:
+[3.997s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:327:22:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[3.998s]   327 |  : mParameters(params[01;35m[K)[m[K
+[3.998s]       |                      [01;35m[K^[m[K
+[3.998s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[3.998s]   237 | [01;36m[KCataCamera[m[K::Parameters::operator=(const CataCamera::Parameters& other)
+[3.998s]       | [01;36m[K^~~~~~~~~~[m[K
+[3.998s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::CataCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)[m[K’:
+[3.998s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:377:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[3.998s]   377 |     Parameters params = getParameters([01;35m[K)[m[K;
+[3.998s]       |                                       [01;35m[K^[m[K
+[3.998s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[3.998s]   237 | [01;36m[KCataCamera[m[K::Parameters::operator=(const CataCamera::Parameters& other)
+[3.998s]       | [01;36m[K^~~~~~~~~~[m[K
+[4.091s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::CataCamera::readParameters(const std::vector<double, std::allocator<double> >&)[m[K’:
+[4.091s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:960:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::CataCamera::Parameters::Parameters(const camodocal::CataCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[4.091s]   960 |     Parameters params = getParameters([01;35m[K)[m[K;
+[4.091s]       |                                       [01;35m[K^[m[K
+[4.092s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:237:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::CataCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::CataCamera::Parameters& camodocal::CataCamera::Parameters::operator=(const camodocal::CataCamera::Parameters&)[m[K’
+[4.092s]   237 | [01;36m[KCataCamera[m[K::Parameters::operator=(const CataCamera::Parameters& other)
+[4.092s]       | [01;36m[K^~~~~~~~~~[m[K
+[4.192s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In constructor ‘[01m[Kcamodocal::EquidistantCamera::EquidistantCamera(const camodocal::EquidistantCamera::Parameters&)[m[K’:
+[4.193s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:278:22:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[4.193s]   278 |  : mParameters(params[01;35m[K)[m[K
+[4.193s]       |                      [01;35m[K^[m[K
+[4.193s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[4.193s]   209 | [01;36m[KEquidistantCamera[m[K::Parameters::operator=(const EquidistantCamera::Parameters& other)
+[4.193s]       | [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[4.193s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::EquidistantCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)[m[K’:
+[4.193s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:316:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[4.193s]   316 |     Parameters params = getParameters([01;35m[K)[m[K;
+[4.193s]       |                                       [01;35m[K^[m[K
+[4.193s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[4.193s]   209 | [01;36m[KEquidistantCamera[m[K::Parameters::operator=(const EquidistantCamera::Parameters& other)
+[4.193s]       | [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[4.202s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:345:16:[m[K [01;35m[Kwarning: [m[KISO C++ forbids variable length array ‘[01m[Kradius[m[K’ [[01;35m[K-Wvla[m[K]
+[4.202s]   345 |         double [01;35m[Kradius[m[K[boardSize.height];
+[4.202s]       |                [01;35m[K^~~~~~[m[K
+[4.253s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In member function ‘[01m[Kvoid camodocal::EquidistantCamera::spaceToPlane(const Vector3d&, Eigen::Vector2d&, Eigen::Matrix<double, 2, 3>&) const[m[K’:
+[4.253s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:472:60:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KJ[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[4.253s]   472 |                                 [01;35m[KEigen::Matrix<double,2,3>& J[m[K) const
+[4.253s]       |                                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[4.253s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::EquidistantCamera::undistToPlane(const Vector2d&, Eigen::Vector2d&) const[m[K’:
+[4.253s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:491:57:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kp_u[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[4.253s]   491 | EquidistantCamera::undistToPlane([01;35m[Kconst Eigen::Vector2d& p_u[m[K, Eigen::Vector2d& p) const
+[4.253s]       |                                  [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[4.253s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:491:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kp[m[K’ [[01;35m[K-Wunused-parameter[m[K]
+[4.253s]   491 | EquidistantCamera::undistToPlane(const Eigen::Vector2d& p_u, [01;35m[KEigen::Vector2d& p[m[K) const
+[4.253s]       |                                                              [01;35m[K~~~~~~~~~~~~~~~~~^[m[K
+[4.329s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::EquidistantCamera::readParameters(const std::vector<double, std::allocator<double> >&)[m[K’:
+[4.330s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:637:29:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kstd::vector<double, std::allocator<double> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} and ‘[01m[Kint[m[K’ [[01;35m[K-Wsign-compare[m[K]
+[4.330s]   637 |     if ([01;35m[KparameterVec.size() != parameterCount()[m[K)
+[4.330s]       |         [01;35m[K~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~[m[K
+[4.330s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:642:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::EquidistantCamera::Parameters::Parameters(const camodocal::EquidistantCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[4.330s]   642 |     Parameters params = getParameters([01;35m[K)[m[K;
+[4.330s]       |                                       [01;35m[K^[m[K
+[4.330s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:209:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::EquidistantCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::EquidistantCamera::Parameters& camodocal::EquidistantCamera::Parameters::operator=(const camodocal::EquidistantCamera::Parameters&)[m[K’
+[4.330s]   209 | [01;36m[KEquidistantCamera[m[K::Parameters::operator=(const EquidistantCamera::Parameters& other)
+[4.330s]       | [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[4.921s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:[m[K In constructor ‘[01m[Kcamodocal::OCAMCamera::OCAMCamera(const camodocal::OCAMCamera::Parameters&)[m[K’:
+[4.921s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:198:22:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[4.921s]   198 |  : mParameters(params[01;35m[K)[m[K
+[4.921s]       |                      [01;35m[K^[m[K
+[4.921s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[4.921s]   141 | [01;36m[KOCAMCamera[m[K::Parameters::operator=(const OCAMCamera::Parameters& other)
+[4.921s]       | [01;36m[K^~~~~~~~~~[m[K
+[4.990s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::OCAMCamera::estimateIntrinsics(const Size&, const std::vector<std::vector<cv::Point3_<float> > >&, const std::vector<std::vector<cv::Point_<float> > >&)[m[K’:
+[4.990s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:517:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[4.990s]   517 |     Parameters params = getParameters([01;35m[K)[m[K;
+[4.990s]       |                                       [01;35m[K^[m[K
+[4.990s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[4.990s]   141 | [01;36m[KOCAMCamera[m[K::Parameters::operator=(const OCAMCamera::Parameters& other)
+[4.990s]       | [01;36m[K^~~~~~~~~~[m[K
+[5.043s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:[m[K In member function ‘[01m[Kvirtual void camodocal::OCAMCamera::readParameters(const std::vector<double, std::allocator<double> >&)[m[K’:
+[5.043s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:788:39:[m[K [01;35m[Kwarning: [m[Kimplicitly-declared ‘[01m[Kcamodocal::OCAMCamera::Parameters::Parameters(const camodocal::OCAMCamera::Parameters&)[m[K’ is deprecated [[01;35m[K-Wdeprecated-copy[m[K]
+[5.043s]   788 |     Parameters params = getParameters([01;35m[K)[m[K;
+[5.043s]       |                                       [01;35m[K^[m[K
+[5.043s] [01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:141:1:[m[K [01;36m[Knote: [m[Kbecause ‘[01m[Kcamodocal::OCAMCamera::Parameters[m[K’ has user-provided ‘[01m[Kcamodocal::OCAMCamera::Parameters& camodocal::OCAMCamera::Parameters::operator=(const camodocal::OCAMCamera::Parameters&)[m[K’
+[5.043s]   141 | [01;36m[KOCAMCamera[m[K::Parameters::operator=(const OCAMCamera::Parameters& other)
+[5.043s]       | [01;36m[K^~~~~~~~~~[m[K
+[24.215s] [ 96%] [32m[1mLinking CXX executable Calibration[0m
+[24.331s] [100%] [32m[1mLinking CXX static library libcamera_model.a[0m
+[24.776s] [100%] Built target camera_model
+[25.938s] [100%] Built target Calibration
+[25.946s] Invoked command in '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model' returned '0': /usr/bin/cmake --build /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model -- -j16 -l16
+[26.017s] Invoking command in '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model': /usr/bin/cmake --install /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model
+[26.021s] -- Install configuration: ""
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/package_run_dependencies/camera_model
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/parent_prefix_path/camera_model
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/ament_prefix_path.sh
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/ament_prefix_path.dsv
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/path.sh
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/path.dsv
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.bash
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.sh
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.zsh
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.dsv
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/package.dsv
+[26.022s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/packages/camera_model
+[26.023s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/cmake/camera_modelConfig.cmake
+[26.023s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/cmake/camera_modelConfig-version.cmake
+[26.023s] -- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/package.xml
+[26.024s] Invoked command in '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model' returned '0': /usr/bin/cmake --install /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model

@@ -1,0 +1,92 @@
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    CATKIN_INSTALL_INTO_PREFIX_ROOT
+
+
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/Camera.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/camera_models/Camera.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/camera_models/Camera.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/ScaramuzzaCamera.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/camera_models/ScaramuzzaCamera.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/camera_models/ScaramuzzaCamera.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/chessboard/Chessboard.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/chessboard/Chessboard.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/Calibration.dir/build.make:102: CMakeFiles/Calibration.dir/src/camera_models/Camera.cc.o] Error 1
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CameraFactory.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/camera_models/CameraFactory.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/camera_models/CameraFactory.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+make[2]: *** Waiting for unfinished jobs....
+compilation terminated.
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CostFunctionFactory.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/camera_models/CostFunctionFactory.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/camera_models/CostFunctionFactory.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/Camera.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/camera_models/Camera.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/camera_models/Camera.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/PinholeCamera.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/camera_models/PinholeCamera.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/camera_models/PinholeCamera.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/calib/CameraCalibration.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/calib/CameraCalibration.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/calib/CameraCalibration.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/sparse_graph/Transform.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/sparse_graph/Transform.h: No such file or directory
+    1 | #include [01;31m[K<camodocal/sparse_graph/Transform.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/CataCamera.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/camera_models/CataCamera.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/camera_models/CataCamera.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/Calibration.dir/build.make:76: CMakeFiles/Calibration.dir/src/chessboard/Chessboard.cc.o] Error 1
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:89: CMakeFiles/camera_model.dir/src/camera_models/Camera.cc.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:102: CMakeFiles/camera_model.dir/src/camera_models/CameraFactory.cc.o] Error 1
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:115: CMakeFiles/camera_model.dir/src/camera_models/CostFunctionFactory.cc.o] Error 1
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:128: CMakeFiles/camera_model.dir/src/camera_models/PinholeCamera.cc.o] Error 1
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:167: CMakeFiles/camera_model.dir/src/camera_models/ScaramuzzaCamera.cc.o] Error 1
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:180: CMakeFiles/camera_model.dir/src/sparse_graph/Transform.cc.o] Error 1
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:76: CMakeFiles/camera_model.dir/src/calib/CameraCalibration.cc.o] Error 1
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:141: CMakeFiles/camera_model.dir/src/camera_models/CataCamera.cc.o] Error 1
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/calib/CameraCalibration.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/calib/CameraCalibration.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/calib/CameraCalibration.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/Calibration.dir/build.make:89: CMakeFiles/Calibration.dir/src/calib/CameraCalibration.cc.o] Error 1
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/gpl.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/gpl/gpl.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/gpl/gpl.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:193: CMakeFiles/camera_model.dir/src/gpl/gpl.cc.o] Error 1
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/gpl/EigenQuaternionParameterization.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/gpl/EigenQuaternionParameterization.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/gpl/EigenQuaternionParameterization.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:206: CMakeFiles/camera_model.dir/src/gpl/EigenQuaternionParameterization.cc.o] Error 1
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/camera_models/EquidistantCamera.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/camera_models/EquidistantCamera.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/camera_models/EquidistantCamera.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:154: CMakeFiles/camera_model.dir/src/camera_models/EquidistantCamera.cc.o] Error 1
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/chessboard/Chessboard.cc:1:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/chessboard/Chessboard.h: No such file or directory
+    1 | #include [01;31m[K"camodocal/chessboard/Chessboard.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/camera_model.dir/build.make:63: CMakeFiles/camera_model.dir/src/chessboard/Chessboard.cc.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:247: CMakeFiles/camera_model.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+[01m[K/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model/src/intrinsic_calib.cc:11:10:[m[K [01;31m[Kfatal error: [m[Kcamodocal/chessboard/Chessboard.h: No such file or directory
+   11 | #include [01;31m[K"camodocal/chessboard/Chessboard.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+make[2]: *** [CMakeFiles/Calibration.dir/build.make:63: CMakeFiles/Calibration.dir/src/intrinsic_calib.cc.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:301: CMakeFiles/Calibration.dir/all] Error 2
+make: *** [Makefile:141: all] Error 2

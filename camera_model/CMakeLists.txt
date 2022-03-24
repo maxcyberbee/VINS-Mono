@@ -1,14 +1,24 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(camera_model)
 
-set(CMAKE_BUILD_TYPE "Release")
-set(CMAKE_CXX_FLAGS "-std=c++11")
-set(CMAKE_CXX_FLAGS_RELEASE "-O3 -fPIC")
+# Default to C99
+if(NOT CMAKE_C_STANDARD)
+  set(CMAKE_C_STANDARD 99)
+endif()
 
-find_package(catkin REQUIRED COMPONENTS
-    roscpp
-    std_msgs
-    )
+# Default to C++14
+if(NOT CMAKE_CXX_STANDARD)
+  set(CMAKE_CXX_STANDARD 14)
+endif()
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# find dependencies
+find_package(ament_cmake REQUIRED)
+
+find_package( std_msgs REQUIRED  )
 
 find_package(Boost REQUIRED COMPONENTS filesystem program_options system)
 include_directories(${Boost_INCLUDE_DIRS})
@@ -18,18 +28,6 @@ find_package(OpenCV REQUIRED)
 # set(EIGEN_INCLUDE_DIR "/usr/local/include/eigen3")
 find_package(Ceres REQUIRED)
 include_directories(${CERES_INCLUDE_DIRS})
-
-
-catkin_package(
-    INCLUDE_DIRS include
-    LIBRARIES camera_model
-    CATKIN_DEPENDS roscpp std_msgs
-#    DEPENDS system_lib
-    )
-
-include_directories(
-    ${catkin_INCLUDE_DIRS}
-    )
 
 include_directories("include")
 
@@ -63,5 +61,12 @@ add_library(camera_model
     src/gpl/gpl.cc
     src/gpl/EigenQuaternionParameterization.cc)
 
+
+    
 target_link_libraries(Calibration ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
 target_link_libraries(camera_model ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
+
+install(TARGETS camera_model
+  DESTINATION lib/${PROJECT_NAME})
+
+ament_package()

@@ -1,0 +1,4 @@
+Invoking command in '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model': /usr/bin/cmake /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model
+Invoked command in '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model' returned '0': /usr/bin/cmake /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/camera_model -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model
+Invoking command in '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model': /usr/bin/cmake --build /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model -- -j16 -l16
+Invoked command in '/home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model' returned '2': /usr/bin/cmake --build /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model -- -j16 -l16

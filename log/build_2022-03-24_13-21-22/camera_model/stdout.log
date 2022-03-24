@@ -1,0 +1,58 @@
+-- Found ament_cmake: 0.9.9 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Found required Ceres dependency: Eigen version 3.3.7 in /usr/include/eigen3
+-- Found required Ceres dependency: glog
+-- Found installed version of gflags: /usr/lib/x86_64-linux-gnu/cmake/gflags
+-- Detected gflags version: 2.2.2
+-- Found required Ceres dependency: gflags
+-- Found Ceres version: 1.12.0 installed in: /usr/local with components: [LAPACK, SuiteSparse, SparseLinearAlgebraLibrary, SchurSpecializations, OpenMP]
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/build/camera_model
+[35m[1mScanning dependencies of target camera_model[0m
+[35m[1mScanning dependencies of target Calibration[0m
+[  7%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/chessboard/Chessboard.cc.o[0m
+[  7%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/intrinsic_calib.cc.o[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/calib/CameraCalibration.cc.o[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/chessboard/Chessboard.cc.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/Camera.cc.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CostFunctionFactory.cc.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CameraFactory.cc.o[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/PinholeCamera.cc.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/calib/CameraCalibration.cc.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/Camera.cc.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/CataCamera.cc.o[0m
+[ 44%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CameraFactory.cc.o[0m
+[ 48%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/EquidistantCamera.cc.o[0m
+[ 51%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/PinholeCamera.cc.o[0m
+[ 55%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CostFunctionFactory.cc.o[0m
+[ 59%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/camera_models/ScaramuzzaCamera.cc.o[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/sparse_graph/Transform.cc.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/CataCamera.cc.o[0m
+[ 70%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/gpl/gpl.cc.o[0m
+[ 74%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/EquidistantCamera.cc.o[0m
+[ 77%] [32mBuilding CXX object CMakeFiles/Calibration.dir/src/gpl/EigenQuaternionParameterization.cc.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/camera_models/ScaramuzzaCamera.cc.o[0m
+[ 85%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/sparse_graph/Transform.cc.o[0m
+[ 88%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/gpl/gpl.cc.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/camera_model.dir/src/gpl/EigenQuaternionParameterization.cc.o[0m
+[ 96%] [32m[1mLinking CXX executable Calibration[0m
+[100%] [32m[1mLinking CXX static library libcamera_model.a[0m
+[100%] Built target camera_model
+[100%] Built target Calibration
+-- Install configuration: ""
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/package_run_dependencies/camera_model
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/parent_prefix_path/camera_model
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/ament_prefix_path.sh
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/ament_prefix_path.dsv
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/path.sh
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/environment/path.dsv
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.bash
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.sh
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.zsh
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/local_setup.dsv
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/package.dsv
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/ament_index/resource_index/packages/camera_model
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/cmake/camera_modelConfig.cmake
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/cmake/camera_modelConfig-version.cmake
+-- Installing: /home/ubuntu/cyberbee/ros2_ws/src/VINS-mono/install/camera_model/share/camera_model/package.xml
