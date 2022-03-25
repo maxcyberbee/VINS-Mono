@@ -13,6 +13,9 @@
 #include "camodocal/camera_models/CataCamera.h"
 #include "camodocal/camera_models/PinholeCamera.h"
 
+#include <type_traits>
+#include "rclcpp/logger.hpp"
+#include "rcutils/logging_macros.h"
 #include "parameters.h"
 #include "tic_toc.h"
 

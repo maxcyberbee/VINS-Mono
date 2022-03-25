@@ -186,7 +186,7 @@ void CameraPoseVisualization::reset() {
 	m_markers.clear();
 }
 
-void CameraPoseVisualization::publish_by( ros::Publisher &pub, const std_msgs::Header &header ) {
+void CameraPoseVisualization::publish_by( ros::Publisher &pub, const std_msgs::msg::Header &header ) {
 	visualization_msgs::MarkerArray markerArray_msg;
 	
 	for(auto& marker : m_markers) {

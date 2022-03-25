@@ -21,13 +21,13 @@ public:
 	void add_pose(const Eigen::Vector3d& p, const Eigen::Quaterniond& q);
 	void reset();
 
-	void publish_by(ros::Publisher& pub, const std_msgs::Header& header);
+	void publish_by(ros::Publisher& pub, const std_msgs::msg::Header& header);
 	void add_edge(const Eigen::Vector3d& p0, const Eigen::Vector3d& p1);
 	void add_loopedge(const Eigen::Vector3d& p0, const Eigen::Vector3d& p1);
 private:
 	std::vector<visualization_msgs::Marker> m_markers;
-	std_msgs::ColorRGBA m_image_boundary_color;
-	std_msgs::ColorRGBA m_optical_center_connector_color;
+	std_msgs::msg::ColorRGBA m_image_boundary_color;
+	std_msgs::msg::ColorRGBA m_optical_center_connector_color;
 	double m_scale;
 	double m_line_width;
 

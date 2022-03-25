@@ -5,7 +5,7 @@
 #include "std_msgs/msg/string.hpp"
 #include <nav_msgs/msg/Odometry.h>
 #include <nav_msgs/msg/Path.h>
-#include <sensor_msgs/msg/PointCloud.h>
+#include <sensor_msgs/msg/point_cloud.h>
 #include <sensor_msgs/msg/Image.h>
 #include <sensor_msgs/msg/image_encodings.h>
 #include <visualization_msgs/msg/Marker.h>
@@ -29,8 +29,8 @@
 #define SKIP_FIRST_CNT 10
 using namespace std;
 
-queue<sensor_msgs::ImageConstPtr> image_buf;
-queue<sensor_msgs::PointCloudConstPtr> point_buf;
+queue<sensor_msgs::msg::ImageConstPtr> image_buf;
+queue<sensor_msgs::msg::PointCloudConstPtr> point_buf;
 queue<nav_msgs::Odometry::ConstPtr> pose_buf;
 queue<Eigen::Vector3d> odometry_buf;
 std::mutex m_buf;
@@ -78,7 +78,7 @@ void new_sequence()
     printf("sequence cnt %d \n", sequence);
     if (sequence > 5)
     {
-        ROS_WARN("only support 5 sequences since it's boring to copy code for more sequences.");
+        //ROS_WARN("only support 5 sequences since it's boring to copy code for more sequences.");
         ROS_BREAK();
     }
     posegraph.posegraph_visualization->reset();
@@ -95,9 +95,9 @@ void new_sequence()
     m_buf.unlock();
 }
 
-void image_callback(const sensor_msgs::ImageConstPtr &image_msg)
+void image_callback(const sensor_msgs::msg::ImageConstPtr &image_msg)
 {
-    //ROS_INFO("image_callback!");
+    ////RCLCPP_INFO("image_callback!");
     if(!LOOP_CLOSURE)
         return;
     m_buf.lock();
@@ -110,15 +110,15 @@ void image_callback(const sensor_msgs::ImageConstPtr &image_msg)
         last_image_time = image_msg->header.stamp.toSec();
     else if (image_msg->header.stamp.toSec() - last_image_time > 1.0 || image_msg->header.stamp.toSec() < last_image_time)
     {
-        ROS_WARN("image discontinue! detect a new sequence!");
+        //ROS_WARN("image discontinue! detect a new sequence!");
         new_sequence();
     }
     last_image_time = image_msg->header.stamp.toSec();
 }
 
-void point_callback(const sensor_msgs::PointCloudConstPtr &point_msg)
+void point_callback(const sensor_msgs::msg::PointCloudConstPtr &point_msg)
 {
-    //ROS_INFO("point_callback!");
+    ////RCLCPP_INFO("point_callback!");
     if(!LOOP_CLOSURE)
         return;
     m_buf.lock();
@@ -138,7 +138,7 @@ void point_callback(const sensor_msgs::PointCloudConstPtr &point_msg)
 
 void pose_callback(const nav_msgs::Odometry::ConstPtr &pose_msg)
 {
-    //ROS_INFO("pose_callback!");
+    ////RCLCPP_INFO("pose_callback!");
     if(!LOOP_CLOSURE)
         return;
     m_buf.lock();
@@ -205,7 +205,7 @@ void relo_relative_pose_callback(const nav_msgs::Odometry::ConstPtr &pose_msg)
 
 void vio_callback(const nav_msgs::Odometry::ConstPtr &pose_msg)
 {
-    //ROS_INFO("vio_callback!");
+    ////RCLCPP_INFO("vio_callback!");
     Vector3d vio_t(pose_msg->pose.pose.position.x, pose_msg->pose.pose.position.y, pose_msg->pose.pose.position.z);
     Quaterniond vio_q;
     vio_q.w() = pose_msg->pose.pose.orientation.w;
@@ -296,7 +296,7 @@ void extrinsic_callback(const nav_msgs::Odometry::ConstPtr &pose_msg)
     m_process.unlock();
 }
  
-void process(const sensor_msgs::ImageConstPtr &image_msg, const sensor_msgs::PointCloudConstPtr &point_msg, const nav_msgs::Odometry::ConstPtr &pose_msg)
+void process(const sensor_msgs::msg::ImageConstPtr &image_msg, const sensor_msgs::msg::PointCloudConstPtr &point_msg, const nav_msgs::Odometry::ConstPtr &pose_msg)
 {
     
            //printf(" pose time %f \n", pose_msg->header.stamp.toSec());
@@ -322,7 +322,7 @@ void process(const sensor_msgs::ImageConstPtr &image_msg, const sensor_msgs::Poi
             cv_bridge::CvImageConstPtr ptr;
             if (image_msg->encoding == "8UC1")
             {
-                sensor_msgs::Image img;
+                sensor_msgs::msg::Image img;
                 img.header = image_msg->header;
                 img.height = image_msg->height;
                 img.width = image_msg->width;
@@ -330,10 +330,10 @@ void process(const sensor_msgs::ImageConstPtr &image_msg, const sensor_msgs::Poi
                 img.step = image_msg->step;
                 img.data = image_msg->data;
                 img.encoding = "mono8";
-                ptr = cv_bridge::toCvCopy(img, sensor_msgs::image_encodings::MONO8);
+                ptr = cv_bridge::toCvCopy(img, sensor_msgs::msg::image_encodings::MONO8);
             }
             else
-                ptr = cv_bridge::toCvCopy(image_msg, sensor_msgs::image_encodings::MONO8);
+                ptr = cv_bridge::toCvCopy(image_msg, sensor_msgs::msg::image_encodings::MONO8);
             
             cv::Mat image = ptr->image;
             // build keyframe
@@ -410,8 +410,9 @@ void command()
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "pose_graph");
-    ros::NodeHandle n("~");
+    rclcpp::init(argc, argv, "pose_graph");
+    auto n = rclcpp::Node::make_shared("~");
+
     posegraph.registerPub(n);
 
     // read param
@@ -491,18 +492,18 @@ int main(int argc, char **argv)
     //ros::Subscriber sub_point = n.subscribe("/vins_estimator/keyframe_point", 2000, point_callback); // important
     ros::Subscriber sub_relo_relative_pose = n.subscribe("/vins_estimator/relo_relative_pose", 2000, relo_relative_pose_callback); // important
 
-    message_filters::Subscriber<sensor_msgs::Image> raw_image(n, "/pose_graph_raspberry/raw_image", 2000);
-    message_filters::Subscriber<sensor_msgs::PointCloud> pointcloud(n, "/pose_graph_raspberry/pointcloud", 2000);
+    message_filters::Subscriber<sensor_msgs::msg::Image> raw_image(n, "/pose_graph_raspberry/raw_image", 2000);
+    message_filters::Subscriber<sensor_msgs::msg::PointCloud> pointcloud(n, "/pose_graph_raspberry/pointcloud", 2000);
     message_filters::Subscriber<nav_msgs::Odometry> pose(n, "/pose_graph_raspberry/pose", 2000);
-    message_filters::TimeSynchronizer<sensor_msgs::Image,sensor_msgs::PointCloud,nav_msgs::Odometry> sync(raw_image, pointcloud, pose, 2000);
+    message_filters::TimeSynchronizer<sensor_msgs::msg::Image,sensor_msgs::msg::PointCloud,nav_msgs::Odometry> sync(raw_image, pointcloud, pose, 2000);
     sync.registerCallback(process);
 
 
-    pub_match_img = n.advertise<sensor_msgs::Image>("match_image", 1000);
+    pub_match_img = n.advertise<sensor_msgs::msg::Image>("match_image", 1000);
     pub_camera_pose_visual = n.advertise<visualization_msgs::MarkerArray>("camera_pose_visual", 1000);
     pub_key_odometrys = n.advertise<visualization_msgs::Marker>("key_odometrys", 1000);
     pub_vio_path = n.advertise<nav_msgs::Path>("no_loop_path", 1000);
-    pub_match_points = n.advertise<sensor_msgs::PointCloud>("match_points", 100);
+    pub_match_points = n.advertise<sensor_msgs::msg::PointCloud>("match_points", 100);
 
     //std::thread measurement_process;
     std::thread keyboard_command_process;

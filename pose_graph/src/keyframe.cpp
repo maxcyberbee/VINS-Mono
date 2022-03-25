@@ -461,7 +461,7 @@ bool KeyFrame::findConnection(KeyFrame* old_kf)
 	            	*/
 	            	cv::Mat thumbimage;
 	            	cv::resize(loop_match_img, thumbimage, cv::Size(loop_match_img.cols / 2, loop_match_img.rows / 2));
-	    	    	sensor_msgs::ImagePtr msg = cv_bridge::CvImage(std_msgs::Header(), "bgr8", thumbimage).toImageMsg();
+	    	    	sensor_msgs::msg::ImagePtr msg = cv_bridge::CvImage(std_msgs::msg::Header(), "bgr8", thumbimage).toImageMsg();
 	                msg->header.stamp = ros::Time(time_stamp);
 	    	    	pub_match_img.publish(msg);
 	            }
@@ -487,7 +487,7 @@ bool KeyFrame::findConnection(KeyFrame* old_kf)
 	    	             relative_yaw;
 	    	if(FAST_RELOCALIZATION)
 	    	{
-			    sensor_msgs::PointCloud msg_match_points;
+			    sensor_msgs::msg::PointCloud msg_match_points;
 			    msg_match_points.header.stamp = ros::Time(time_stamp);
 			    for (int i = 0; i < (int)matched_2d_old_norm.size(); i++)
 			    {
@@ -500,7 +500,7 @@ bool KeyFrame::findConnection(KeyFrame* old_kf)
 			    Eigen::Vector3d T = old_kf->T_w_i; 
 			    Eigen::Matrix3d R = old_kf->R_w_i;
 			    Quaterniond Q(R);
-			    sensor_msgs::ChannelFloat32 t_q_index;
+			    sensor_msgs::msg::ChannelFloat32 t_q_index;
 			    t_q_index.values.push_back(T.x());
 			    t_q_index.values.push_back(T.y());
 			    t_q_index.values.push_back(T.z());

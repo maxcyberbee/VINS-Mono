@@ -23,4 +23,4 @@ extern int EQUALIZE;
 extern int FISHEYE;
 extern bool PUB_THIS_FRAME;
 
-void readParameters(ros::NodeHandle &n);
+void readParameters(rclcpp::Node &n);

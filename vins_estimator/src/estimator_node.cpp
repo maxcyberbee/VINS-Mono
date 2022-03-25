@@ -21,9 +21,9 @@ Estimator estimator;
 
 std::condition_variable con;
 double current_time = -1;
-queue<sensor_msgs::ImuConstPtr> imu_buf;
-queue<sensor_msgs::PointCloudConstPtr> feature_buf;
-queue<sensor_msgs::PointCloudConstPtr> relo_buf;
+queue<sensor_msgs::msg::ImuConstPtr> imu_buf;
+queue<sensor_msgs::msg::PointCloudConstPtr> feature_buf;
+queue<sensor_msgs::msg::PointCloudConstPtr> relo_buf;
 int sum_of_wait = 0;
 
 std::mutex m_buf;
@@ -44,7 +44,7 @@ bool init_imu = 1;
 double last_imu_t = 0;
 
 ros::Publisher pub_raw_image;
-void predict(const sensor_msgs::ImuConstPtr &imu_msg)
+void predict(const sensor_msgs::msg::ImuConstPtr &imu_msg)
 {
     double t = imu_msg->header.stamp.toSec();
     if (init_imu)
@@ -94,16 +94,16 @@ void update()
     acc_0 = estimator.acc_0;
     gyr_0 = estimator.gyr_0;
 
-    queue<sensor_msgs::ImuConstPtr> tmp_imu_buf = imu_buf;
-    for (sensor_msgs::ImuConstPtr tmp_imu_msg; !tmp_imu_buf.empty(); tmp_imu_buf.pop())
+    queue<sensor_msgs::msg::ImuConstPtr> tmp_imu_buf = imu_buf;
+    for (sensor_msgs::msg::ImuConstPtr tmp_imu_msg; !tmp_imu_buf.empty(); tmp_imu_buf.pop())
         predict(tmp_imu_buf.front());
 
 }
 
-std::vector<std::pair<std::vector<sensor_msgs::ImuConstPtr>,sensor_msgs::PointCloudConstPtr>>
+std::vector<std::pair<std::vector<sensor_msgs::msg::ImuConstPtr>,sensor_msgs::msg::PointCloudConstPtr>>
 getMeasurements()
 {
-    std::vector<std::pair<std::vector<sensor_msgs::ImuConstPtr>,sensor_msgs::PointCloudConstPtr>> measurements;
+    std::vector<std::pair<std::vector<sensor_msgs::msg::ImuConstPtr>,sensor_msgs::msg::PointCloudConstPtr>> measurements;
 
     while (true)
     {
@@ -112,21 +112,21 @@ getMeasurements()
 
         if (!(imu_buf.back()->header.stamp.toSec() > feature_buf.front()->header.stamp.toSec() + estimator.td))
         {
-            //ROS_WARN("wait for imu, only should happen at the beginning");
+            ////ROS_WARN("wait for imu, only should happen at the beginning");
             sum_of_wait++;
             return measurements;
         }
 
         if (!(imu_buf.front()->header.stamp.toSec() < feature_buf.front()->header.stamp.toSec() + estimator.td))
         {
-            ROS_WARN("throw img, only should happen at the beginning");
+            //ROS_WARN("throw img, only should happen at the beginning");
             feature_buf.pop();
             continue;
         }
-        sensor_msgs::PointCloudConstPtr img_msg = feature_buf.front();
+        sensor_msgs::msg::PointCloudConstPtr img_msg = feature_buf.front();
         feature_buf.pop();
         
-        std::vector<sensor_msgs::ImuConstPtr> IMUs;
+        std::vector<sensor_msgs::msg::ImuConstPtr> IMUs;
         while (imu_buf.front()->header.stamp.toSec() < img_msg->header.stamp.toSec() + estimator.td)
         {
             IMUs.emplace_back(imu_buf.front());
@@ -134,17 +134,17 @@ getMeasurements()
         }
         IMUs.emplace_back(imu_buf.front());
         if (IMUs.empty())
-            ROS_WARN("no imu between two image");
+            //ROS_WARN("no imu between two image");
         measurements.emplace_back(IMUs,img_msg);
     }
     return measurements;
 }
 
-void imu_callback(const sensor_msgs::ImuConstPtr &imu_msg)
+void imu_callback(const sensor_msgs::msg::ImuConstPtr &imu_msg)
 {
     if (imu_msg->header.stamp.toSec() <= last_imu_t)
     {
-        ROS_WARN("imu message in disorder!");
+        //ROS_WARN("imu message in disorder!");
         return;
     }
     last_imu_t = imu_msg->header.stamp.toSec();
@@ -159,7 +159,7 @@ void imu_callback(const sensor_msgs::ImuConstPtr &imu_msg)
     {
         std::lock_guard<std::mutex> lg(m_state);
         predict(imu_msg);
-        std_msgs::Header header = imu_msg->header;
+        std_msgs::msg::Header header = imu_msg->header;
         header.frame_id = "world";
         if (estimator.solver_flag == Estimator::SolverFlag::NON_LINEAR)
             pubLatestOdometry(tmp_P, tmp_Q, tmp_V, header);
@@ -167,7 +167,7 @@ void imu_callback(const sensor_msgs::ImuConstPtr &imu_msg)
 }
 
 
-void feature_callback(const sensor_msgs::PointCloudConstPtr &feature_msg)
+void feature_callback(const sensor_msgs::msg::PointCloudConstPtr &feature_msg)
 {
     if (!init_feature)
     {
@@ -181,11 +181,11 @@ void feature_callback(const sensor_msgs::PointCloudConstPtr &feature_msg)
     con.notify_one();
 }
 
-void restart_callback(const std_msgs::BoolConstPtr &restart_msg)
+void restart_callback(const std_msgs::msg::BoolConstPtr &restart_msg)
 {
     if (restart_msg->data == true)
     {
-        ROS_WARN("restart the estimator!");
+        //ROS_WARN("restart the estimator!");
         m_buf.lock();
         while(!feature_buf.empty()){
             feature_buf.pop();
@@ -203,7 +203,7 @@ void restart_callback(const std_msgs::BoolConstPtr &restart_msg)
     return;
 }
 
-void relocalization_callback(const sensor_msgs::PointCloudConstPtr &points_msg)
+void relocalization_callback(const sensor_msgs::msg::PointCloudConstPtr &points_msg)
 {
     //printf("relocalization callback! \n");
     m_buf.lock();
@@ -216,7 +216,7 @@ void process()
 {
     while (true)
     {
-        std::vector<std::pair<std::vector<sensor_msgs::ImuConstPtr>,sensor_msgs::PointCloudConstPtr>>
+        std::vector<std::pair<std::vector<sensor_msgs::msg::ImuConstPtr>,sensor_msgs::msg::PointCloudConstPtr>>
         measurements;
         std::unique_lock<std::mutex> lk(m_buf);
         con.wait(lk, [&]
@@ -271,7 +271,7 @@ void process()
                 }
             }
             // set relocalization frame
-            sensor_msgs::PointCloudConstPtr relo_msg = NULL;
+            sensor_msgs::msg::PointCloudConstPtr relo_msg = NULL;
             while (!relo_buf.empty())
             {
                 relo_msg = relo_buf.front();
@@ -297,7 +297,7 @@ void process()
                 estimator.setReloFrame(frame_stamp, frame_index, match_points, relo_t, relo_r);
             }
 
-            ROS_DEBUG("processing vision data with stamp %f \n", img_msg->header.stamp.toSec());
+            //RCLCPP_DEBUG("processing vision data with stamp %f \n", img_msg->header.stamp.toSec());
 
             TicToc t_s;
             map<int, vector<pair<int, Eigen::Matrix<double, 7, 1>>>> image;
@@ -322,7 +322,7 @@ void process()
 
             double whole_t = t_s.toc();
             printStatistics(estimator, whole_t);
-            std_msgs::Header header = img_msg->header;
+            std_msgs::msg::Header header = img_msg->header;
             header.frame_id = "world";
             
             pubTF(estimator, header);
@@ -343,15 +343,15 @@ void process()
 
 int main(int argc, char **argv)
 {
-    ros::init(argc, argv, "vins_estimator");
-    ros::NodeHandle n("~");
+    rclcpp::init(argc, argv, "vins_estimator");
+    auto n = rclcpp::Node::make_shared("~");
     ros::console::set_logger_level(ROSCONSOLE_DEFAULT_NAME, ros::console::levels::Info);
     readParameters(n);
     estimator.setParameter();
 #ifdef EIGEN_DONT_PARALLELIZE
-    ROS_DEBUG("EIGEN_DONT_PARALLELIZE");
+    //RCLCPP_DEBUG("EIGEN_DONT_PARALLELIZE");
 #endif
-    ROS_WARN("waiting for image and imu...");
+    //ROS_WARN("waiting for image and imu...");
 
     registerPub(n);
 
@@ -360,10 +360,10 @@ int main(int argc, char **argv)
     ros::Subscriber sub_restart = n.subscribe("/feature_tracker/restart", 2000, restart_callback);
     ros::Subscriber sub_relo_points = n.subscribe("/pose_graph/match_points", 2000, relocalization_callback);
 
-    // pub_raw_image = n.advertise<sensor_msgs::Image>("raw_image", 1000);
-    // message_filters::Subscriber<sensor_msgs::PointCloud> image_sub(n, "/feature_tracker/feature", 2000);
-    // message_filters::Subscriber<sensor_msgs::Image> image_raw(n, "/feature_tracker/image_raw", 2000);
-    // message_filters::TimeSynchronizer<sensor_msgs::PointCloud, sensor_msgs::Image> sync(image_sub, image_raw, 2000);
+    // pub_raw_image = n.advertise<sensor_msgs::msg::Image>("raw_image", 1000);
+    // message_filters::Subscriber<sensor_msgs::msg::PointCloud> image_sub(n, "/feature_tracker/feature", 2000);
+    // message_filters::Subscriber<sensor_msgs::msg::Image> image_raw(n, "/feature_tracker/image_raw", 2000);
+    // message_filters::TimeSynchronizer<sensor_msgs::msg::PointCloud, sensor_msgs::msg::Image> sync(image_sub, image_raw, 2000);
     // sync.registerCallback(feature_callback);
 
     std::thread measurement_process{process};

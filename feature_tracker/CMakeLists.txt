@@ -29,7 +29,6 @@ find_package(camera_model REQUIRED)
     
 find_package(OpenCV REQUIRED)
 
-ament_export_include_directories(include)
 
 
 

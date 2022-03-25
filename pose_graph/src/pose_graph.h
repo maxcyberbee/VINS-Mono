@@ -37,7 +37,7 @@ class PoseGraph
 public:
 	PoseGraph();
 	~PoseGraph();
-	void registerPub(ros::NodeHandle &n);
+	void registerPub(rclcpp::Node &n);
 	void addKeyFrame(KeyFrame* cur_kf, bool flag_detect_loop);
 	void loadKeyFrame(KeyFrame* cur_kf, bool flag_detect_loop);
 	void loadVocabulary(std::string voc_path);

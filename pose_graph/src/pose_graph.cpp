@@ -24,7 +24,7 @@ PoseGraph::~PoseGraph()
 	t_optimization.join();
 }
 
-void PoseGraph::registerPub(ros::NodeHandle &n)
+void PoseGraph::registerPub(rclcpp::Node &n)
 {
     pub_pg_path = n.advertise<nav_msgs::Path>("pose_graph_path", 1000);
     pub_base_path = n.advertise<nav_msgs::Path>("base_path", 1000);

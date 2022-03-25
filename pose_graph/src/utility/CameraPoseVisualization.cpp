@@ -195,7 +195,7 @@ void CameraPoseVisualization::reset() {
     //image.colors.clear();
 }
 
-void CameraPoseVisualization::publish_by( ros::Publisher &pub, const std_msgs::Header &header ) {
+void CameraPoseVisualization::publish_by( ros::Publisher &pub, const std_msgs::msg::Header &header ) {
 	visualization_msgs::MarkerArray markerArray_msg;
 	//int k = (int)m_markers.size();
   /*
@@ -216,7 +216,7 @@ void CameraPoseVisualization::publish_by( ros::Publisher &pub, const std_msgs::H
 	pub.publish(markerArray_msg);
 }
 
-void CameraPoseVisualization::publish_image_by( ros::Publisher &pub, const std_msgs::Header &header ) {
+void CameraPoseVisualization::publish_image_by( ros::Publisher &pub, const std_msgs::msg::Header &header ) {
     image.header = header;
 
     pub.publish(image);
@@ -236,7 +236,7 @@ void CameraPoseVisualization::add_image(const Eigen::Vector3d& T, const Eigen::M
     image.scale.z = 1;
 
     geometry_msgs::Point p;
-    std_msgs::ColorRGBA crgb;
+    std_msgs::msg::ColorRGBA crgb;
 
     double center_x = src.rows / 2.0;
     double center_y = src.cols / 2.0;
