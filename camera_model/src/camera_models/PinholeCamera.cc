@@ -142,7 +142,7 @@ PinholeCamera::Parameters::cy(void) const
 }
 
 bool
-PinholeCamera::Parameters::readFromYamlFile(const std::string& filename)
+PinholeCamera::Parameters::readFromYamlFile(const std::string& filename, double downScale)
 {
     cv::FileStorage fs(filename, cv::FileStorage::READ);
 
@@ -174,10 +174,10 @@ PinholeCamera::Parameters::readFromYamlFile(const std::string& filename)
     m_p2 = static_cast<double>(n["p2"]);
 
     n = fs["projection_parameters"];
-    m_fx = static_cast<double>(n["fx"]);
-    m_fy = static_cast<double>(n["fy"]);
-    m_cx = static_cast<double>(n["cx"]);
-    m_cy = static_cast<double>(n["cy"]);
+    m_fx = static_cast<double>(((double)n["fx"])/downScale);
+    m_fy = static_cast<double>(((double) n["fy"])/downScale);
+    m_cx = static_cast<double>(((double)n["cx"])/downScale);
+    m_cy = static_cast<double>(((double)n["cy"])/downScale);
 
     return true;
 }

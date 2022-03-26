@@ -143,7 +143,7 @@ EquidistantCamera::Parameters::v0(void) const
 }
 
 bool
-EquidistantCamera::Parameters::readFromYamlFile(const std::string& filename)
+EquidistantCamera::Parameters::readFromYamlFile(const std::string& filename,double downScale)
 {
     cv::FileStorage fs(filename, cv::FileStorage::READ);
 
@@ -173,10 +173,10 @@ EquidistantCamera::Parameters::readFromYamlFile(const std::string& filename)
     m_k3 = static_cast<double>(n["k3"]);
     m_k4 = static_cast<double>(n["k4"]);
     m_k5 = static_cast<double>(n["k5"]);
-    m_mu = static_cast<double>(n["mu"]);
-    m_mv = static_cast<double>(n["mv"]);
-    m_u0 = static_cast<double>(n["u0"]);
-    m_v0 = static_cast<double>(n["v0"]);
+    m_mu = static_cast<double>(((double)n["mu"])/downScale);
+    m_mv = static_cast<double>(((double)n["mv"])/downScale);
+    m_u0 = static_cast<double>(((double)n["u0"])/downScale);
+    m_v0 = static_cast<double>(((double)n["v0"])/downScale);
 
     return true;
 }

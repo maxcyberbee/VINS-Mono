@@ -45,7 +45,7 @@ public:
 
         int nIntrinsics(void) const;
 
-        virtual bool readFromYamlFile(const std::string& filename) = 0;
+        virtual bool readFromYamlFile(const std::string& filename,double downScale) = 0;
         virtual void writeToYamlFile(const std::string& filename) const = 0;
 
     protected:

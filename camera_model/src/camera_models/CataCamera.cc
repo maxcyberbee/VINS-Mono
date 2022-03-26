@@ -158,7 +158,7 @@ CataCamera::Parameters::v0(void) const
 }
 
 bool
-CataCamera::Parameters::readFromYamlFile(const std::string& filename)
+CataCamera::Parameters::readFromYamlFile(const std::string& filename,double downScale)
 {
     cv::FileStorage fs(filename, cv::FileStorage::READ);
 

@@ -61,7 +61,7 @@ OCAMCamera::Parameters::Parameters()
 
 
 bool
-OCAMCamera::Parameters::readFromYamlFile(const std::string& filename)
+OCAMCamera::Parameters::readFromYamlFile(const std::string& filename,double downScale)
 {
     cv::FileStorage fs(filename, cv::FileStorage::READ);
 

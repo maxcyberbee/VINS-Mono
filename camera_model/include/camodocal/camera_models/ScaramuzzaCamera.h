@@ -48,7 +48,7 @@ public:
         double poly(int idx) const { return m_poly[idx]; }
         double inv_poly(int idx) const { return m_inv_poly[idx]; }
 
-        bool readFromYamlFile(const std::string& filename);
+        bool readFromYamlFile(const std::string& filename,double downScale);
         void writeToYamlFile(const std::string& filename) const;
 
         Parameters& operator=(const Parameters& other);

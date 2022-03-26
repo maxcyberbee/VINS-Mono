@@ -21,7 +21,7 @@ public:
                              const std::string& cameraName,
                              cv::Size imageSize) const;
 
-    CameraPtr generateCameraFromYamlFile(const std::string& filename);
+    CameraPtr generateCameraFromYamlFile(const std::string& filename, double downScale);
 
 private:
     static boost::shared_ptr<CameraFactory> m_instance;

@@ -87,7 +87,7 @@ CameraFactory::generateCamera(Camera::ModelType modelType,
 }
 
 CameraPtr
-CameraFactory::generateCameraFromYamlFile(const std::string& filename)
+CameraFactory::generateCameraFromYamlFile(const std::string& filename, double downScale)
 {
     cv::FileStorage fs(filename, cv::FileStorage::READ);
 
@@ -125,6 +125,7 @@ CameraFactory::generateCameraFromYamlFile(const std::string& filename)
         }
     }
 
+
     switch (modelType)
     {
     case Camera::KANNALA_BRANDT:
@@ -132,7 +133,7 @@ CameraFactory::generateCameraFromYamlFile(const std::string& filename)
         EquidistantCameraPtr camera(new EquidistantCamera);
 
         EquidistantCamera::Parameters params = camera->getParameters();
-        params.readFromYamlFile(filename);
+        params.readFromYamlFile(filename,downScale);
         camera->setParameters(params);
         return camera;
     }
@@ -141,7 +142,7 @@ CameraFactory::generateCameraFromYamlFile(const std::string& filename)
         PinholeCameraPtr camera(new PinholeCamera);
 
         PinholeCamera::Parameters params = camera->getParameters();
-        params.readFromYamlFile(filename);
+        params.readFromYamlFile(filename,downScale);
         camera->setParameters(params);
         return camera;
     }
@@ -150,7 +151,7 @@ CameraFactory::generateCameraFromYamlFile(const std::string& filename)
         OCAMCameraPtr camera(new OCAMCamera);
 
         OCAMCamera::Parameters params = camera->getParameters();
-        params.readFromYamlFile(filename);
+        params.readFromYamlFile(filename,downScale);
         camera->setParameters(params);
         return camera;
     }
@@ -160,7 +161,7 @@ CameraFactory::generateCameraFromYamlFile(const std::string& filename)
         CataCameraPtr camera(new CataCamera);
 
         CataCamera::Parameters params = camera->getParameters();
-        params.readFromYamlFile(filename);
+        params.readFromYamlFile(filename,downScale);
         camera->setParameters(params);
         return camera;
     }

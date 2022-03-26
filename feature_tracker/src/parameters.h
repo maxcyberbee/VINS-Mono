@@ -1,7 +1,8 @@
 #pragma once
-#include "rclcpp/rclcpp.hpp"
+//#include <ros/ros.h>
 #include <opencv2/highgui/highgui.hpp>
-
+#include "string"
+#include "vector"
 extern int ROW;
 extern int COL;
 extern int FOCAL_LENGTH;
@@ -21,6 +22,7 @@ extern int SHOW_TRACK;
 extern int STEREO_TRACK;
 extern int EQUALIZE;
 extern int FISHEYE;
+extern double DOWN_SCALE;
 extern bool PUB_THIS_FRAME;
 
-void readParameters(rclcpp::Node &n);
+//void readParameters(ros::NodeHandle &n);

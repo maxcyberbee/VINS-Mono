@@ -48,7 +48,7 @@ public:
         double u0(void) const;
         double v0(void) const;
 
-        bool readFromYamlFile(const std::string& filename);
+        bool readFromYamlFile(const std::string& filename,double downScale);
         void writeToYamlFile(const std::string& filename) const;
 
         Parameters& operator=(const Parameters& other);
