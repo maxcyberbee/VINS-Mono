@@ -3,16 +3,16 @@ project(camera_model)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
-    set(CMAKE_C_STANDARD 99)
+  set(CMAKE_C_STANDARD 99)
 endif()
 
 # Default to C++14
 if(NOT CMAKE_CXX_STANDARD)
-    set(CMAKE_CXX_STANDARD 14)
+  set(CMAKE_CXX_STANDARD 14)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
 # find dependencies
@@ -32,41 +32,61 @@ include_directories(${CERES_INCLUDE_DIRS})
 include_directories("include")
 
 
-add_executable(Calibration
-        src/intrinsic_calib.cc
-        src/chessboard/Chessboard.cc
-        src/calib/CameraCalibration.cc
-        src/camera_models/Camera.cc
-        src/camera_models/CameraFactory.cc
-        src/camera_models/CostFunctionFactory.cc
-        src/camera_models/PinholeCamera.cc
-        src/camera_models/CataCamera.cc
-        src/camera_models/EquidistantCamera.cc
-        src/camera_models/ScaramuzzaCamera.cc
-        src/sparse_graph/Transform.cc
-        src/gpl/gpl.cc
-        src/gpl/EigenQuaternionParameterization.cc)
-
-add_library(camera_model
-        src/chessboard/Chessboard.cc
-        src/calib/CameraCalibration.cc
-        src/camera_models/Camera.cc
-        src/camera_models/CameraFactory.cc
-        src/camera_models/CostFunctionFactory.cc
-        src/camera_models/PinholeCamera.cc
-        src/camera_models/CataCamera.cc
-        src/camera_models/EquidistantCamera.cc
-        src/camera_models/ScaramuzzaCamera.cc
-        src/sparse_graph/Transform.cc
-        src/gpl/gpl.cc
-        src/gpl/EigenQuaternionParameterization.cc)
+add_executable(Calibration 
+    src/intrinsic_calib.cc
+    src/chessboard/Chessboard.cc
+    src/calib/CameraCalibration.cc
+    src/camera_models/Camera.cc
+    src/camera_models/CameraFactory.cc
+    src/camera_models/CostFunctionFactory.cc
+    src/camera_models/PinholeCamera.cc
+    src/camera_models/CataCamera.cc
+    src/camera_models/EquidistantCamera.cc
+    src/camera_models/ScaramuzzaCamera.cc
+    src/sparse_graph/Transform.cc
+    src/gpl/gpl.cc
+    src/gpl/EigenQuaternionParameterization.cc)
 
 
+add_library(camera_model_lib
+    src/chessboard/Chessboard.cc
+    src/calib/CameraCalibration.cc
+    src/camera_models/Camera.cc
+    src/camera_models/CameraFactory.cc
+    src/camera_models/CostFunctionFactory.cc
+    src/camera_models/PinholeCamera.cc
+    src/camera_models/CataCamera.cc
+    src/camera_models/EquidistantCamera.cc
+    src/camera_models/ScaramuzzaCamera.cc
+    src/sparse_graph/Transform.cc
+    src/gpl/gpl.cc
+    src/gpl/EigenQuaternionParameterization.cc)
 
+
+    
 target_link_libraries(Calibration ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
-target_link_libraries(camera_model ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
+target_link_libraries(camera_model_lib ${Boost_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
 
-install(TARGETS camera_model
-        DESTINATION lib/${PROJECT_NAME})
+
+# TARGETS camera_model_lib
+#   DESTINATION lib/${PROJECT_NAME})
+
+ament_export_targets(camera_model_lib HAS_LIBRARY_TARGET)
+
+install(
+  DIRECTORY include/
+  DESTINATION include
+)
+
+
+install(
+  TARGETS camera_model_lib
+  EXPORT camera_model_lib
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib 
+  RUNTIME DESTINATION bin
+  DESTINATION lib/${PROJECT_NAME}
+  )
+  
 
 ament_package()

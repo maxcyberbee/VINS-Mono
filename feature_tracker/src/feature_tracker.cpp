@@ -2,6 +2,8 @@
 
 int FeatureTracker::n_id = 0;
 
+
+
 bool inBorder(const cv::Point2f &pt)
 {
     const int BORDER_SIZE = 1;
@@ -38,7 +40,7 @@ void FeatureTracker::setMask()
     if(FISHEYE)
         mask = fisheye_mask.clone();
     else
-        mask = cv::Mat((int)ROW/DOWN_SCALE, (int)COL/DOWN_SCALE, CV_8UC1, cv::Scalar(255));
+        mask = cv::Mat((int)ROW, (int)COL, CV_8UC1, cv::Scalar(255));
     
     // prefer to keep features that are tracked for long time
     vector<pair<int, pair<cv::Point2f, int>>> cnt_pts_id;
@@ -88,14 +90,14 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
         cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE(3.0, cv::Size(8, 8));
         TicToc t_c;
         clahe->apply(_img, img);
-        ROS_DEBUG("CLAHE costs: %fms", t_c.toc());
+        //ROS_DEBUG("CLAHE costs: %fms", t_c.toc());
     }
     else{
         img = _img;
     }
     //cv::Mat resizeDownImage;
 
-    resize(img, img, cv::Size((int) (COL/DOWN_SCALE),(int) (ROW/DOWN_SCALE)), cv::INTER_LINEAR);
+    resize(img, img, cv::Size((int) (COL),(int) (ROW)), cv::INTER_LINEAR);
     
     if (forw_img.empty())
     {
@@ -124,7 +126,7 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
         reduceVector(ids, status);
         reduceVector(cur_un_pts, status);
         reduceVector(track_cnt, status);
-        ROS_DEBUG("temporal optical flow costs: %fms", t_o.toc());
+        //ROS_DEBUG("temporal optical flow costs: %fms", t_o.toc());
     }
 
     for (auto &n : track_cnt)
@@ -133,12 +135,12 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
     if (PUB_THIS_FRAME)
     {
         rejectWithF();
-        ROS_DEBUG("set mask begins");
+        //ROS_DEBUG("set mask begins");
         TicToc t_m;
         setMask();
-        ROS_DEBUG("set mask costs %fms", t_m.toc());
+        //ROS_DEBUG("set mask costs %fms", t_m.toc());
 
-        ROS_DEBUG("detect feature begins");
+        //ROS_DEBUG("detect feature begins");
         TicToc t_t;
         int n_max_cnt = MAX_CNT - static_cast<int>(forw_pts.size());
         if (n_max_cnt > 0)
@@ -154,12 +156,12 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
         }
         else
             n_pts.clear();
-        ROS_DEBUG("detect feature costs: %fms", t_t.toc());
+        //ROS_DEBUG("detect feature costs: %fms", t_t.toc());
 
-        ROS_DEBUG("add feature begins");
+        //ROS_DEBUG("add feature begins");
         TicToc t_a;
         addPoints();
-        ROS_DEBUG("selectFeature costs: %fms", t_a.toc());
+        //ROS_DEBUG("selectFeature costs: %fms", t_a.toc());
     }
     prev_img = cur_img;
     prev_pts = cur_pts;
@@ -174,7 +176,7 @@ void FeatureTracker::rejectWithF()
 {
     if (forw_pts.size() >= 8)
     {
-        ROS_DEBUG("FM ransac begins");
+        //ROS_DEBUG("FM ransac begins");
         TicToc t_f;
         vector<cv::Point2f> un_cur_pts(cur_pts.size()), un_forw_pts(forw_pts.size());
         for (unsigned int i = 0; i < cur_pts.size(); i++)
@@ -200,8 +202,8 @@ void FeatureTracker::rejectWithF()
         reduceVector(cur_un_pts, status);
         reduceVector(ids, status);
         reduceVector(track_cnt, status);
-        ROS_DEBUG("FM ransac: %d -> %lu: %f", size_a, forw_pts.size(), 1.0 * forw_pts.size() / size_a);
-        ROS_DEBUG("FM ransac costs: %fms", t_f.toc());
+        //ROS_DEBUG("FM ransac: %d -> %lu: %f", size_a, forw_pts.size(), 1.0 * forw_pts.size() / size_a);
+        //ROS_DEBUG("FM ransac costs: %fms", t_f.toc());
     }
 }
 
@@ -219,8 +221,8 @@ bool FeatureTracker::updateID(unsigned int i)
 
 void FeatureTracker::readIntrinsicParameter(const string &calib_file)
 {
-    ROS_INFO("reading paramerter of camera %s", calib_file.c_str());
-    m_camera = CameraFactory::instance()->generateCameraFromYamlFile(calib_file,DOWN_SCALE);
+    //ROS_INFO("reading paramerter of camera %s", calib_file.c_str());
+    m_camera = CameraFactory::instance()->generateCameraFromYamlFile(calib_file);
 }
 
 void FeatureTracker::showUndistortion(const string &name)

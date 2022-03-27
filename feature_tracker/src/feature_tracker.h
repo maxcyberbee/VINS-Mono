@@ -8,7 +8,7 @@
 #include <opencv2/opencv.hpp>
 #include <eigen3/Eigen/Dense>
 
-
+#include "rclcpp/rclcpp.hpp"
 #include "camodocal/camera_models/CameraFactory.h"
 #include "camodocal/camera_models/CataCamera.h"
 #include "camodocal/camera_models/PinholeCamera.h"
