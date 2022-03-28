@@ -30,7 +30,6 @@ void reduceVector(vector<int> &v, vector<uchar> status)
     v.resize(j);
 }
 
-
 FeatureTracker::FeatureTracker()
 {
 }
@@ -222,7 +221,7 @@ bool FeatureTracker::updateID(unsigned int i)
 void FeatureTracker::readIntrinsicParameter(const string &calib_file)
 {
     //ROS_INFO("reading paramerter of camera %s", calib_file.c_str());
-    m_camera = CameraFactory::instance()->generateCameraFromYamlFile(calib_file);
+    m_camera = CameraFactory::instance()->generateCameraFromYamlFile(calib_file,1);
 }
 
 void FeatureTracker::showUndistortion(const string &name)

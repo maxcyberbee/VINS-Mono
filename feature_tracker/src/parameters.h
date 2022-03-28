@@ -25,4 +25,5 @@ extern int FISHEYE;
 //extern double DOWN_SCALE;
 extern bool PUB_THIS_FRAME;
 
-//void readParameters(ros::NodeHandle &n);
+void readParameters();
+

@@ -34,7 +34,7 @@ find_package(Eigen3)
 
 
 
-add_executable(feature_tracker src/feature_tracker_node.cpp)
+add_executable(feature_tracker src/feature_tracker_node.cpp src/feature_tracker.cpp src/parameters.cpp)
 target_link_libraries(feature_tracker 
    camera_model::camera_model_lib
    ${Boost_LIBRARIES}
