@@ -1,7 +1,7 @@
 #include "parameters.h"
 #include <iostream>
 #include <string>
-std::string IMAGE_TOPIC = "/image";
+std::string IMAGE_TOPIC;
 std::string IMU_TOPIC;
 std::vector<std::string> CAM_NAMES;
 std::string FISHEYE_MASK;
@@ -13,28 +13,43 @@ double F_THRESHOLD;
 int SHOW_TRACK;
 int STEREO_TRACK;
 int EQUALIZE;
-int ROW = 640;
-int COL = 512;
+int ROW;
+int COL;
 int FOCAL_LENGTH;
 int FISHEYE;
 bool PUB_THIS_FRAME;
 
-void readParameters()
-{
-    IMAGE_TOPIC = "/image";
-    IMU_TOPIC = "/imu";
-    CAM_NAMES.push_back("KANNALA_BRANDT");
-    FISHEYE_MASK = "config/fisheye_mask.jpg";;
-    MAX_CNT = 300;
-    FREQ = 10;
-    F_THRESHOLD = 1;
-    SHOW_TRACK = 0;
-    EQUALIZE = 0;
-    ROW = 640;
-    COL = 512;
-    FISHEYE = 0;
+void readParameters(std::string config_file)
+{    
+    //std::string tmp_config_file = "/home/ubuntu/cyberbee/ros2_ws/src/VINS-Mono/config/euroc/euroc_config.yaml";
+    cv::FileStorage fsSettings(config_file, cv::FileStorage::READ);
+    if(!fsSettings.isOpened())
+    {
+        std::cerr << "ERROR: Wrong path to settings" << std::endl;
+    }
+    std::string VINS_FOLDER_PATH = config_file + "/..";
+    fsSettings["image_topic"] >> IMAGE_TOPIC;
+    fsSettings["imu_topic"] >> IMU_TOPIC;
+    MAX_CNT = fsSettings["max_cnt"];
+    MIN_DIST = fsSettings["min_dist"];
+    ROW = fsSettings["image_height"];
+    COL = fsSettings["image_width"];
+    FREQ = fsSettings["freq"];
+    F_THRESHOLD = fsSettings["F_threshold"];
+    SHOW_TRACK = fsSettings["show_track"];
+    EQUALIZE = fsSettings["equalize"];
+    FISHEYE = fsSettings["fisheye"];
+    if (FISHEYE == 1)
+        FISHEYE_MASK = VINS_FOLDER_PATH + "/fisheye_mask.jpg";
+    CAM_NAMES.push_back("test");
+
     WINDOW_SIZE = 20;
     STEREO_TRACK = false;
     FOCAL_LENGTH = 460;
     PUB_THIS_FRAME = false;
+
+    if (FREQ == 0)
+        FREQ = 100;
+
+    fsSettings.release();
 }

@@ -19,10 +19,14 @@ public:
     MinimalSubscriber()
         : Node("feature_tracker")
     {
-        // RCLCPP_INFO(this->get_logger(),"IMAGE_TOPIC %s ", IMAGE_TOPIC.c_str());
+        this->declare_parameter<std::string>("config_file", "test");
+        this->get_parameter("config_file", camera_config_file_);
+        RCLCPP_INFO(this->get_logger(), "Hello %s", camera_config_file_.c_str());
+        readParameters(camera_config_file_);
+        RCLCPP_INFO(this->get_logger(),"IMAGE_TOPIC %s ", IMAGE_TOPIC.c_str());
 
-        // RCLCPP_INFO(this->get_logger(),"ROW %i",ROW);
-        // RCLCPP_INFO(this->get_logger(),"COL %i",COL);
+        RCLCPP_INFO(this->get_logger(),"ROW %i",ROW);
+        RCLCPP_INFO(this->get_logger(),"COL %i",COL);
         // subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&FeatureTrackerNode::img_callback, this, _1));
         subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&MinimalSubscriber::img_callback, this, _1));
         pub_restart = this->create_publisher<std_msgs::msg::Bool>("restart", 1000);
@@ -45,10 +49,13 @@ public:
                     RCLCPP_INFO(this->get_logger(), "load mask success");
             }
         }
+        
+        // readParameters(camera_config_file_);
     }
 
 private:
     FeatureTracker trackerData[NUM_OF_CAM];
+    std::string camera_config_file_;
     double first_image_time;
     int pub_count = 1;
     bool first_image_flag = true;
@@ -62,7 +69,7 @@ private:
     {
         if (first_image_flag)
         {
-            
+
             first_image_flag = false;
             first_image_time = img_msg->header.stamp.sec;
             last_image_time = img_msg->header.stamp.sec;
@@ -71,7 +78,7 @@ private:
         // detect unstable camera stream
         if (img_msg->header.stamp.sec - last_image_time > 1.0 || img_msg->header.stamp.sec < last_image_time)
         {
-            //RCLCPP_WARN(this->get_logger(),("image discontinue! reset the feature tracker!");
+            // RCLCPP_WARN(this->get_logger(),("image discontinue! reset the feature tracker!");
             first_image_flag = true;
             last_image_time = 0;
             pub_count = 1;
@@ -118,7 +125,7 @@ private:
         TicToc t_r;
         for (int i = 0; i < NUM_OF_CAM; i++)
         {
-            RCLCPP_DEBUG(this->get_logger(),"processing camera %d", i);
+            RCLCPP_DEBUG(this->get_logger(), "processing camera %d", i);
             if (i != 1 || !STEREO_TRACK)
             {
                 trackerData[i].readImage(ptr->image.rowRange(ROW * i, ROW * (i + 1)), img_msg->header.stamp.sec);
@@ -136,7 +143,10 @@ private:
 
 #if SHOW_UNDISTORTION
             trackerData[i].showUndistortion("undistrotion_" + std::to_string(i));
-#endifsource /opt/ros/foxy/setup.bash
+#endif
+        }
+
+        for (unsigned int i = 0;; i++)
         {
             bool completed = false;
             for (int j = 0; j < NUM_OF_CAM; j++)
@@ -149,7 +159,7 @@ private:
         if (PUB_THIS_FRAME)
         {
             pub_count++;
-            sensor_msgs::msg::PointCloud feature_points ;
+            sensor_msgs::msg::PointCloud feature_points;
             sensor_msgs::msg::ChannelFloat32 id_of_point;
             sensor_msgs::msg::ChannelFloat32 u_of_point;
             sensor_msgs::msg::ChannelFloat32 v_of_point;
@@ -191,8 +201,8 @@ private:
             feature_points.channels.push_back(v_of_point);
             feature_points.channels.push_back(velocity_x_of_point);
             feature_points.channels.push_back(velocity_y_of_point);
-            //RCLCPP_DEBUG(this->get_logger(),"publish %f, at %f", feature_points->header.stamp.sec(), ros::Time::now().sec());
-            // skip the first image; since no optical speed on frist image
+            // RCLCPP_DEBUG(this->get_logger(),"publish %f, at %f", feature_points->header.stamp.sec(), ros::Time::now().sec());
+            //  skip the first image; since no optical speed on frist image
             if (!init_pub)
             {
                 init_pub = 1;
@@ -202,7 +212,7 @@ private:
                 pub_img->publish(feature_points);
             }
             if (SHOW_TRACK)
-            {
+            {readParameters("");
                 ptr = cv_bridge::cvtColor(ptr, sensor_msgs::image_encodings::BGR8);
                 // cv::Mat stereo_img(ROW * NUM_OF_CAM, COL, CV_8UC3);
                 cv::Mat stereo_img = ptr->image;
@@ -215,6 +225,7 @@ private:
                     for (unsigned int j = 0; j < trackerData[i].cur_pts.size(); j++)
                     {
                         double len = std::min(1.0, 1.0 * trackerData[i].track_cnt[j] / WINDOW_SIZE);
+
                         cv::circle(tmp_img, trackerData[i].cur_pts[j], 2, cv::Scalar(255 * (1 - len), 0, 255 * len), 2);
                         // draw speed line
                         /*
@@ -234,17 +245,17 @@ private:
                 }
                 // cv::imshow("vis", stereo_img);
                 // cv::waitKey(5);
-                //pub_match.publish(ptr->toImageMsg());
+                pub_match->publish(ptr->toImageMsg());
             }
         }
-        RCLCPP_INFO(this->get_logger(),"whole feature tracker processing costs: %f", t_r.toc());
+        RCLCPP_INFO(this->get_logger(), "whole feature tracker processing costs: %f", t_r.toc());
     }
 };
 
 int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
-    readParameters();
+    
     rclcpp::spin(std::make_shared<MinimalSubscriber>());
     rclcpp::shutdown();
     return 0;
