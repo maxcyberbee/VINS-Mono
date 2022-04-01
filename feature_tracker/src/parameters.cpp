@@ -21,7 +21,6 @@ bool PUB_THIS_FRAME;
 
 void readParameters(std::string config_file)
 {    
-    //std::string tmp_config_file = "/home/ubuntu/cyberbee/ros2_ws/src/VINS-Mono/config/euroc/euroc_config.yaml";
     cv::FileStorage fsSettings(config_file, cv::FileStorage::READ);
     if(!fsSettings.isOpened())
     {
@@ -41,7 +40,7 @@ void readParameters(std::string config_file)
     FISHEYE = fsSettings["fisheye"];
     if (FISHEYE == 1)
         FISHEYE_MASK = VINS_FOLDER_PATH + "/fisheye_mask.jpg";
-    CAM_NAMES.push_back("test");
+    CAM_NAMES.push_back(config_file);
 
     WINDOW_SIZE = 20;
     STEREO_TRACK = false;

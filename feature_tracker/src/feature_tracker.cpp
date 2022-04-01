@@ -78,7 +78,7 @@ void FeatureTracker::addPoints()
     }
 }
 
-void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
+void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time,rclcpp::Logger logger)
 {
     cv::Mat img;
     TicToc t_r;
@@ -89,14 +89,14 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
         cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE(3.0, cv::Size(8, 8));
         TicToc t_c;
         clahe->apply(_img, img);
-        //ROS_DEBUG("CLAHE costs: %fms", t_c.toc());
+        RCLCPP_DEBUG(logger, "CLAHE costs: %fms", t_c.toc());
     }
     else{
         img = _img;
     }
     //cv::Mat resizeDownImage;
 
-    resize(img, img, cv::Size((int) (COL),(int) (ROW)), cv::INTER_LINEAR);
+    //resize(img, img, cv::Size((int) (COL),(int) (ROW)), cv::INTER_LINEAR);
     
     if (forw_img.empty())
     {
@@ -116,30 +116,35 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
         vector<float> err;
         cv::calcOpticalFlowPyrLK(cur_img, forw_img, cur_pts, forw_pts, status, err, cv::Size(21, 21), 3);
 
-        for (int i = 0; i < int(forw_pts.size()); i++)
-            if (status[i] && !inBorder(forw_pts[i]))
+        for (int i = 0; i < int(forw_pts.size()); i++){
+            if (status[i] && !inBorder(forw_pts[i])){
                 status[i] = 0;
+            }
+        }
+
         reduceVector(prev_pts, status);
         reduceVector(cur_pts, status);
         reduceVector(forw_pts, status);
         reduceVector(ids, status);
         reduceVector(cur_un_pts, status);
         reduceVector(track_cnt, status);
-        //ROS_DEBUG("temporal optical flow costs: %fms", t_o.toc());
+        RCLCPP_DEBUG(logger, "temporal optical flow costs: %fms", t_o.toc());
     }
 
-    for (auto &n : track_cnt)
+    for (auto &n : track_cnt){
         n++;
+    }
 
     if (PUB_THIS_FRAME)
     {
-        rejectWithF();
-        //ROS_DEBUG("set mask begins");
+        rejectWithF(logger);
+        RCLCPP_DEBUG(logger, "set mask begins");
         TicToc t_m;
         setMask();
-        //ROS_DEBUG("set mask costs %fms", t_m.toc());
+        RCLCPP_DEBUG(logger, "set mask costs %fms", t_m.toc());
 
-        //ROS_DEBUG("detect feature begins");
+        RCLCPP_DEBUG(logger, "detect feature begins");
+
         TicToc t_t;
         int n_max_cnt = MAX_CNT - static_cast<int>(forw_pts.size());
         if (n_max_cnt > 0)
@@ -153,15 +158,16 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
             
             cv::goodFeaturesToTrack(forw_img, n_pts, MAX_CNT - forw_pts.size(), 0.01, MIN_DIST, mask);
         }
-        else
+        else{
             n_pts.clear();
-        //ROS_DEBUG("detect feature costs: %fms", t_t.toc());
-
-        //ROS_DEBUG("add feature begins");
+        }
+        RCLCPP_DEBUG(logger, "detect feature costs: %fms", t_t.toc());
+        RCLCPP_DEBUG(logger, "add feature begins");
         TicToc t_a;
         addPoints();
-        //ROS_DEBUG("selectFeature costs: %fms", t_a.toc());
+        RCLCPP_DEBUG(logger,"selectFeature costs: %fms", t_a.toc());
     }
+
     prev_img = cur_img;
     prev_pts = cur_pts;
     prev_un_pts = cur_un_pts;
@@ -169,13 +175,14 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time)
     cur_pts = forw_pts;
     undistortedPoints();
     prev_time = cur_time;
+
 }
 
-void FeatureTracker::rejectWithF()
+void FeatureTracker::rejectWithF(rclcpp::Logger logger)
 {
     if (forw_pts.size() >= 8)
     {
-        //ROS_DEBUG("FM ransac begins");
+        RCLCPP_DEBUG(logger,"FM ransac begins");
         TicToc t_f;
         vector<cv::Point2f> un_cur_pts(cur_pts.size()), un_forw_pts(forw_pts.size());
         for (unsigned int i = 0; i < cur_pts.size(); i++)
@@ -201,8 +208,8 @@ void FeatureTracker::rejectWithF()
         reduceVector(cur_un_pts, status);
         reduceVector(ids, status);
         reduceVector(track_cnt, status);
-        //ROS_DEBUG("FM ransac: %d -> %lu: %f", size_a, forw_pts.size(), 1.0 * forw_pts.size() / size_a);
-        //ROS_DEBUG("FM ransac costs: %fms", t_f.toc());
+        RCLCPP_DEBUG(logger,"FM ransac: %d -> %lu: %f", size_a, forw_pts.size(), 1.0 * forw_pts.size() / size_a);
+        RCLCPP_DEBUG(logger,"FM ransac costs: %fms", t_f.toc());
     }
 }
 
@@ -218,13 +225,13 @@ bool FeatureTracker::updateID(unsigned int i)
         return false;
 }
 
-void FeatureTracker::readIntrinsicParameter(const string &calib_file)
+void FeatureTracker::readIntrinsicParameter(const string &calib_file,rclcpp::Logger logger)
 {
-    //ROS_INFO("reading paramerter of camera %s", calib_file.c_str());
+    RCLCPP_INFO(logger, "reading paramerter of camera %s", calib_file.c_str());
     m_camera = CameraFactory::instance()->generateCameraFromYamlFile(calib_file,1);
 }
 
-void FeatureTracker::showUndistortion(const string &name)
+void FeatureTracker::showUndistortion(const string &name,rclcpp::Logger logger)
 {
     cv::Mat undistortedImg(ROW + 600, COL + 600, CV_8UC1, cv::Scalar(0));
     vector<Eigen::Vector2d> distortedp, undistortedp;
@@ -253,7 +260,7 @@ void FeatureTracker::showUndistortion(const string &name)
         }
         else
         {
-            //ROS_ERROR("(%f %f) -> (%f %f)", distortedp[i].y, distortedp[i].x, pp.at<float>(1, 0), pp.at<float>(0, 0));
+            //RCLCPP_ERROR(logger,"(%f %f) -> (%f %f)", distortedp[i].y, distortedp[i].x, pp.at<float>(1, 0), pp.at<float>(0, 0));
         }
     }
     cv::imshow(name, undistortedImg);

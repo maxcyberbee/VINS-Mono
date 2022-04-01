@@ -12,7 +12,7 @@ if(NOT CMAKE_CXX_STANDARD)
 endif()
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-  add_compile_options(-Wall -Wextra -Wpedantic)
+  add_compile_options(-Wall )
 endif()
 
 include_directories("include")
@@ -25,10 +25,11 @@ find_package(nav_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(cv_bridge REQUIRED)  
 find_package(OpenCV REQUIRED)
+find_package(Ceres REQUIRED)
 
 find_package(camera_model REQUIRED)
 
-message(camera_model "test")
+#message(camera_model "test")
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 find_package(Eigen3)
 

@@ -30,7 +30,7 @@ class FeatureTracker
   public:
     FeatureTracker();
 
-    void readImage(const cv::Mat &_img,double _cur_time);
+    void readImage(const cv::Mat &_img,double _cur_time, rclcpp::Logger logger);
 
     void setMask();
 
@@ -38,11 +38,11 @@ class FeatureTracker
 
     bool updateID(unsigned int i);
 
-    void readIntrinsicParameter(const string &calib_file);
+    void readIntrinsicParameter(const string &calib_file, rclcpp::Logger logger);
 
-    void showUndistortion(const string &name);
+    void showUndistortion(const string &name,rclcpp::Logger logger);
 
-    void rejectWithF();
+    void rejectWithF(rclcpp::Logger logger);
 
     void undistortedPoints();
 

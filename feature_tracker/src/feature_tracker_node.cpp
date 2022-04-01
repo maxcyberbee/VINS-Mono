@@ -19,21 +19,22 @@ public:
     MinimalSubscriber()
         : Node("feature_tracker")
     {
-        this->declare_parameter<std::string>("config_file", "test");
+        this->declare_parameter<std::string>("config_file", "");
         this->get_parameter("config_file", camera_config_file_);
-        RCLCPP_INFO(this->get_logger(), "Hello %s", camera_config_file_.c_str());
+        RCLCPP_INFO(this->get_logger(), "CONFIG FILE: %s", camera_config_file_.c_str());
         readParameters(camera_config_file_);
-        RCLCPP_INFO(this->get_logger(),"IMAGE_TOPIC %s ", IMAGE_TOPIC.c_str());
 
-        RCLCPP_INFO(this->get_logger(),"ROW %i",ROW);
-        RCLCPP_INFO(this->get_logger(),"COL %i",COL);
+        RCLCPP_INFO(this->get_logger(),"IMAGE_TOPIC: %s ", IMAGE_TOPIC.c_str());
+        RCLCPP_INFO(this->get_logger(),"ROW: %i",ROW);
+        RCLCPP_INFO(this->get_logger(),"COL: %i",COL);
         // subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&FeatureTrackerNode::img_callback, this, _1));
         subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&MinimalSubscriber::img_callback, this, _1));
         pub_restart = this->create_publisher<std_msgs::msg::Bool>("restart", 1000);
         pub_img = this->create_publisher<sensor_msgs::msg::PointCloud>("feature", 1000);
+        pub_match = this->create_publisher<sensor_msgs::msg::Image>("feature_img", 1000);
 
         for (int i = 0; i < NUM_OF_CAM; i++)
-            trackerData[i].readIntrinsicParameter(CAM_NAMES[i]);
+            trackerData[i].readIntrinsicParameter(CAM_NAMES[i],this->get_logger());
 
         if (FISHEYE)
         {
@@ -49,8 +50,6 @@ public:
                     RCLCPP_INFO(this->get_logger(), "load mask success");
             }
         }
-        
-        // readParameters(camera_config_file_);
     }
 
 private:
@@ -65,11 +64,14 @@ private:
 
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr pub_restart;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_img;
+    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match;
+
+
+
     void img_callback(const sensor_msgs::msg::Image::SharedPtr img_msg)
     {
         if (first_image_flag)
         {
-
             first_image_flag = false;
             first_image_time = img_msg->header.stamp.sec;
             last_image_time = img_msg->header.stamp.sec;
@@ -78,7 +80,7 @@ private:
         // detect unstable camera stream
         if (img_msg->header.stamp.sec - last_image_time > 1.0 || img_msg->header.stamp.sec < last_image_time)
         {
-            // RCLCPP_WARN(this->get_logger(),("image discontinue! reset the feature tracker!");
+            RCLCPP_WARN(this->get_logger(), "image discontinue! reset the feature tracker!");
             first_image_flag = true;
             last_image_time = 0;
             pub_count = 1;
@@ -128,7 +130,7 @@ private:
             RCLCPP_DEBUG(this->get_logger(), "processing camera %d", i);
             if (i != 1 || !STEREO_TRACK)
             {
-                trackerData[i].readImage(ptr->image.rowRange(ROW * i, ROW * (i + 1)), img_msg->header.stamp.sec);
+                trackerData[i].readImage(ptr->image.rowRange(ROW * i, ROW * (i + 1)), img_msg->header.stamp.sec, this->get_logger());
             }
             else
             {
@@ -137,8 +139,9 @@ private:
                     cv::Ptr<cv::CLAHE> clahe = cv::createCLAHE();
                     clahe->apply(ptr->image.rowRange(ROW * i, ROW * (i + 1)), trackerData[i].cur_img);
                 }
-                else
+                else {
                     trackerData[i].cur_img = ptr->image.rowRange(ROW * i, ROW * (i + 1));
+                }
             }
 
 #if SHOW_UNDISTORTION
@@ -211,8 +214,9 @@ private:
             {
                 pub_img->publish(feature_points);
             }
+
             if (SHOW_TRACK)
-            {readParameters("");
+            {
                 ptr = cv_bridge::cvtColor(ptr, sensor_msgs::image_encodings::BGR8);
                 // cv::Mat stereo_img(ROW * NUM_OF_CAM, COL, CV_8UC3);
                 cv::Mat stereo_img = ptr->image;
@@ -245,10 +249,12 @@ private:
                 }
                 // cv::imshow("vis", stereo_img);
                 // cv::waitKey(5);
-                pub_match->publish(ptr->toImageMsg());
+                pub_match->publish(*(ptr->toImageMsg()));
             }
+
         }
-        RCLCPP_INFO(this->get_logger(), "whole feature tracker processing costs: %f", t_r.toc());
+
+        RCLCPP_DEBUG(this->get_logger(), "whole feature tracker processing costs: %f", t_r.toc());
     }
 };
 
