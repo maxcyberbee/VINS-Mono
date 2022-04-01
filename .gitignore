@@ -12,3 +12,5 @@ A3_rs.launch
 test/
 test.launch
 .vscode/
+bags/V1_01_easy/V1_01_easy.db3
+bags/V1_01_easy.bag
