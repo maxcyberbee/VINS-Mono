@@ -13,10 +13,10 @@
 
 using std::placeholders::_1;
 
-class MinimalSubscriber : public rclcpp::Node
+class FeatureTrackerNode : public rclcpp::Node
 {
 public:
-    MinimalSubscriber()
+    FeatureTrackerNode()
         : Node("feature_tracker")
     {
         this->declare_parameter<std::string>("config_file", "");
@@ -28,7 +28,7 @@ public:
         RCLCPP_INFO(this->get_logger(),"ROW: %i",ROW);
         RCLCPP_INFO(this->get_logger(),"COL: %i",COL);
         // subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&FeatureTrackerNode::img_callback, this, _1));
-        subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&MinimalSubscriber::img_callback, this, _1));
+        subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&FeatureTrackerNode::img_callback, this, _1));
         pub_restart = this->create_publisher<std_msgs::msg::Bool>("restart", 1000);
         pub_img = this->create_publisher<sensor_msgs::msg::PointCloud>("feature", 1000);
         pub_match = this->create_publisher<sensor_msgs::msg::Image>("feature_img", 1000);
@@ -262,7 +262,7 @@ int main(int argc, char **argv)
 {
     rclcpp::init(argc, argv);
     
-    rclcpp::spin(std::make_shared<MinimalSubscriber>());
+    rclcpp::spin(std::make_shared<FeatureTrackerNode>());
     rclcpp::shutdown();
     return 0;
 }
