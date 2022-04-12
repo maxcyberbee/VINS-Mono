@@ -8,7 +8,7 @@ from ament_index_python.packages import get_package_share_directory
 launch_path = os.path.realpath(__file__).replace("feature_tracker_launch.py", "")
 
 VINS_Mono_path = os.path.realpath(
-    os.path.join(launch_path, "../../"))
+    os.path.join(launch_path, "../../../../..","src","VINS-Mono"))
 
 VINS_Mono_config_path = os.path.join(VINS_Mono_path, "config", "euroc")
 
@@ -24,8 +24,7 @@ def generate_launch_description():
     )
 
     rosbag = launch.actions.ExecuteProcess(
-        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_path, 'bags', 'V1_01_easy', 'V1_01_easy.db3'), '-r1',
-             '--clock'],
+        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_path, 'bags', 'V1_01_easy', 'V1_01_easy.db3')],
         output='screen'
     )
 
