@@ -18,6 +18,7 @@ static Vector3d last_path(0.0, 0.0, 0.0);
 
 void registerPub(rclcpp::Node &n)
 {
+    
     pub_latest_odometry = n.create_publisher<nav_msgs::msg::Odometry>("imu_propagate", 1000); // for pose graph
     //pub_path = n.advertise<nav_msgs::Path>("path", 1000);
     //pub_relo_path = n.advertise<nav_msgs::Path>("relocalization_path", 1000);

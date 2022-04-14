@@ -27,8 +27,12 @@ public:
         RCLCPP_INFO(this->get_logger(),"IMAGE_TOPIC: %s ", IMAGE_TOPIC.c_str());
         RCLCPP_INFO(this->get_logger(),"ROW: %i",ROW);
         RCLCPP_INFO(this->get_logger(),"COL: %i",COL);
-        // subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&FeatureTrackerNode::img_callback, this, _1));
+
+        // Subscribers
         subscription_ = this->create_subscription<sensor_msgs::msg::Image>(IMAGE_TOPIC, 10, std::bind(&FeatureTrackerNode::img_callback, this, _1));
+
+
+        // Publisher
         pub_restart = this->create_publisher<std_msgs::msg::Bool>("restart", 1000);
         pub_img = this->create_publisher<sensor_msgs::msg::PointCloud>("feature", 1000);
         pub_match = this->create_publisher<sensor_msgs::msg::Image>("feature_img", 1000);

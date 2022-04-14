@@ -5,7 +5,7 @@ import launch
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
-launch_path = os.path.realpath(__file__).replace("feature_tracker_launch.py", "")
+launch_path = os.path.realpath(__file__).replace("vins_estimator_launch.py", "")
 
 VINS_Mono_path = os.path.realpath(
     os.path.join(launch_path, "../../../../..","src","VINS-Mono"))
@@ -23,18 +23,18 @@ def generate_launch_description():
         "euroc_config.yaml"
     )
 
-    rosbag = launch.actions.ExecuteProcess(
-        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_path, 'bags', 'V1_01_easy', 'V1_01_easy.db3')],
-        output='screen'
-    )
-
-    # rviz = Node(
-    #     package='rviz2',
-    #     namespace='',
-    #     executable='rviz2',
-    #     name='rviz2',
-    #     arguments=['-d', [os.path.join(VINS_Mono_path, 'rviz', 'default.rviz')]]
+    # rosbag = launch.actions.ExecuteProcess(
+    #     cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_path, 'bags', 'V1_01_easy', 'V1_01_easy.db3')],
+    #     output='screen'
     # )
+
+    rviz = Node(
+        package='rviz2',
+        namespace='',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', [os.path.join(VINS_Mono_path,  "config", "vins_rviz2_config.rviz")]]
+    )
 
 
     # rosbag = Node(
@@ -44,10 +44,19 @@ def generate_launch_description():
     #     arguments=[],
     #     parameters=[],
     #     output='screen')
+    
+    # feature_tracker_node = Node(
+    #     package="feature_tracker",
+    #     executable="feature_tracker",
+    #     output="screen",
+    #     parameters=[
+    #         {"config_file": config}
+    #     ]
 
-    feature_tracker_node = Node(
-        package="feature_tracker",
-        executable="feature_tracker",
+    # )
+    vins_estimator_node = Node(
+        package="vins_estimator",
+        executable="vins_estimator",
         output="screen",
         parameters=[
             {"config_file": config}
@@ -64,7 +73,8 @@ def generate_launch_description():
 
     # ld.add_action(trajectory_controller_node)
     # ld.add_action(rviz)
-    ld.add_action(rosbag)
-    ld.add_action(feature_tracker_node)
+    # ld.add_action(rosbag)
+    # ld.add_action(feature_tracker_node)
+    ld.add_action(vins_estimator_node)
 
     return ld

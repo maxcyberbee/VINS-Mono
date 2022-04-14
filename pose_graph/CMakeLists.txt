@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(feature_tracker)
+project(pose_graph)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -34,9 +34,26 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 find_package(Eigen3)
 
 
+include_directories( ${CERES_INCLUDE_DIRS}  ${EIGEN3_INCLUDE_DIR})
 
-add_executable(feature_tracker src/feature_tracker_node.cpp src/feature_tracker.cpp src/parameters.cpp)
-target_link_libraries(feature_tracker 
+
+add_executable(pose_graph
+    src/pose_graph_node.cpp
+    src/pose_graph.cpp
+    src/keyframe.cpp
+    src/parameters.cpp
+    src/utility/CameraPoseVisualization.cpp
+    src/ThirdParty/DBoW/BowVector.cpp
+    src/ThirdParty/DBoW/FBrief.cpp
+    src/ThirdParty/DBoW/FeatureVector.cpp
+    src/ThirdParty/DBoW/QueryResults.cpp
+    src/ThirdParty/DBoW/ScoringObject.cpp
+    src/ThirdParty/DUtils/Random.cpp
+    src/ThirdParty/DUtils/Timestamp.cpp
+    src/ThirdParty/DVision/BRIEF.cpp
+    src/ThirdParty/VocabularyBinary.cpp
+    )
+target_link_libraries(pose_graph 
    camera_model::camera_model_lib
    ${Boost_LIBRARIES}
    )
@@ -46,11 +63,11 @@ include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIR})
 find_package(Boost REQUIRED )
 
-ament_target_dependencies(feature_tracker camera_model rclcpp std_msgs sensor_msgs OpenCV cv_bridge Boost  ${Boost_LIBRARIES})
+ament_target_dependencies(pose_graph camera_model rclcpp std_msgs sensor_msgs OpenCV cv_bridge Boost  ${Boost_LIBRARIES})
 
 
 install(TARGETS
-  feature_tracker
+  pose_graph
   DESTINATION lib/${PROJECT_NAME})
 
 
