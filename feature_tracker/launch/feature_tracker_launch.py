@@ -24,17 +24,18 @@ def generate_launch_description():
     )
 
     rosbag = launch.actions.ExecuteProcess(
-        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_path, 'bags', 'V1_01_easy', 'V1_01_easy.db3')],
+        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_path, 'bags', 'V1_01_easy', 'V1_01_easy.db3'), '-r1',
+             '--clock'],
         output='screen'
     )
 
-    # rviz = Node(
-    #     package='rviz2',
-    #     namespace='',
-    #     executable='rviz2',
-    #     name='rviz2',
-    #     arguments=['-d', [os.path.join(VINS_Mono_path, 'rviz', 'default.rviz')]]
-    # )
+    rviz = Node(
+        package='rviz2',
+        namespace='',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', [os.path.join(VINS_Mono_path, 'rviz', 'default.rviz')]]
+    )
 
 
     # rosbag = Node(
@@ -55,6 +56,25 @@ def generate_launch_description():
 
     )
 
+    vins_estimator = Node(
+        package="vins_estimator",
+        executable="vins_estimator",
+        output="screen",
+        parameters=[
+            {"config_file": config}
+        ]
+    )
+
+    camera_to_cam = Node(package = "tf2_ros",
+                executable = "static_transform_publisher",
+                output="screen",
+                arguments = ["0", "0", "0", "0", "0", "0", "camera", "cam0"]
+                )
+    world_to_map = Node(package = "tf2_ros",
+                         executable = "static_transform_publisher",
+                         output="screen",
+                         arguments = ["0", "0", "0", "0", "0", "0", "world", "map"]
+                         )
     # trajectory_controller_node = Node(
     #     package="offboard_exp",
     #     namespace=namespace,
@@ -63,8 +83,11 @@ def generate_launch_description():
     # )
 
     # ld.add_action(trajectory_controller_node)
-    # ld.add_action(rviz)
+    ld.add_action(rviz)
     ld.add_action(rosbag)
     ld.add_action(feature_tracker_node)
+    ld.add_action(vins_estimator)
+    # ld.add_action(camera_to_cam)
+    # ld.add_action(world_to_map)
 
     return ld

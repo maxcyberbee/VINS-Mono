@@ -63,7 +63,7 @@ void printStatistics(const Estimator &estimator, double t,rclcpp::Logger logger)
 {
     if (estimator.solver_flag != Estimator::SolverFlag::NON_LINEAR)
         return;
-    printf("position: %f, %f, %f\r", estimator.Ps[WINDOW_SIZE].x(), estimator.Ps[WINDOW_SIZE].y(), estimator.Ps[WINDOW_SIZE].z());
+  //  RCLCPP_INFO(logger,"position: %f, %f, %f\r", estimator.Ps[WINDOW_SIZE].x(), estimator.Ps[WINDOW_SIZE].y(), estimator.Ps[WINDOW_SIZE].z());
     RCLCPP_DEBUG_STREAM(logger,"position: " << estimator.Ps[WINDOW_SIZE].transpose());
     RCLCPP_DEBUG_STREAM(logger,"orientation: " << estimator.Vs[WINDOW_SIZE].transpose());
     for (int i = 0; i < NUM_OF_CAM; i++)
@@ -295,13 +295,12 @@ void pubOdometry(const Estimator &estimator, const std_msgs::msg::Header &header
 
 void pubTF(const Estimator &estimator, const std_msgs::msg::Header &header,rclcpp::Node &node)
 {
-    /*
+
     if( estimator.solver_flag != Estimator::SolverFlag::NON_LINEAR)
         return;
-    //static tf2_ros::TransformBroadcaster br;
-    tf2_ros::TransformBroadcaster br =
-            std::make_shared<tf2_ros::TransformBroadcaster>(node);
-    geometry_msgs::msg::TransformStamped  transform;
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_ =
+            std::make_unique<tf2_ros::TransformBroadcaster>(node);
+    geometry_msgs::msg::TransformStamped transform;
 
     tf2::Quaternion q;
     // body frame
@@ -334,12 +333,13 @@ void pubTF(const Estimator &estimator, const std_msgs::msg::Header &header,rclcp
 
     //transform.setRotation(q);
     //br.sendTransform(tf::StampedTransform(transform, header.stamp, "world", "body"));
-    br.sendTransform(transform);
+    tf_broadcaster_->sendTransform(transform);
     // camera frame
+   // RCLCPP_INFO(node.get_logger(),"time %d.%u", header.stamp.sec,header.stamp.nanosec);
 
     transform.header.stamp = header.stamp;
     transform.header.frame_id = "body";
-    transform.child_frame_id = "camera";
+    transform.child_frame_id = "cam0";
     transform.transform.translation.x = estimator.tic[0].x();
     transform.transform.translation.y = estimator.tic[0].y();
     transform.transform.translation.z =  estimator.tic[0].z();
@@ -357,8 +357,8 @@ void pubTF(const Estimator &estimator, const std_msgs::msg::Header &header,rclcp
     transform.transform.rotation.w = q.w();
 
     //br.sendTransform(tf::StampedTransform(transform, header.stamp, "body", "camera"));
-    br.sendTransform(transform);
-    */
+    tf_broadcaster_->sendTransform(transform);
+
     nav_msgs::msg::Odometry odometry;
     odometry.header = header;
     odometry.header.frame_id = "world";

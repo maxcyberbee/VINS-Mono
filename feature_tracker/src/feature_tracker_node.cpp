@@ -42,10 +42,10 @@ public:
 
         if (FISHEYE)
         {
-            for (int i = 0; i < NUM_OF_CAM; i++)
+            for (auto & i : trackerData)
             {
-                trackerData[i].fisheye_mask = cv::imread(FISHEYE_MASK, 0);
-                if (!trackerData[i].fisheye_mask.data)
+                i.fisheye_mask = cv::imread(FISHEYE_MASK, 0);
+                if (!i.fisheye_mask.data)
                 {
                     RCLCPP_INFO(this->get_logger(), "load mask fail");
                     rclcpp::shutdown();
@@ -59,12 +59,12 @@ public:
 private:
     FeatureTracker trackerData[NUM_OF_CAM];
     std::string camera_config_file_;
-    double first_image_time;
+    double first_image_time = 0;
     int pub_count = 1;
     bool first_image_flag = true;
     double last_image_time = 0;
-    bool init_pub = 0;
-    rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr subscription_;
+    bool init_pub = false;
+    rclcpp::Subscription<sensor_msgs::msg::Image>::ConstSharedPtr subscription_;
 
     rclcpp::Publisher<std_msgs::msg::Bool>::SharedPtr pub_restart;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_img;
@@ -72,17 +72,18 @@ private:
 
 
 
-    void img_callback(const sensor_msgs::msg::Image::SharedPtr img_msg)
+    void img_callback(const sensor_msgs::msg::Image::ConstSharedPtr img_msg)
     {
         if (first_image_flag)
         {
             first_image_flag = false;
-            first_image_time = img_msg->header.stamp.sec;
-            last_image_time = img_msg->header.stamp.sec;
+            first_image_time = rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds();
+            last_image_time = rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds();
             return;
         }
         // detect unstable camera stream
-        if (img_msg->header.stamp.sec - last_image_time > 1.0 || img_msg->header.stamp.sec < last_image_time)
+        if (rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds() - last_image_time > 1.0
+        || rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds() < last_image_time)
         {
             RCLCPP_WARN(this->get_logger(), "image discontinue! reset the feature tracker!");
             first_image_flag = true;
@@ -93,20 +94,21 @@ private:
             pub_restart->publish(restart_flag);
             return;
         }
-        last_image_time = img_msg->header.stamp.sec;
+        last_image_time = rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds();
         // frequency control
-        if (round(1.0 * pub_count / (img_msg->header.stamp.sec - first_image_time)) <= FREQ)
+        if (round(1.0 * pub_count / (rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds() - first_image_time)) <= FREQ)
         {
             PUB_THIS_FRAME = true;
             // reset the frequency control
-            if (abs(1.0 * pub_count / (img_msg->header.stamp.sec - first_image_time) - FREQ) < 0.01 * FREQ)
+            if (abs(1.0 * pub_count / (rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds() - first_image_time) - FREQ) < 0.01 * FREQ)
             {
-                first_image_time = img_msg->header.stamp.sec;
+                first_image_time = rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds();
                 pub_count = 0;
             }
         }
-        else
-            PUB_THIS_FRAME = false;
+        else{
+            return;
+        }
 
         cv_bridge::CvImageConstPtr ptr;
 
@@ -126,15 +128,15 @@ private:
         {
             ptr = cv_bridge::toCvCopy(img_msg, sensor_msgs::image_encodings::MONO8);
         }
-
         cv::Mat show_img = ptr->image;
         TicToc t_r;
+
         for (int i = 0; i < NUM_OF_CAM; i++)
         {
             RCLCPP_DEBUG(this->get_logger(), "processing camera %d", i);
             if (i != 1 || !STEREO_TRACK)
             {
-                trackerData[i].readImage(ptr->image.rowRange(ROW * i, ROW * (i + 1)), img_msg->header.stamp.sec, this->get_logger());
+                trackerData[i].readImage(ptr->image.rowRange(ROW * i, ROW * (i + 1)), rclcpp::Time(img_msg->header.stamp.sec,img_msg->header.stamp.nanosec).seconds(), this->get_logger());
             }
             else
             {
@@ -208,11 +210,11 @@ private:
             feature_points.channels.push_back(v_of_point);
             feature_points.channels.push_back(velocity_x_of_point);
             feature_points.channels.push_back(velocity_y_of_point);
-            // RCLCPP_DEBUG(this->get_logger(),"publish %f, at %f", feature_points->header.stamp.sec(), ros::Time::now().sec());
+            RCLCPP_DEBUG(this->get_logger(),"publish %f, at %f", rclcpp::Time(feature_points.header.stamp.sec,feature_points.header.stamp.nanosec).seconds(), rclcpp::Time().seconds());
             //  skip the first image; since no optical speed on frist image
             if (!init_pub)
             {
-                init_pub = 1;
+                init_pub = true;
             }
             else
             {

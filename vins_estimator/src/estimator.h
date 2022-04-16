@@ -24,7 +24,7 @@
 class Estimator
 {
   public:
-    Estimator(rclcpp::Logger logger);
+    Estimator(const rclcpp::Logger& logger);
 
     void setParameter();
 

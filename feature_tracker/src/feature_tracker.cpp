@@ -45,7 +45,7 @@ void FeatureTracker::setMask()
     vector<pair<int, pair<cv::Point2f, int>>> cnt_pts_id;
 
     for (unsigned int i = 0; i < forw_pts.size(); i++)
-        cnt_pts_id.push_back(make_pair(track_cnt[i], make_pair(forw_pts[i], ids[i])));
+        cnt_pts_id.emplace_back(track_cnt[i], make_pair(forw_pts[i], ids[i]));
 
     sort(cnt_pts_id.begin(), cnt_pts_id.end(), [](const pair<int, pair<cv::Point2f, int>> &a, const pair<int, pair<cv::Point2f, int>> &b)
          {
@@ -78,7 +78,7 @@ void FeatureTracker::addPoints()
     }
 }
 
-void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time,rclcpp::Logger logger)
+void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time,const rclcpp::Logger& logger)
 {
     cv::Mat img;
     TicToc t_r;
@@ -109,7 +109,7 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time,rclcpp::Log
     //forw_img = img;
     forw_pts.clear();
 
-    if (cur_pts.size() > 0)
+    if (!cur_pts.empty())
     {
         TicToc t_o;
         vector<uchar> status;
@@ -178,7 +178,7 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time,rclcpp::Log
 
 }
 
-void FeatureTracker::rejectWithF(rclcpp::Logger logger)
+void FeatureTracker::rejectWithF(const rclcpp::Logger& logger)
 {
     if (forw_pts.size() >= 8)
     {
@@ -225,13 +225,13 @@ bool FeatureTracker::updateID(unsigned int i)
         return false;
 }
 
-void FeatureTracker::readIntrinsicParameter(const string &calib_file,rclcpp::Logger logger)
+void FeatureTracker::readIntrinsicParameter(const string &calib_file,const rclcpp::Logger& logger)
 {
     RCLCPP_INFO(logger, "reading paramerter of camera %s", calib_file.c_str());
     m_camera = CameraFactory::instance()->generateCameraFromYamlFile(calib_file,1);
 }
 
-void FeatureTracker::showUndistortion(const string &name,rclcpp::Logger logger)
+void FeatureTracker::showUndistortion(const string &name,const rclcpp::Logger& logger)
 {
     cv::Mat undistortedImg(ROW + 600, COL + 600, CV_8UC1, cv::Scalar(0));
     vector<Eigen::Vector2d> distortedp, undistortedp;
@@ -242,7 +242,7 @@ void FeatureTracker::showUndistortion(const string &name,rclcpp::Logger logger)
             Eigen::Vector3d b;
             m_camera->liftProjective(a, b);
             distortedp.push_back(a);
-            undistortedp.push_back(Eigen::Vector2d(b.x() / b.z(), b.y() / b.z()));
+            undistortedp.emplace_back(b.x() / b.z(), b.y() / b.z());
             //printf("%f,%f->%f,%f,%f\n)\n", a.x(), a.y(), b.x(), b.y(), b.z());
         }
     for (int i = 0; i < int(undistortedp.size()); i++)
@@ -277,7 +277,7 @@ void FeatureTracker::undistortedPoints()
         Eigen::Vector2d a(cur_pts[i].x, cur_pts[i].y);
         Eigen::Vector3d b;
         m_camera->liftProjective(a, b);
-        cur_un_pts.push_back(cv::Point2f(b.x() / b.z(), b.y() / b.z()));
+        cur_un_pts.emplace_back(b.x() / b.z(), b.y() / b.z());
         cur_un_pts_map.insert(make_pair(ids[i], cv::Point2f(b.x() / b.z(), b.y() / b.z())));
         //printf("cur pts id %d %f %f", ids[i], cur_un_pts[i].x, cur_un_pts[i].y);
     }
@@ -296,14 +296,14 @@ void FeatureTracker::undistortedPoints()
                 {
                     double v_x = (cur_un_pts[i].x - it->second.x) / dt;
                     double v_y = (cur_un_pts[i].y - it->second.y) / dt;
-                    pts_velocity.push_back(cv::Point2f(v_x, v_y));
+                    pts_velocity.emplace_back(v_x, v_y);
                 }
                 else
-                    pts_velocity.push_back(cv::Point2f(0, 0));
+                    pts_velocity.emplace_back(0, 0);
             }
             else
             {
-                pts_velocity.push_back(cv::Point2f(0, 0));
+                pts_velocity.emplace_back(0, 0);
             }
         }
     }
@@ -311,7 +311,7 @@ void FeatureTracker::undistortedPoints()
     {
         for (unsigned int i = 0; i < cur_pts.size(); i++)
         {
-            pts_velocity.push_back(cv::Point2f(0, 0));
+            pts_velocity.emplace_back(0, 0);
         }
     }
     prev_un_pts_map = cur_un_pts_map;

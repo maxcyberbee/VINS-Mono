@@ -30,7 +30,7 @@ class FeatureTracker
   public:
     FeatureTracker();
 
-    void readImage(const cv::Mat &_img,double _cur_time, rclcpp::Logger logger);
+    void readImage(const cv::Mat &_img,double _cur_time, const rclcpp::Logger& logger);
 
     void setMask();
 
@@ -38,11 +38,11 @@ class FeatureTracker
 
     bool updateID(unsigned int i);
 
-    void readIntrinsicParameter(const string &calib_file, rclcpp::Logger logger);
+    void readIntrinsicParameter(const string &calib_file, const rclcpp::Logger& logger);
 
-    void showUndistortion(const string &name,rclcpp::Logger logger);
+    void showUndistortion(const string &name,const rclcpp::Logger& logger);
 
-    void rejectWithF(rclcpp::Logger logger);
+    void rejectWithF(const rclcpp::Logger& logger);
 
     void undistortedPoints();
 
@@ -58,8 +58,8 @@ class FeatureTracker
     map<int, cv::Point2f> cur_un_pts_map;
     map<int, cv::Point2f> prev_un_pts_map;
     camodocal::CameraPtr m_camera;
-    double cur_time;
-    double prev_time;
+    double cur_time{};
+    double prev_time{};
 
     static int n_id;
 };

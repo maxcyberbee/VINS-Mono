@@ -21,7 +21,7 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
-find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
 find_package(cv_bridge REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
@@ -62,7 +62,7 @@ add_executable(vins_estimator
 target_link_libraries(vins_estimator  ${OpenCV_LIBS} ${CERES_LIBRARIES})
 
 
-ament_target_dependencies(vins_estimator rclcpp sensor_msgs std_msgs nav_msgs tf2 OpenCV cv_bridge)
+ament_target_dependencies(vins_estimator rclcpp sensor_msgs std_msgs nav_msgs tf2_ros OpenCV cv_bridge)
 
 install(TARGETS
         vins_estimator
