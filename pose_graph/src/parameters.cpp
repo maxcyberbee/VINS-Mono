@@ -16,6 +16,8 @@ double DOWN_SCALE;
 double DOWN_SCALE_RASPBERRY;
 int LOOP_CLOSURE;
 int VISUALIZE_IMU_FORWARD;
+CameraPoseVisualization cameraposevisual(1, 0, 0, 1);
+
 
 template <typename T>
 T readParam(rclcpp::Node &node, std::string name)
@@ -32,7 +34,7 @@ T readParam(rclcpp::Node &node, std::string name)
    }
     return ans;
 }
-oid readParameters(std::string config_file,rclcpp::Logger logger)
+void readParameters(std::string config_file,rclcpp::Logger logger)
 {
     cv::FileStorage fsSettings(config_file, cv::FileStorage::READ);
     if(!fsSettings.isOpened())
@@ -58,14 +60,8 @@ oid readParameters(std::string config_file,rclcpp::Logger logger)
 
         ROW = ROW / DOWN_SCALE;
         COL = COL / DOWN_SCALE;
-
-        std::string pkg_path = ros::package::getPath("pose_graph");
-        std::string vocabulary_file = pkg_path + "/../support_files/brief_k10L6.bin";
-        std::cout << "vocabulary_file" << vocabulary_file << std::endl;
-        posegraph.loadVocabulary(vocabulary_file);
-
-        BRIEF_PATTERN_FILE = pkg_path + "/../support_files/brief_pattern.yml";
-        std::cout << "BRIEF_PATTERN_FILE" << BRIEF_PATTERN_FILE << std::endl;
+     
+ 
         
         m_camera = camodocal::CameraFactory::instance()->generateCameraFromYamlFile(config_file.c_str(),DOWN_SCALE);
 

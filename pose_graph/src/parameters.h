@@ -5,13 +5,15 @@
 #include "camodocal/camera_models/PinholeCamera.h"
 #include <eigen3/Eigen/Dense>
 #include <memory>
-
+#include <iostream>
+#include <filesystem>
 #include "rclcpp/rclcpp.hpp"
 #include <sensor_msgs/msg/image.hpp>
 #include <sensor_msgs/msg/point_cloud.hpp>
 #include <sensor_msgs/image_encodings.hpp>
 #include <cv_bridge/cv_bridge.h>
-
+#include "utility/CameraPoseVisualization.h"
+#include "utility/utility.h"
 extern camodocal::CameraPtr m_camera;
 extern Eigen::Vector3d tic;
 extern Eigen::Matrix3d qic;
@@ -30,4 +32,7 @@ extern double DOWN_SCALE;
 extern double DOWN_SCALE_RASPBERRY;
 extern int LOOP_CLOSURE;
 extern int VISUALIZE_IMU_FORWARD;
+extern int LOAD_PREVIOUS_POSE_GRAPH;
 
+
+void readParameters(std::string config_file,rclcpp::Logger logger);

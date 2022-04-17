@@ -14,8 +14,8 @@ endif()
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall )
 endif()
+set(CMAKE_BUILD_TYPE "Release")
 
-include_directories("include")
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
@@ -31,11 +31,15 @@ find_package(camera_model REQUIRED)
 
 
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
+
+
+include_directories( ${CERES_INCLUDE_DIRS})
+
+set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 find_package(Eigen3)
-
-
-include_directories( ${CERES_INCLUDE_DIRS}  ${EIGEN3_INCLUDE_DIR})
-
+include_directories(
+  ${EIGEN3_INCLUDE_DIR}
+)
 
 add_executable(pose_graph
     src/pose_graph_node.cpp
@@ -53,6 +57,7 @@ add_executable(pose_graph
     src/ThirdParty/DVision/BRIEF.cpp
     src/ThirdParty/VocabularyBinary.cpp
     )
+    
 target_link_libraries(pose_graph 
    camera_model::camera_model_lib
    ${Boost_LIBRARIES}
