@@ -1,8 +1,10 @@
 #include "parameters.h"
 
 camodocal::CameraPtr m_camera;
-Eigen::Vector3d TIC;
 Eigen::Matrix3d qic;
+Eigen::Vector3d tic;
+rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match_img;
+rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_match_points;
 int VISUALIZATION_SHIFT_X;
 int VISUALIZATION_SHIFT_Y;
 std::string BRIEF_PATTERN_FILE;
@@ -16,7 +18,8 @@ double DOWN_SCALE;
 double DOWN_SCALE_RASPBERRY;
 int LOOP_CLOSURE;
 int VISUALIZE_IMU_FORWARD;
-CameraPoseVisualization cameraposevisual(1, 0, 0, 1);
+int LOAD_PREVIOUS_POSE_GRAPH;
+double camera_visual_size;
 
 
 template <typename T>
@@ -42,9 +45,8 @@ void readParameters(std::string config_file,rclcpp::Logger logger)
         std::cerr << "ERROR: Wrong path to settings" << std::endl;
     }
 
-    double camera_visual_size = fsSettings["visualize_camera_size"];
-    cameraposevisual.setScale(camera_visual_size);
-    cameraposevisual.setLineWidth(camera_visual_size / 10.0);
+    camera_visual_size = fsSettings["visualize_camera_size"];
+
 
 
     LOOP_CLOSURE = fsSettings["loop_closure"];
@@ -74,7 +76,6 @@ void readParameters(std::string config_file,rclcpp::Logger logger)
         // create folder if not exists
         FileSystemHelper::createDirectoryIfNotExists(POSE_GRAPH_SAVE_PATH.c_str());
         FileSystemHelper::createDirectoryIfNotExists(VINS_RESULT_PATH.c_str());
-
         VISUALIZE_IMU_FORWARD = fsSettings["visualize_imu_forward"];
         LOAD_PREVIOUS_POSE_GRAPH = fsSettings["load_previous_pose_graph"];
         FAST_RELOCALIZATION = fsSettings["fast_relocalization"];
@@ -82,7 +83,7 @@ void readParameters(std::string config_file,rclcpp::Logger logger)
         std::ofstream fout(VINS_RESULT_PATH, std::ios::out);
         fout.close();
         fsSettings.release();
-
+        RCLCPP_INFO_STREAM(logger,"finished reading params");
 
     }
 

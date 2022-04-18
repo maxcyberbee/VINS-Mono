@@ -74,7 +74,7 @@ public:
 
 
 
-	double time_stamp; PoseGraphNode
+	double time_stamp; 
 	int index;
 	int local_index;
 	Eigen::Vector3d vio_T_w_i; 

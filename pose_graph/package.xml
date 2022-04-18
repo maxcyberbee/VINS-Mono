@@ -17,6 +17,11 @@
   <depend>sensor_msgs</depend>
   <depend>cv_bridge</depend>
   <depend>nav_msgs</depend>
+  <depend>visualization_msgs</depend>
+  <depend>message_filters</depend>
+
+  
+  
   <exec_depend>ros2launch</exec_depend> 
   <export>
     <build_type>ament_cmake</build_type>

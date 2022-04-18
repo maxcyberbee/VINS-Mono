@@ -33,6 +33,5 @@ extern double DOWN_SCALE_RASPBERRY;
 extern int LOOP_CLOSURE;
 extern int VISUALIZE_IMU_FORWARD;
 extern int LOAD_PREVIOUS_POSE_GRAPH;
-
-
+extern double camera_visual_size;
 void readParameters(std::string config_file,rclcpp::Logger logger);
