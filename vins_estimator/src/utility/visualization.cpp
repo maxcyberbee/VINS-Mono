@@ -10,6 +10,9 @@ rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_keyframe_point;
 //ros::Publisher pub_raw_image;
 rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_extrinsic;
 
+rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_camera_pose;
+rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pub_camera_pose_visual;
+std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 
 CameraPoseVisualization cameraposevisual(0, 1, 0, 1);
 CameraPoseVisualization keyframebasevisual(0.0, 0.0, 1.0, 1.0);
@@ -26,13 +29,14 @@ void registerPub(rclcpp::Node &n)
     pub_point_cloud = n.create_publisher<sensor_msgs::msg::PointCloud>("point_cloud", 1000); // for leres
     //pub_margin_cloud = n.advertise<sensor_msgs::PointCloud>("history_cloud", 1000);
     //pub_key_poses = n.advertise<visualization_msgs::Marker>("key_poses", 1000);
-    //pub_camera_pose = n.advertise<nav_msgs::Odometry>("camera_pose", 1000);
-    //pub_camera_pose_visual = n.advertise<visualization_msgs::MarkerArray>("camera_pose_visual", 1000);
+    pub_camera_pose = n.create_publisher<nav_msgs::msg::Odometry>("camera_pose", 1000);
+    pub_camera_pose_visual = n.create_publisher<visualization_msgs::msg::MarkerArray>("camera_pose_visual", 1000);
     pub_keyframe_pose = n.create_publisher<nav_msgs::msg::Odometry>("keyframe_pose", 1000); // for pose graph
     pub_keyframe_point = n.create_publisher<sensor_msgs::msg::PointCloud>("keyframe_point", 1000);
     //pub_raw_image = n.advertise<sensor_msgs::Image>("raw_image", 1000);
     pub_extrinsic = n.create_publisher<nav_msgs::msg::Odometry>("extrinsic", 1000);
     pub_relo_relative_pose=  n.create_publisher<nav_msgs::msg::Odometry>("relo_relative_pose", 1000);
+    tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(n);
     cameraposevisual.setScale(1);
     cameraposevisual.setLineWidth(0.05);
     keyframebasevisual.setScale(0.1);
@@ -204,7 +208,7 @@ void pubOdometry(const Estimator &estimator, const std_msgs::msg::Header &header
     pub_key_poses.publish(key_poses);
 }*/
 
-/*void pubCameraPose(const Estimator &estimator, const std_msgs::Header &header)
+void pubCameraPose(const Estimator &estimator, const std_msgs::msg::Header &header)
 {
     int idx2 = WINDOW_SIZE - 1;
 
@@ -214,7 +218,7 @@ void pubOdometry(const Estimator &estimator, const std_msgs::msg::Header &header
         Vector3d P = estimator.Ps[i] + estimator.Rs[i] * estimator.tic[0];
         Quaterniond R = Quaterniond(estimator.Rs[i] * estimator.ric[0]);
 
-        nav_msgs::Odometry odometry;
+        nav_msgs::msg::Odometry odometry;
         odometry.header = header;
         odometry.header.frame_id = "world";
         odometry.pose.pose.position.x = P.x();
@@ -225,13 +229,13 @@ void pubOdometry(const Estimator &estimator, const std_msgs::msg::Header &header
         odometry.pose.pose.orientation.z = R.z();
         odometry.pose.pose.orientation.w = R.w();
 
-        pub_camera_pose.publish(odometry);
+        pub_camera_pose->publish(odometry);
 
         cameraposevisual.reset();
         cameraposevisual.add_pose(P, R);
         cameraposevisual.publish_by(pub_camera_pose_visual, odometry.header);
     }
-}*/
+}
 
 
 /*void pubPointCloud(const Estimator &estimator, const std_msgs::Header &header)
@@ -293,13 +297,12 @@ void pubOdometry(const Estimator &estimator, const std_msgs::msg::Header &header
 }*/
 
 
-void pubTF(const Estimator &estimator, const std_msgs::msg::Header &header,rclcpp::Node &node)
+void pubTF(const Estimator &estimator, const std_msgs::msg::Header &header)
 {
 
     if( estimator.solver_flag != Estimator::SolverFlag::NON_LINEAR)
         return;
-    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_ =
-            std::make_unique<tf2_ros::TransformBroadcaster>(node);
+
     geometry_msgs::msg::TransformStamped transform;
 
     tf2::Quaternion q;
@@ -339,7 +342,7 @@ void pubTF(const Estimator &estimator, const std_msgs::msg::Header &header,rclcp
 
     transform.header.stamp = header.stamp;
     transform.header.frame_id = "body";
-    transform.child_frame_id = "cam0";
+    transform.child_frame_id = "camera";
     transform.transform.translation.x = estimator.tic[0].x();
     transform.transform.translation.y = estimator.tic[0].y();
     transform.transform.translation.z =  estimator.tic[0].z();

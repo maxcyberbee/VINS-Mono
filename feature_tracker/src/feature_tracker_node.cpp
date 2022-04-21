@@ -20,9 +20,15 @@ public:
         : Node("feature_tracker")
     {
         this->declare_parameter<std::string>("config_file", "");
+        this->declare_parameter<std::string>("vins_folder", "");
+
         this->get_parameter("config_file", camera_config_file_);
+        this->get_parameter("vins_folder", vins_folder_);
+
         RCLCPP_INFO(this->get_logger(), "CONFIG FILE: %s", camera_config_file_.c_str());
-        readParameters(camera_config_file_);
+        RCLCPP_INFO(this->get_logger(), "VINS FOLDER: %s", vins_folder_.c_str());
+
+        readParameters(camera_config_file_,vins_folder_);
 
         RCLCPP_INFO(this->get_logger(),"IMAGE_TOPIC: %s ", IMAGE_TOPIC.c_str());
         RCLCPP_INFO(this->get_logger(),"ROW: %i",ROW);
@@ -59,6 +65,7 @@ public:
 private:
     FeatureTracker trackerData[NUM_OF_CAM];
     std::string camera_config_file_;
+    std::string vins_folder_;
     double first_image_time = 0;
     int pub_count = 1;
     bool first_image_flag = true;

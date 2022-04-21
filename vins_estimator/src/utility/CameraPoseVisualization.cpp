@@ -186,7 +186,7 @@ void CameraPoseVisualization::reset() {
 	m_markers.clear();
 }
 
-void CameraPoseVisualization::publish_by(rclcpp::Publisher<visualization_msgs::msg::MarkerArray> &pub, const std_msgs::msg::Header &header ) {
+void CameraPoseVisualization::publish_by(rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr &pub, const std_msgs::msg::Header &header ) {
 	visualization_msgs::msg::MarkerArray markerArray_msg;
 	
 	for(auto& marker : m_markers) {
@@ -194,5 +194,5 @@ void CameraPoseVisualization::publish_by(rclcpp::Publisher<visualization_msgs::m
 		markerArray_msg.markers.push_back(marker);
 	}
 
-	pub.publish(markerArray_msg);
+	pub->publish(markerArray_msg);
 }

@@ -21,7 +21,7 @@ public:
 	void add_pose(const Eigen::Vector3d& p, const Eigen::Quaterniond& q);
 	void reset();
 
-	void publish_by(rclcpp::Publisher<visualization_msgs::msg::MarkerArray>& pub, const std_msgs::msg::Header& header);
+	void publish_by(rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr &pub, const std_msgs::msg::Header& header);
 	void add_edge(const Eigen::Vector3d& p0, const Eigen::Vector3d& p1);
 	void add_loopedge(const Eigen::Vector3d& p0, const Eigen::Vector3d& p1);
 private:

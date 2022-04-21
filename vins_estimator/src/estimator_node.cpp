@@ -373,13 +373,14 @@ private:
                 std_msgs::msg::Header header = img_msg->header;
                 header.frame_id = "world";
 
-                pubTF(estimator, header,*this);
+                pubTF(estimator, header);
                 pubOdometry(estimator, header);
                 pubKeyframe(estimator, header);
+                pubCameraPose(estimator, header);
                 if (relo_msg != nullptr){
                     pubRelocalization(estimator);
                 }
-                
+
             }
 
             m_estimator.unlock();

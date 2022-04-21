@@ -19,14 +19,14 @@ int FOCAL_LENGTH;
 int FISHEYE;
 bool PUB_THIS_FRAME;
 
-void readParameters(std::string config_file)
+void readParameters(std::string config_file, std::string vins_folder)
 {    
     cv::FileStorage fsSettings(config_file, cv::FileStorage::READ);
     if(!fsSettings.isOpened())
     {
         std::cerr << "ERROR: Wrong path to settings" << std::endl;
     }
-    std::string VINS_FOLDER_PATH = config_file + "/..";
+    // std::string VINS_FOLDER_PATH = config_file + "/..";
     fsSettings["image_topic"] >> IMAGE_TOPIC;
     fsSettings["imu_topic"] >> IMU_TOPIC;
     MAX_CNT = fsSettings["max_cnt"];
@@ -39,7 +39,7 @@ void readParameters(std::string config_file)
     EQUALIZE = fsSettings["equalize"];
     FISHEYE = fsSettings["fisheye"];
     if (FISHEYE == 1)
-        FISHEYE_MASK = VINS_FOLDER_PATH + "/fisheye_mask.jpg";
+        FISHEYE_MASK = vins_folder + "/config/fisheye_mask.jpg";
     CAM_NAMES.push_back(config_file);
 
     WINDOW_SIZE = 20;

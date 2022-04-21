@@ -7,11 +7,12 @@ from ament_index_python.packages import get_package_share_directory
 
 launch_path = os.path.realpath(__file__).replace("feature_tracker_launch.py", "")
 
-VINS_Mono_path = os.path.realpath(
+VINS_Mono_Path = os.path.realpath(
     os.path.join(launch_path, "../../../../..","src","VINS-Mono"))
 
-VINS_Mono_config_path = os.path.join(VINS_Mono_path, "config", "euroc")
+# VINS_Mono_config_path = os.path.join(VINS_Mono_Path, "config", "tum")
 
+VINS_Mono_config_path = os.path.join(VINS_Mono_Path, "config", "euroc")
 
 def generate_launch_description():
     ld = launch.LaunchDescription()
@@ -20,12 +21,13 @@ def generate_launch_description():
 
     config = os.path.join(
         VINS_Mono_config_path,
+        # "bluefox_fisheye_9250.yaml"
         "euroc_config.yaml"
     )
 
     rosbag = launch.actions.ExecuteProcess(
-        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_path, 'bags', 'V1_01_easy', 'V1_01_easy.db3'), '-r1',
-             '--clock'],
+        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_Path, 'bags', 'V1_01_easy', 'V1_01_easy.db3')],
+        # cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_Path, 'bags', 'imu_video', 'imu_video_0.db3')],
         output='screen'
     )
 
@@ -34,24 +36,16 @@ def generate_launch_description():
         namespace='',
         executable='rviz2',
         name='rviz2',
-        arguments=['-d', [os.path.join(VINS_Mono_path, 'rviz', 'default.rviz')]]
+        arguments=['-d', [os.path.join(VINS_Mono_Path, 'rviz', 'default.rviz')]]
     )
-
-
-    # rosbag = Node(
-    #     package='bag',
-    #     executable='play',
-    #     # node_name='rosbag2_node',
-    #     arguments=[],
-    #     parameters=[],
-    #     output='screen')
 
     feature_tracker_node = Node(
         package="feature_tracker",
         executable="feature_tracker",
         output="screen",
         parameters=[
-            {"config_file": config}
+            {"config_file": config},
+            {"vins_folder": VINS_Mono_Path}
         ]
 
     )
@@ -62,7 +56,8 @@ def generate_launch_description():
         output="screen",
         parameters=[
             {"config_file": config}
-        ]
+        ],
+        # arguments = ['--ros-args', '--log-level', 'DEBUG']
     )
 
     camera_to_cam = Node(package = "tf2_ros",
@@ -70,24 +65,24 @@ def generate_launch_description():
                 output="screen",
                 arguments = ["0", "0", "0", "0", "0", "0", "camera", "cam0"]
                 )
-    world_to_map = Node(package = "tf2_ros",
-                         executable = "static_transform_publisher",
-                         output="screen",
-                         arguments = ["0", "0", "0", "0", "0", "0", "world", "map"]
-                         )
-    # trajectory_controller_node = Node(
-    #     package="offboard_exp",
-    #     namespace=namespace,
-    #     executable="trajectory_controller",
-    #     name="trajectory_controller_{:s}".format(namespace)
-    # )
+    # world_to_map = Node(package = "tf2_ros",
+    #                      executable = "static_transform_publisher",
+    #                      output="screen",
+    #                      arguments = ["0", "0", "0", "0", "0", "0", "world", "map"]
+    #                      )
+    # # trajectory_controller_node = Node(
+    # #     package="offboard_exp",
+    # #     namespace=namespace,
+    # #     executable="trajectory_controller",
+    # #     name="trajectory_controller_{:s}".format(namespace)
+    # # )
 
-    # ld.add_action(trajectory_controller_node)
+    # # ld.add_action(trajectory_controller_node)
     ld.add_action(rviz)
     ld.add_action(rosbag)
     ld.add_action(feature_tracker_node)
     ld.add_action(vins_estimator)
-    # ld.add_action(camera_to_cam)
+    ld.add_action(camera_to_cam)
     # ld.add_action(world_to_map)
 
     return ld
