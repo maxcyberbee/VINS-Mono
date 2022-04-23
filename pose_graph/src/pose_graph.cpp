@@ -1,6 +1,14 @@
 #include "pose_graph.h"
 
-PoseGraph::PoseGraph()
+PoseGraph::PoseGraph(int VISUALIZATION_SHIFT_X, int VISUALIZATION_SHIFT_Y,const std::string& VINS_RESULT_PATH,
+                     int DEBUG_IMAGE,const std::string& POSE_GRAPH_SAVE_PATH,int FAST_RELOCALIZATION,
+                     std::string BRIEF_PATTERN_FILE,camodocal::CameraPtr m_camera,int ROW,int COL,
+                     Eigen::Vector3d tic,Eigen::Matrix3d qic,rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match_img,
+                     rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_match_points,rclcpp::Logger logger):
+                     VISUALIZATION_SHIFT_X(VISUALIZATION_SHIFT_X),VISUALIZATION_SHIFT_Y(VISUALIZATION_SHIFT_Y),VINS_RESULT_PATH(VINS_RESULT_PATH),
+                     DEBUG_IMAGE(DEBUG_IMAGE), POSE_GRAPH_SAVE_PATH(POSE_GRAPH_SAVE_PATH),FAST_RELOCALIZATION(FAST_RELOCALIZATION),
+                     BRIEF_PATTERN_FILE(BRIEF_PATTERN_FILE),m_camera(m_camera),ROW(ROW),COL(COL),tic(tic),qic(qic),pub_match_img(pub_match_img),
+                     pub_match_points(pub_match_points), logger(logger)
 {
     posegraph_visualization = new CameraPoseVisualization(1.0, 0.0, 1.0, 1.0);
     posegraph_visualization->setScale(0.1);
@@ -16,6 +24,11 @@ PoseGraph::PoseGraph()
     sequence_cnt = 0;
     sequence_loop.push_back(0);
     base_sequence = 1;
+
+//    this->VISUALIZATION_SHIFT_X = VISUALIZATION_SHIFT_X;
+//    this->VISUALIZATION_SHIFT_Y = VISUALIZATION_SHIFT_Y;
+//    this->VINS_RESULT_PATH = VINS_RESULT_PATH;
+//    this->DEBUG_IMAGE = DEBUG_IMAGE;
 
 }
 
@@ -416,7 +429,8 @@ void PoseGraph::optimize4DoF()
         m_optimize_buf.unlock();
         if (cur_index != -1)
         {
-            printf("optimize pose graph \n");
+//            printf("optimize pose graph \n");
+            RCLCPP_INFO(logger,"optimize pose graph");
             TicToc tmp_t;
             m_keyframelist.lock();
             KeyFrame* cur_kf = getKeyFrame(cur_index);
@@ -856,7 +870,10 @@ void PoseGraph::loadPoseGraph()
         brief_file.close();
         fclose(keypoints_file);
 
-        KeyFrame* keyframe = new KeyFrame(time_stamp, index, VIO_T, VIO_R, PG_T, PG_R, image, loop_index, loop_info, keypoints, keypoints_norm, brief_descriptors);
+        KeyFrame* keyframe = new KeyFrame(time_stamp, index, VIO_T, VIO_R, PG_T, PG_R, image, loop_index,
+                                          loop_info, keypoints, keypoints_norm, brief_descriptors,
+                                          DEBUG_IMAGE,BRIEF_PATTERN_FILE,m_camera,ROW,COL,tic,qic,FAST_RELOCALIZATION,
+                                          pub_match_img,pub_match_points,logger);
         loadKeyFrame(keyframe, 0);
         if (cnt % 20 == 0)
         {

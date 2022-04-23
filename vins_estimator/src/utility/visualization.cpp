@@ -22,20 +22,20 @@ static Vector3d last_path(0.0, 0.0, 0.0);
 void registerPub(rclcpp::Node &n)
 {
     
-    pub_latest_odometry = n.create_publisher<nav_msgs::msg::Odometry>("imu_propagate", 1000); // for pose graph
+    pub_latest_odometry = n.create_publisher<nav_msgs::msg::Odometry>("/vins_estimator/imu_propagate", 1000); // for pose graph
     //pub_path = n.advertise<nav_msgs::Path>("path", 1000);
     //pub_relo_path = n.advertise<nav_msgs::Path>("relocalization_path", 1000);
-    pub_odometry = n.create_publisher<nav_msgs::msg::Odometry>("odometry", 1000);// for pose graph
-    pub_point_cloud = n.create_publisher<sensor_msgs::msg::PointCloud>("point_cloud", 1000); // for leres
+    pub_odometry = n.create_publisher<nav_msgs::msg::Odometry>("/vins_estimator/odometry", 1000);// for pose graph
+    pub_point_cloud = n.create_publisher<sensor_msgs::msg::PointCloud>("/vins_estimator/point_cloud", 1000); // for leres
     //pub_margin_cloud = n.advertise<sensor_msgs::PointCloud>("history_cloud", 1000);
     //pub_key_poses = n.advertise<visualization_msgs::Marker>("key_poses", 1000);
-    pub_camera_pose = n.create_publisher<nav_msgs::msg::Odometry>("camera_pose", 1000);
-    pub_camera_pose_visual = n.create_publisher<visualization_msgs::msg::MarkerArray>("camera_pose_visual", 1000);
-    pub_keyframe_pose = n.create_publisher<nav_msgs::msg::Odometry>("keyframe_pose", 1000); // for pose graph
-    pub_keyframe_point = n.create_publisher<sensor_msgs::msg::PointCloud>("keyframe_point", 1000);
+    pub_camera_pose = n.create_publisher<nav_msgs::msg::Odometry>("/vins_estimator/camera_pose", 1000);
+    pub_camera_pose_visual = n.create_publisher<visualization_msgs::msg::MarkerArray>("/vins_estimator/camera_pose_visual", 1000);
+    pub_keyframe_pose = n.create_publisher<nav_msgs::msg::Odometry>("/vins_estimator/keyframe_pose", 1000); // for pose graph
+    pub_keyframe_point = n.create_publisher<sensor_msgs::msg::PointCloud>("/vins_estimator/keyframe_point", 1000);
     //pub_raw_image = n.advertise<sensor_msgs::Image>("raw_image", 1000);
-    pub_extrinsic = n.create_publisher<nav_msgs::msg::Odometry>("extrinsic", 1000);
-    pub_relo_relative_pose=  n.create_publisher<nav_msgs::msg::Odometry>("relo_relative_pose", 1000);
+    pub_extrinsic = n.create_publisher<nav_msgs::msg::Odometry>("/vins_estimator/extrinsic", 1000);
+    pub_relo_relative_pose=  n.create_publisher<nav_msgs::msg::Odometry>("/vins_estimator/relo_relative_pose", 1000);
     tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(n);
     cameraposevisual.setScale(1);
     cameraposevisual.setLineWidth(0.05);

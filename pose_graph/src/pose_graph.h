@@ -35,7 +35,11 @@ using namespace DBoW2;
 class PoseGraph
 {
 public:
-	PoseGraph();
+	PoseGraph(int VISUALIZATION_SHIFT_X, int VISUALIZATION_SHIFT_Y,const std::string& VINS_RESULT_PATH,
+              int DEBUG_IMAGE,const std::string& POSE_GRAPH_SAVE_PATH,int FAST_RELOCALIZATION,
+              std::string BRIEF_PATTERN_FILE,camodocal::CameraPtr m_camera,int ROW,int COL,
+              Eigen::Vector3d tic,Eigen::Matrix3d qic,rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match_img,
+              rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_match_points,rclcpp::Logger logger);
 	~PoseGraph();
 	void registerPub(rclcpp::Node &n);
 	void addKeyFrame(KeyFrame* cur_kf, bool flag_detect_loop);
@@ -84,6 +88,21 @@ private:
 	rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr  pub_base_path;
 	rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr  pub_pose_graph;
 	rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr  pub_path[10];
+    int VISUALIZATION_SHIFT_X;
+    int VISUALIZATION_SHIFT_Y;
+    const std::string& VINS_RESULT_PATH;
+    int DEBUG_IMAGE;
+    const std::string& POSE_GRAPH_SAVE_PATH;
+    int FAST_RELOCALIZATION;
+    std::string BRIEF_PATTERN_FILE;
+    camodocal::CameraPtr m_camera;
+    int ROW;
+    int COL;
+    Eigen::Vector3d tic;
+    Eigen::Matrix3d qic;
+    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match_img;
+    rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_match_points;
+    rclcpp::Logger logger;
 };
 
 template <typename T>

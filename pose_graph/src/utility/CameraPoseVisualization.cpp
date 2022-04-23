@@ -195,7 +195,7 @@ void CameraPoseVisualization::reset() {
     //image.colors.clear();
 }
 
-void CameraPoseVisualization::publish_by(rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr &pub_, const std_msgs::msg::Header &header ) {
+void CameraPoseVisualization::publish_by(rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr &pub, const std_msgs::msg::Header &header ) {
 	visualization_msgs::msg::MarkerArray markerArray_msg;
 	//int k = (int)m_markers.size();
   /*
@@ -212,8 +212,9 @@ void CameraPoseVisualization::publish_by(rclcpp::Publisher<visualization_msgs::m
 		marker.header = header;
 		markerArray_msg.markers.push_back(marker);
 	}
-  
-	pub_->publish(markerArray_msg);
+
+    pub->publish(markerArray_msg);
+	pub->publish(markerArray_msg);
 }
 
 void CameraPoseVisualization::publish_image_by( rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr &pub_, const std_msgs::msg::Header &header ) {

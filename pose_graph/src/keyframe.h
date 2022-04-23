@@ -9,10 +9,17 @@
 #include "camodocal/camera_models/PinholeCamera.h"
 #include "utility/tic_toc.h"
 #include "utility/utility.h"
-#include "parameters.h"
 #include "ThirdParty/DBoW/DBoW2.h"
 #include "ThirdParty/DVision/DVision.h"
-
+#include "rclcpp/rclcpp.hpp"
+#include <nav_msgs/msg/odometry.hpp>
+#include <nav_msgs/msg/path.hpp>
+#include <sensor_msgs/msg/point_cloud.hpp>
+#include <sensor_msgs/msg/image.hpp>
+#include <sensor_msgs/image_encodings.hpp>
+#include <visualization_msgs/msg/marker.hpp>
+#include <std_msgs/msg/bool.hpp>
+#include <cv_bridge/cv_bridge.h>
 #define MIN_LOOP_NUM 25
 
 using namespace Eigen;
@@ -34,10 +41,17 @@ class KeyFrame
 public:
 	KeyFrame(double _time_stamp, int _index, Vector3d &_vio_T_w_i, Matrix3d &_vio_R_w_i, cv::Mat &_image,
 			 vector<cv::Point3f> &_point_3d, vector<cv::Point2f> &_point_2d_uv, vector<cv::Point2f> &_point_2d_normal, 
-			 vector<double> &_point_id, int _sequence);
+			 vector<double> &_point_id, int _sequence,int DEBUG_IMAGE,std::string BRIEF_PATTERN_FILE,
+             camodocal::CameraPtr m_camera,int ROW,int COL,Eigen::Vector3d tic,Eigen::Matrix3d qic,
+             int FAST_RELOCALIZATION,rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match_img,
+             rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_match_points,rclcpp::Logger logger);
 	KeyFrame(double _time_stamp, int _index, Vector3d &_vio_T_w_i, Matrix3d &_vio_R_w_i, Vector3d &_T_w_i, Matrix3d &_R_w_i,
 			 cv::Mat &_image, int _loop_index, Eigen::Matrix<double, 8, 1 > &_loop_info,
-			 vector<cv::KeyPoint> &_keypoints, vector<cv::KeyPoint> &_keypoints_norm, vector<BRIEF::bitset> &_brief_descriptors);
+			 vector<cv::KeyPoint> &_keypoints, vector<cv::KeyPoint> &_keypoints_norm, vector<BRIEF::bitset> &_brief_descriptors,
+             int DEBUG_IMAGE,std::string &BRIEF_PATTERN_FILE,
+             camodocal::CameraPtr m_camera,int ROW,int COL,Eigen::Vector3d tic,Eigen::Matrix3d qic,
+             int FAST_RELOCALIZATION,rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match_img,
+             rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_match_points,rclcpp::Logger logger);
 	bool findConnection(KeyFrame* old_kf);
 	void computeWindowBRIEFPoint();
 	void computeBRIEFPoint();
@@ -94,9 +108,20 @@ public:
 	vector<cv::KeyPoint> window_keypoints;
 	vector<BRIEF::bitset> brief_descriptors;
 	vector<BRIEF::bitset> window_brief_descriptors;
-	bool has_fast_point;
-	int sequence;
+    rclcpp::Logger logger;
+    int DEBUG_IMAGE;
+    std::string BRIEF_PATTERN_FILE;
+    camodocal::CameraPtr m_camera;
+    int ROW;
+    int COL;
+    Eigen::Vector3d tic;
+    Eigen::Matrix3d qic;
+    int FAST_RELOCALIZATION;
+    rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match_img;
+    rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_match_points;
 
+    bool has_fast_point;
+	int sequence;
 	bool has_loop;
 	int loop_index;
 	Eigen::Matrix<double, 8, 1 > loop_info;
