@@ -22,7 +22,7 @@ extern int SHOW_TRACK;
 extern int STEREO_TRACK;
 extern int EQUALIZE;
 extern int FISHEYE;
-//extern double DOWN_SCALE;
+extern double DOWN_SCALE;
 extern bool PUB_THIS_FRAME;
 
 void readParameters(std::string config_file,std::string vins_folder);

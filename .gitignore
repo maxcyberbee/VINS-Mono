@@ -14,3 +14,7 @@ test.launch
 .vscode/
 bags/V1_01_easy/V1_01_easy.db3
 bags/V1_01_easy.bag
+bags/imu_video/metadata.yaml
+bags/imu_video/imu_video_0.db3-wal
+bags/imu_video/imu_video_0.db3-shm
+bags/imu_video/imu_video_0.db3

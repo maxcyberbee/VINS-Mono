@@ -39,9 +39,9 @@ public:
 
 
         // Publisher
-        pub_restart = this->create_publisher<std_msgs::msg::Bool>("restart", 1000);
-        pub_img = this->create_publisher<sensor_msgs::msg::PointCloud>("feature", 1000);
-        pub_match = this->create_publisher<sensor_msgs::msg::Image>("feature_img", 1000);
+        pub_restart = this->create_publisher<std_msgs::msg::Bool>("feature_tracker/restart", 1000);
+        pub_img = this->create_publisher<sensor_msgs::msg::PointCloud>("feature_tracker/feature", 1000);
+        pub_match = this->create_publisher<sensor_msgs::msg::Image>("feature_tracker/feature_img", 1000);
 
         for (int i = 0; i < NUM_OF_CAM; i++)
             trackerData[i].readIntrinsicParameter(CAM_NAMES[i],this->get_logger());
@@ -51,13 +51,18 @@ public:
             for (auto & i : trackerData)
             {
                 i.fisheye_mask = cv::imread(FISHEYE_MASK, 0);
+
                 if (!i.fisheye_mask.data)
                 {
                     RCLCPP_INFO(this->get_logger(), "load mask fail");
                     rclcpp::shutdown();
                 }
-                else
+                else{
+                    if(DOWN_SCALE > 1){
+                        resize(i.fisheye_mask, i.fisheye_mask, cv::Size((int) (COL/DOWN_SCALE),(int) (ROW/DOWN_SCALE)), cv::INTER_LINEAR);
+                    }
                     RCLCPP_INFO(this->get_logger(), "load mask success");
+                }
             }
         }
     }
@@ -218,7 +223,7 @@ private:
             feature_points.channels.push_back(velocity_x_of_point);
             feature_points.channels.push_back(velocity_y_of_point);
             RCLCPP_DEBUG(this->get_logger(),"publish %f, at %f", rclcpp::Time(feature_points.header.stamp.sec,feature_points.header.stamp.nanosec).seconds(), rclcpp::Time().seconds());
-            //  skip the first image; since no optical speed on frist image
+            //  skip the first image; since no optical speed on first image
             if (!init_pub)
             {
                 init_pub = true;
@@ -243,7 +248,7 @@ private:
                     {
                         double len = std::min(1.0, 1.0 * trackerData[i].track_cnt[j] / WINDOW_SIZE);
 
-                        cv::circle(tmp_img, trackerData[i].cur_pts[j], 2, cv::Scalar(255 * (1 - len), 0, 255 * len), 2);
+                        cv::circle(tmp_img, trackerData[i].cur_pts[j] * DOWN_SCALE, 2, cv::Scalar(255 * (1 - len), 0, 255 * len), 2);
                         // draw speed line
                         /*
                         Vector2d tmp_cur_un_pts (trackerData[i].cur_un_pts[j].x, trackerData[i].cur_un_pts[j].y);

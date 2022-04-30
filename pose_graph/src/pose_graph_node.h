@@ -27,6 +27,16 @@
 #include "utility/CameraPoseVisualization.h"
 #include <message_filters/subscriber.h>
 #include <message_filters/time_synchronizer.h>
+#include "message_filters/sync_policies/approximate_time.h"
+#include "message_filters/sync_policies/exact_time.h"
+#include "message_filters/synchronizer.h"
+#include <tf2_ros/transform_broadcaster.h>
+#include <tf2_ros/transform_listener.h>
+#include <tf2/LinearMath/Quaternion.h>
+#include "geometry_msgs/msg/pose_stamped.hpp"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
+#include <tf2_ros/buffer.h>
+
 class PoseGraphNode : public rclcpp::Node {
 public:
     PoseGraphNode();
@@ -58,8 +68,9 @@ public:
     std::string vins_path_;
 
 
-//    double DOWN_SCALE;
-//    double DOWN_SCALE_RASPBERRY;
+    double DOWN_SCALE;
+    double DOWN_SCALE_RASPBERRY;
+
     Eigen::Vector3d tic;
     Eigen::Matrix3d qic;
     int VISUALIZATION_SHIFT_X;
@@ -78,6 +89,9 @@ public:
     double last_image_time = -1;
     camodocal::CameraPtr m_camera;
 
+    std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+    std::unique_ptr<tf2_ros::Buffer> tf_buffer_;
+    std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
 
     // Pubs
     rclcpp::Publisher<sensor_msgs::msg::Image>::SharedPtr pub_match_img;
@@ -85,24 +99,26 @@ public:
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pub_camera_pose_visual;
     rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr pub_key_odometrys;
     rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr pub_vio_path;
+    rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_odom;
+
     nav_msgs::msg::Path no_loop_path;
 
 
     // Subs:
     rclcpp::Subscription<nav_msgs::msg::Odometry>::ConstSharedPtr sub_imu_forward;
     rclcpp::Subscription<nav_msgs::msg::Odometry>::ConstSharedPtr sub_vio;
-    rclcpp::Subscription<sensor_msgs::msg::Image>::ConstSharedPtr sub_image;
+//    message_filters::Subscriber<sensor_msgs::msg::Image::ConstSharedPtr> sub_image;
     rclcpp::Subscription<nav_msgs::msg::Odometry>::ConstSharedPtr sub_pose;
     rclcpp::Subscription<nav_msgs::msg::Odometry>::ConstSharedPtr sub_extrinsic;
     rclcpp::Subscription<sensor_msgs::msg::PointCloud>::ConstSharedPtr sub_point;
     rclcpp::Subscription<nav_msgs::msg::Odometry>::ConstSharedPtr sub_relo_relative_pose;
 
+    std::shared_ptr<message_filters::TimeSynchronizer
+    <sensor_msgs::msg::Image, sensor_msgs::msg::PointCloud,nav_msgs::msg::Odometry>> temp_sync_;
 
-    message_filters::Subscriber<sensor_msgs::msg::Image> raw_image_sub_;
+    message_filters::Subscriber<sensor_msgs::msg::Image> image_sub_;
     message_filters::Subscriber<sensor_msgs::msg::PointCloud> pointcloud_sub_;
     message_filters::Subscriber<nav_msgs::msg::Odometry> pose_sub_;
-
-
 
 
     int LOAD_PREVIOUS_POSE_GRAPH;
@@ -113,14 +129,12 @@ private:
 
     void readParameters();
     void new_sequence();
-    void image_callback(const sensor_msgs::msg::Image::ConstSharedPtr image_msg);
-    void point_callback(const sensor_msgs::msg::PointCloud::ConstSharedPtr point_msg);
-    void pose_callback(const nav_msgs::msg::Odometry::ConstSharedPtr pose_msg);
     void imu_forward_callback(const nav_msgs::msg::Odometry::ConstSharedPtr forward_msg);
+    void UpdateOdometryPose(const Eigen::Vector3d& p, const Eigen::Quaterniond& q,const std_msgs::msg::Header &header);
     void relo_relative_pose_callback(const nav_msgs::msg::Odometry::ConstSharedPtr pose_msg);
     void vio_callback(const nav_msgs::msg::Odometry::ConstSharedPtr pose_msg);
     void extrinsic_callback(const nav_msgs::msg::Odometry::ConstSharedPtr pose_msg);
-    void process();
+    void process(sensor_msgs::msg::Image::ConstSharedPtr image_msg,sensor_msgs::msg::PointCloud::ConstSharedPtr point_msg, nav_msgs::msg::Odometry::ConstSharedPtr pose_msg);
     void command();
 };
 

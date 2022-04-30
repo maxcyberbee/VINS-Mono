@@ -40,8 +40,8 @@ public:
 
         RCLCPP_INFO(this->get_logger(), "####START SUBS: ");
         subscription_imu_ = this->create_subscription<sensor_msgs::msg::Imu>(IMU_TOPIC, rclcpp::SensorDataQoS(), std::bind(&VinsEstimatorNode::imu_callback, this, _1));
-        subscription_feature_ = this->create_subscription<sensor_msgs::msg::PointCloud>("/feature", 2000, std::bind(&VinsEstimatorNode::feature_callback, this, _1));
-//        this->create_subscription<std_msgs::msg::Bool>("/restart", 2000, std::bind(&VinsEstimatorNode::restart_callback, this, _1));
+        subscription_feature_ = this->create_subscription<sensor_msgs::msg::PointCloud>("feature_tracker/feature", 2000, std::bind(&VinsEstimatorNode::feature_callback, this, _1));
+        subscription_restart_ = this->create_subscription<std_msgs::msg::Bool>("feature_tracker/restart", 2000, std::bind(&VinsEstimatorNode::restart_callback, this, _1));
 //        this->create_subscription<sensor_msgs::msg::PointCloud>("/match_points", 2000, std::bind(&VinsEstimatorNode::relocalization_callback, this, _1));
         measurement_process_ = std::thread(&VinsEstimatorNode::process, this);
         RCLCPP_INFO(this->get_logger(), "####FINSIH INIT: ");
@@ -55,7 +55,7 @@ private:
     Estimator estimator = Estimator(this->get_logger());
     rclcpp::Subscription<sensor_msgs::msg::Imu>::ConstSharedPtr subscription_imu_;
     rclcpp::Subscription<sensor_msgs::msg::PointCloud>::ConstSharedPtr subscription_feature_;
-//    rclcpp::Subscription<std_msgs::msg::Bool>::SharedPtr subscription_restart;
+    rclcpp::Subscription<std_msgs::msg::Bool>::ConstSharedPtr subscription_restart_;
 //    rclcpp::Subscription<sensor_msgs::msg::PointCloud>::SharedPtr subscription_relocalization;
 
 
@@ -105,7 +105,7 @@ private:
             std::lock_guard<std::mutex> lg(m_state);
             predict(imu_msg);
             std_msgs::msg::Header header = imu_msg->header;
-            header.frame_id = "world";
+            header.frame_id = "odom";
             if (estimator.solver_flag == Estimator::SolverFlag::NON_LINEAR){
                // pubLatestOdometry(tmp_P, tmp_Q, tmp_V, header);
             }
@@ -128,7 +128,7 @@ private:
         con.notify_one();
     }
 
-    void restart_callback(const std_msgs::msg::Bool::SharedPtr& restart_msg)
+    void restart_callback(const std_msgs::msg::Bool::ConstSharedPtr restart_msg)
     {
         if (restart_msg->data)
         {
@@ -371,7 +371,7 @@ private:
                 double whole_t = t_s.toc();
                 printStatistics(estimator, whole_t, this->get_logger());
                 std_msgs::msg::Header header = img_msg->header;
-                header.frame_id = "world";
+                header.frame_id = "odom";
 
                 pubTF(estimator, header);
                 pubOdometry(estimator, header);

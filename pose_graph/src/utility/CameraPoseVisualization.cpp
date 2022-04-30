@@ -210,6 +210,7 @@ void CameraPoseVisualization::publish_by(rclcpp::Publisher<visualization_msgs::m
   
 	for(auto& marker : m_markers) {
 		marker.header = header;
+        marker.header.frame_id = "world";
 		markerArray_msg.markers.push_back(marker);
 	}
 

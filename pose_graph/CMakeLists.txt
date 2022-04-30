@@ -27,8 +27,10 @@ find_package(visualization_msgs REQUIRED)
 
 find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
-find_package(tf2 REQUIRED)
-find_package(cv_bridge REQUIRED)  
+find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(cv_bridge REQUIRED)
 find_package(OpenCV REQUIRED)
 find_package(Ceres REQUIRED)
 find_package(camera_model REQUIRED)
@@ -73,7 +75,7 @@ link_directories(${Boost_LIBRARY_DIR})
 find_package(Boost REQUIRED )
 
 
-ament_target_dependencies(pose_graph camera_model rclcpp std_msgs  message_filters nav_msgs sensor_msgs visualization_msgs OpenCV cv_bridge Boost  ${Boost_LIBRARIES})
+ament_target_dependencies(pose_graph camera_model rclcpp std_msgs message_filters nav_msgs sensor_msgs visualization_msgs OpenCV cv_bridge Boost tf2_ros geometry_msgs tf2_geometry_msgs  ${Boost_LIBRARIES})
 ament_export_dependencies(
     rclcpp
     camera_model

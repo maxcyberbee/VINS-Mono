@@ -36,10 +36,12 @@ FeatureTracker::FeatureTracker()
 
 void FeatureTracker::setMask()
 {
-    if(FISHEYE)
+    if(FISHEYE){
         mask = fisheye_mask.clone();
+        resize(mask, mask, cv::Size((int) (COL/DOWN_SCALE),(int) (ROW/DOWN_SCALE)), cv::INTER_LINEAR);
+    }
     else
-        mask = cv::Mat((int)ROW, (int)COL, CV_8UC1, cv::Scalar(255));
+        mask = cv::Mat((int)ROW/DOWN_SCALE, (int)COL/DOWN_SCALE, CV_8UC1, cv::Scalar(255));
     
     // prefer to keep features that are tracked for long time
     vector<pair<int, pair<cv::Point2f, int>>> cnt_pts_id;
@@ -96,8 +98,8 @@ void FeatureTracker::readImage(const cv::Mat &_img, double _cur_time,const rclcp
     }
     //cv::Mat resizeDownImage;
 
-    //resize(img, img, cv::Size((int) (COL),(int) (ROW)), cv::INTER_LINEAR);
-    
+    resize(img, img, cv::Size((int) (COL/DOWN_SCALE),(int) (ROW/DOWN_SCALE)), cv::INTER_LINEAR);
+
     if (forw_img.empty())
     {
         prev_img = cur_img = forw_img = img;
@@ -228,7 +230,7 @@ bool FeatureTracker::updateID(unsigned int i)
 void FeatureTracker::readIntrinsicParameter(const string &calib_file,const rclcpp::Logger& logger)
 {
     RCLCPP_INFO(logger, "reading paramerter of camera %s", calib_file.c_str());
-    m_camera = CameraFactory::instance()->generateCameraFromYamlFile(calib_file,1);
+    m_camera = CameraFactory::instance()->generateCameraFromYamlFile(calib_file,DOWN_SCALE);
 }
 
 void FeatureTracker::showUndistortion(const string &name,const rclcpp::Logger& logger)

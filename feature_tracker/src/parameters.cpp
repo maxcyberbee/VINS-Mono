@@ -18,6 +18,8 @@ int COL;
 int FOCAL_LENGTH;
 int FISHEYE;
 bool PUB_THIS_FRAME;
+double DOWN_SCALE;
+
 
 void readParameters(std::string config_file, std::string vins_folder)
 {    
@@ -38,6 +40,7 @@ void readParameters(std::string config_file, std::string vins_folder)
     SHOW_TRACK = fsSettings["show_track"];
     EQUALIZE = fsSettings["equalize"];
     FISHEYE = fsSettings["fisheye"];
+    DOWN_SCALE = fsSettings["down_scale_raspberry"];
     if (FISHEYE == 1)
         FISHEYE_MASK = vins_folder + "/config/fisheye_mask.jpg";
     CAM_NAMES.push_back(config_file);

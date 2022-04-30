@@ -7,7 +7,6 @@ rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_point_cloud;
 rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_relo_relative_pose;
 rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_keyframe_pose;
 rclcpp::Publisher<sensor_msgs::msg::PointCloud>::SharedPtr pub_keyframe_point;
-//ros::Publisher pub_raw_image;
 rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_extrinsic;
 
 rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_camera_pose;
@@ -49,7 +48,7 @@ void pubLatestOdometry(const Eigen::Vector3d &P, const Eigen::Quaterniond &Q, co
 
     nav_msgs::msg::Odometry odometry;
     odometry.header = header;
-    odometry.header.frame_id = "world";
+    odometry.header.frame_id = "odom";
     odometry.pose.pose.position.x = P.x();
     odometry.pose.pose.position.y = P.y();
     odometry.pose.pose.position.z = P.z();
@@ -110,8 +109,8 @@ void pubOdometry(const Estimator &estimator, const std_msgs::msg::Header &header
     {
         nav_msgs::msg::Odometry odometry;
         odometry.header = header;
-        odometry.header.frame_id = "world";
-        odometry.child_frame_id = "world";
+        odometry.header.frame_id = "odom";
+        odometry.child_frame_id = "odom";
         Quaterniond tmp_Q;
         tmp_Q = Quaterniond(estimator.Rs[WINDOW_SIZE]);
         odometry.pose.pose.position.x = estimator.Ps[WINDOW_SIZE].x();
@@ -220,7 +219,7 @@ void pubCameraPose(const Estimator &estimator, const std_msgs::msg::Header &head
 
         nav_msgs::msg::Odometry odometry;
         odometry.header = header;
-        odometry.header.frame_id = "world";
+        odometry.header.frame_id = "odom";
         odometry.pose.pose.position.x = P.x();
         odometry.pose.pose.position.y = P.y();
         odometry.pose.pose.position.z = P.z();
@@ -313,7 +312,7 @@ void pubTF(const Estimator &estimator, const std_msgs::msg::Header &header)
     correct_q = estimator.Rs[WINDOW_SIZE];
 
     transform.header.stamp = header.stamp;
-    transform.header.frame_id = "world";
+    transform.header.frame_id = "odom";
     transform.child_frame_id = "body";
 
 
@@ -364,7 +363,7 @@ void pubTF(const Estimator &estimator, const std_msgs::msg::Header &header)
 
     nav_msgs::msg::Odometry odometry;
     odometry.header = header;
-    odometry.header.frame_id = "world";
+    odometry.header.frame_id = "odom";
     odometry.pose.pose.position.x = estimator.tic[0].x();
     odometry.pose.pose.position.y = estimator.tic[0].y();
     odometry.pose.pose.position.z = estimator.tic[0].z();
@@ -389,7 +388,7 @@ void pubKeyframe(const Estimator &estimator, const std_msgs::msg::Header &header
 
         nav_msgs::msg::Odometry odometry;
         odometry.header = estimator.Headers[WINDOW_SIZE - 2];
-        odometry.header.frame_id = "world";
+        odometry.header.frame_id = "odom";
         odometry.pose.pose.position.x = P.x();
         odometry.pose.pose.position.y = P.y();
         odometry.pose.pose.position.z = P.z();
@@ -440,7 +439,7 @@ void pubRelocalization(const Estimator &estimator)
 {
     nav_msgs::msg::Odometry odometry;
     odometry.header.stamp = rclcpp::Time(estimator.relo_frame_stamp);
-    odometry.header.frame_id = "world";
+    odometry.header.frame_id = "odom";
     odometry.pose.pose.position.x = estimator.relo_relative_t.x();
     odometry.pose.pose.position.y = estimator.relo_relative_t.y();
     odometry.pose.pose.position.z = estimator.relo_relative_t.z();

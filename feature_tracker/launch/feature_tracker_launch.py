@@ -26,7 +26,7 @@ def generate_launch_description():
     )
 
     rosbag = launch.actions.ExecuteProcess(
-        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_Path, 'bags', 'V1_01_easy', 'V1_01_easy.db3')],
+        cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_Path, 'bags', 'V1_01_easy', 'V1_01_easy.db3'),'-r1','--clock'],
         # cmd=['ros2', 'bag', 'play', os.path.join(VINS_Mono_Path, 'bags', 'imu_video', 'imu_video_0.db3')],
         output='screen'
     )
@@ -73,20 +73,31 @@ def generate_launch_description():
         arguments = ["0", "0", "0", "0", "0", "0", "camera", "cam0"]
     )
 
-    pose_graph = Node(
-        package="pose_graph",
-        executable="pose_graph",
+    # pose_graph = Node(
+    #     package="pose_graph",
+    #     executable="pose_graph",
+    #     output="screen",
+    #     parameters=[
+    #         {"config_file": config},
+    #         {"visualization_shift_x":0},
+    #         {"visualization_shift_y": 0},
+    #         {"skip_cnt": 0},
+    #         {"skip_dis":0},
+    #         {"vins_path": VINS_Mono_Path}
+    # ],
+    # # arguments = ['--ros-args', '--log-level', 'DEBUG']
+    # )
+
+
+    pose_graph_raspberry = Node(
+        package="pose_graph_raspberry",
+        executable="pose_graph_raspberry",
         output="screen",
         parameters=[
             {"config_file": config},
-            {"visualization_shift_x":0},
-            {"visualization_shift_y": 0},
-            {"skip_cnt": 0},
-            {"skip_dis":0},
-            {"vins_path": VINS_Mono_Path}
-    ],
-    # arguments = ['--ros-args', '--log-level', 'DEBUG']
+        ],
     )
+
     # world_to_map = Node(package = "tf2_ros",
     #                      executable = "static_transform_publisher",
     #                      output="screen",
@@ -105,7 +116,8 @@ def generate_launch_description():
     ld.add_action(feature_tracker_node)
     ld.add_action(vins_estimator)
     ld.add_action(camera_to_cam)
-    ld.add_action(pose_graph)
+    # ld.add_action(pose_graph)
+    ld.add_action(pose_graph_raspberry)
     # ld.add_action(world_to_map)
 
     return ld
